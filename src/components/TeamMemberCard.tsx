@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PFP from "../assets/pfp.png";
 import XIcon from "../assets/XIcon";
 import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import ReactCardFlip from "react-card-flip";
 
 const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -12,7 +13,11 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
 
   return (
     <div className="max-w-sm h-full">
-      {!showDetails ? (
+      <ReactCardFlip
+        isFlipped={showDetails}
+        flipDirection="horizontal"
+        containerClassName="h-full"
+      >
         <div className="p-4 bg-turq rounded-xl flex flex-col">
           <img src={PFP.src} className="" />
           <span className="my-2">Co-Founder</span>
@@ -29,9 +34,8 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
             </div>
           </div>
         </div>
-      ) : (
         <div className="p-4 bg-white rounded-xl flex flex-col h-full">
-          <p className={`text-grey-80 ${!isHighlighted && "text-sm"}`}>
+          <p className={`text-grey-80 text-sm ${!isHighlighted && 'text-sm'}`}>
             Darryl helped build Southeast Asia's largest crypto fund from its
             early days as Principal at DeFiance Capital. Darryl spent his early
             life building a career in reputable tradfi institutions before
@@ -56,7 +60,7 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
             </div>
           </div>
         </div>
-      )}
+      </ReactCardFlip>
     </div>
   );
 };

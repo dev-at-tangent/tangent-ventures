@@ -9,12 +9,12 @@ import TeamMemberCard from "./TeamMemberCard";
     the largest projects and protocols in Web3.</span
   >
   <div class="grid grid-cols-2 gap-x-12">
-    <TeamMemberCard isHighlighted={true} client:load />
-    <TeamMemberCard isHighlighted={true} client:load />
+    <TeamMemberCard isHighlighted={true} client:only="react" />
+    <TeamMemberCard isHighlighted={true} client:only="react" />
   </div>
-  <div class="grid grid-cols-3 gap-x-12 w-4/5 uhd:w-3/5 ">
-    <TeamMemberCard isHighlighted={false} client:load />
-    <TeamMemberCard isHighlighted={false} client:load />
-    <TeamMemberCard isHighlighted={false} client:load />
+  <div class="grid grid-cols-3 gap-x-12 w-4/5 uhd:w-3/5">
+    <TeamMemberCard isHighlighted={false} client:only="react" />
+    <TeamMemberCard isHighlighted={false} client:only="react" />
+    <TeamMemberCard isHighlighted={false} client:only="react" />
   </div>
 </div>
