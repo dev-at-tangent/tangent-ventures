@@ -1,0 +1,45 @@
+---
+import Navbar from "./Navbar";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replaceAll("/", "");
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Astro</title>
+  </head>
+  <body
+    class="bg-grey-20 px-16 pb-12 font-inter overflow-x-hidden overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none"
+  >
+    <Navbar currentPath={currentPath} />
+    <div class="mt-20">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer utilities {
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+  }
+</style>
