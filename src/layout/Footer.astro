@@ -1,0 +1,32 @@
+---
+import Logo from "../assets/DarkLogo.svg";
+import XIcon from "../assets/XIcon";
+---
+
+<div class="bg-black p-8 text-white flex items-center mt-16 -mx-16">
+  <div class="flex flex-col gap-y-4">
+    <img src={Logo.src} />
+    <span class="text-sm text-grey-40">Tangent 2024 | All Rights Reserved</span>
+  </div>
+  <div class="grow"></div>
+  <div class="w-1/2">
+    <div class="text-sm flex items-center justify-between gap-x-8 text-grey-20">
+      <a href="/about">ABOUT</a>
+      <a href="/endorsements">ENDORSEMENTS</a>
+      <a href="/thesis">THESIS</a>
+      <a href="/portfolio">PORTFOLIO</a>
+      <a href="/media">MEDIA</a>
+      <a href="/contact">CONTACT</a>
+      <a>
+        <XIcon className="h-5" />
+      </a>
+    </div>
+    <p class="text-xs text-grey-40 mt-10">
+      Disclaimer: Tangent is brand name used to refer to an informally organized
+      group of angel investors investing their personal assets and is not a
+      licensed entity. Each investor invests independently with their personal
+      assets; Tangent does not offer its investment opportunities to the public
+      and does not manage any external capital.
+    </p>
+  </div>
+</div>

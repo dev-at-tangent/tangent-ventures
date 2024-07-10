@@ -23,10 +23,12 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
           <span className="my-2">Co-Founder</span>
           <h1 className="text-3xl font-semibold mb-8">JASON CHOI</h1>
           <div className="flex items-center">
-            <XIcon />
+            <a href="https://www.x.com" target="_blank">
+              <XIcon />
+            </a>
             <div className="grow" />
             <div
-              className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer"
+              className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer transition-colors duration-500 hover:bg-black hover:text-white hover:outline-none"
               onClick={toggleShowDetails}
             >
               READ BIO
@@ -35,7 +37,7 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
           </div>
         </div>
         <div className="p-4 bg-white rounded-xl flex flex-col h-full">
-          <p className={`text-grey-80 text-sm ${!isHighlighted && 'text-sm'}`}>
+          <p className={`text-grey-80 text-sm ${!isHighlighted && "text-sm"}`}>
             Darryl helped build Southeast Asia's largest crypto fund from its
             early days as Principal at DeFiance Capital. Darryl spent his early
             life building a career in reputable tradfi institutions before
@@ -49,10 +51,12 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
           <span className="my-2">Co-Founder</span>
           <h1 className="text-3xl font-semibold mb-8">JASON CHOI</h1>
           <div className="flex items-center">
-            <XIcon />
+            <a href="https://www.x.com" target="_blank">
+              <XIcon />
+            </a>
             <div className="grow" />
             <div
-              className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer"
+              className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer transition-colors duration-500 hover:bg-black hover:text-white hover:outline-none"
               onClick={toggleShowDetails}
             >
               CLOSE BIO
