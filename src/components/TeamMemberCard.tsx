@@ -37,7 +37,7 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
           </div>
         </div>
         <div className="p-4 bg-white rounded-xl flex flex-col h-full">
-          <p className={`text-grey-80 text-sm ${!isHighlighted && "text-sm"}`}>
+          <p className={`text-grey-80  ${!isHighlighted && "text-sm"}`}>
             Darryl helped build Southeast Asia's largest crypto fund from its
             early days as Principal at DeFiance Capital. Darryl spent his early
             life building a career in reputable tradfi institutions before

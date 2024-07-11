@@ -1,8 +1,28 @@
 ---
-import Layout from "../layout/Layout.astro"
+import XIcon from "../assets/XIcon";
+import Layout from "../layout/Layout.astro";
+import ContactForm from "../components/ContactForm";
 ---
+
 <Layout>
-  <div>
-    contact page
+  <div class="w-full flex gap-x-24">
+    <div class="w-1/2 flex flex-col gap-y-8">
+      <h1 class="text-6xl font-semibold">
+        LET'S BUILD SOMETHING EPIC TOGETHER
+      </h1>
+      <p class="text-lg">
+        We are a collective of experienced operators and founders behind some of
+        the largest projects and protocols in Web3.
+      </p>
+      <div class="flex items-center gap-x-8">
+        <XIcon />
+        <XIcon />
+      </div>
+    </div>
+    <div class="grow"/>
+    <div class="w-1/2 flex flex-col">
+      I'm interested in...
+      <ContactForm client:load />
+    </div>
   </div>
 </Layout>

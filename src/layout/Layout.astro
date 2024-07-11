@@ -1,6 +1,6 @@
 ---
 import Navbar from "./Navbar";
-import Footer from "./Footer.astro"
+import Footer from "./Footer.astro";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replaceAll("/", "");
 ---
@@ -20,13 +20,17 @@ const currentPath = pathname.replaceAll("/", "");
     <title>Astro</title>
   </head>
   <body
-    class="bg-grey-20 px-16 font-inter overflow-x-hidden overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none"
+    class="bg-grey-20 flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none"
   >
     <Navbar currentPath={currentPath} />
-    <div class="mt-20">
+
+    <main class="mt-20 px-8 flex max-w-7xl">
       <slot />
-    </div>
-    <Footer/>
+    </main>
+    <div class="grow"></div>
+    <footer class="self-stretch">
+      <Footer />
+    </footer>
   </body>
 </html>
 
