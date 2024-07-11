@@ -19,11 +19,11 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const [nameError, setNameError] = useState(true);
+  const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
-  const [twitterError, setTwitterError] = useState(true);
-  const [telegramError, setTelegramError] = useState(true);
-  const [messageError, setMessageError] = useState(true);
+  const [twitterError, setTwitterError] = useState(false);
+  const [telegramError, setTelegramError] = useState(false);
+  const [messageError, setMessageError] = useState(false);
 
   const submitFormHandler = async () => {
     if (!name) {
