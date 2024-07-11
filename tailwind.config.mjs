@@ -7,6 +7,7 @@ export default {
     },
     extend: {
       colors: {
+        error: "#E00004",
         turq: "#00E0BA",
         grey: {
           90: "#1C1C1C",
