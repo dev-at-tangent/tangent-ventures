@@ -1,17 +1,14 @@
 ---
 import ReactComponent from "../components/ReactComponent";
 import Layout from "../layout/Layout.astro";
-import Test from "../components/Test";
 ---
 
 <Layout>
   <div class="">
-    <Test client:only="react"/>
     <ReactComponent client:only="react" />
     <div class="h-screen"></div>
     <div class="h-screen"></div>
     <div class="h-screen"></div>
     <div class="h-screen"></div>
-    
   </div>
 </Layout>
