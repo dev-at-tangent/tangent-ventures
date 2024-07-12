@@ -1,12 +1,12 @@
 ---
 import Layout from "../layout/Layout.astro";
-import AboutSection from "../components/AboutSection.astro";
-import TeamSection from "../components/TeamSection.astro";
+import AboutSection from "../components/AboutSection";
+import TeamSection from "../components/TeamSection"
 ---
 
 <Layout>
   <div class="w-full">
-    <AboutSection />
-    <TeamSection />
+    <AboutSection client:only="react" />
+    <TeamSection client:only="react" />
   </div>
 </Layout>

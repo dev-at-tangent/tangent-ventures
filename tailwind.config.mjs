@@ -6,6 +6,18 @@ export default {
       uhd: "1500px",
     },
     extend: {
+      keyframes: {
+        "fade-in-up": {
+          "0%": {
+            opacity: 0,
+            transform: "translate3d(0, 100%, 0)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translate3d(0, 0, 0)",
+          },
+        },
+      },
       colors: {
         error: "#E00004",
         turq: "#00E0BA",
@@ -15,7 +27,7 @@ export default {
           60: "#9A9A9A",
           40: "#D9D9D9",
           20: "#F0F0F0",
-					10: "#F6F6F6"
+          10: "#F6F6F6",
         },
       },
       fontFamily: {
