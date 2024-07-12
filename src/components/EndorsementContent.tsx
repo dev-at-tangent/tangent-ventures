@@ -1,0 +1,29 @@
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/gsap-core";
+import EndorsementCard from "./EndorsementCard";
+
+export default function EndorsementContent() {
+  const ref = useRef(null);
+  useGSAP(
+    () => {
+      gsap.from(ref.current, {
+        opacity: 0,
+        duration: 0.5,
+        delay: 2,
+        ease: "power2.out",
+      });
+    },
+    { scope: ref }
+  );
+  return (
+    <div ref={ref} className="grid grid-cols-2 gap-8 mt-20">
+      <EndorsementCard />
+      <EndorsementCard />
+      <EndorsementCard />
+      <EndorsementCard />
+      <EndorsementCard />
+      <EndorsementCard />
+    </div>
+  );
+}

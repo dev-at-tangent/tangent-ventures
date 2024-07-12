@@ -1,28 +1,26 @@
 ---
-import XIcon from "../assets/XIcon";
 import Layout from "../layout/Layout.astro";
+import ContactBody from "../components/ContactBody";
 import ContactForm from "../components/ContactForm";
+import ScrambleText from "../components/ScrambleText";
 ---
 
 <Layout>
   <div class="w-full flex gap-x-24">
     <div class="w-1/2 flex flex-col gap-y-8">
-      <h1 class="text-6xl font-semibold">
-        LET'S BUILD SOMETHING EPIC TOGETHER
-      </h1>
-      <p class="text-lg">
-        We are a collective of experienced operators and founders behind some of
-        the largest projects and protocols in Web3.
-      </p>
-      <div class="flex items-center gap-x-8">
-        <XIcon />
-        <XIcon />
-      </div>
+      <span class="text-turq font-bold"> CONTACT </span>
+      <ScrambleText
+        finalText="LET'S BUILD SOMETHING EPIC TOGETHER"
+        className="text-6xl font-medium w-full"
+        duration={2}
+        charsPerGroup={1}
+        client:load
+      />
+      <ContactBody client:only="react" />
     </div>
-    <div class="grow"/>
+    <div class="grow"></div>
     <div class="w-1/2 flex flex-col">
-      I'm interested in...
-      <ContactForm client:load />
+      <ContactForm client:only="react" />
     </div>
   </div>
 </Layout>

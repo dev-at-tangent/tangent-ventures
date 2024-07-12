@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/gsap-core";
+
 import FilterBar from "./FilterBar";
 import SearchBar from "./SearchBar";
 import MediaTabs from "./MediaTabs";
@@ -34,15 +37,28 @@ export default function MediaSection() {
       type: "GUEST",
     },
   ];
-  
+
   const filteredPodcasts = podcasts.filter(
     (podcast) =>
       selectedPodcastsFilter === "ALL" ||
       podcast.type === selectedPodcastsFilter
   );
 
+  const ref = useRef(null);
+  useGSAP(
+    () => {
+      gsap.from(ref.current, {
+        opacity: 0,
+        duration: 0.5,
+        delay: 2,
+        ease: "power2.out",
+      });
+    },
+    { scope: ref }
+  );
+
   return (
-    <div className="w-full">
+    <div ref={ref} className="w-full">
       <MediaTabs tab={tab} setTab={setTab} />
       <div className="flex items-center w-full mt-12 gap-x-6 text-lg">
         Categories:

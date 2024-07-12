@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import data from "../assets/lotties/holo11.json";
+import data from "../assets/lotties/holo.json";
 
 export default function ThesisHeader() {
   return (

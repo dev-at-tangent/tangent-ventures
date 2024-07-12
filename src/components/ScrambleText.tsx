@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 interface ScrambleTextComponentProps {
+  initialText?: string;
   finalText: string;
   className?: string;
   duration?: number;
@@ -10,6 +11,7 @@ interface ScrambleTextComponentProps {
 }
 
 const ScrambleText: React.FC<ScrambleTextComponentProps> = ({
+  initialText = "",
   finalText,
   className,
   duration = 2,
@@ -24,11 +26,11 @@ const ScrambleText: React.FC<ScrambleTextComponentProps> = ({
 
     const chars =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-    let currentText = "";
+    let currentText = initialText;
     const timeline = gsap.timeline({ delay: delay });
 
-    // Clear any existing text
-    element.textContent = "";
+    // Set initial text
+    element.textContent = initialText;
 
     const scrambleText = (endIndex: number) => {
       const scrambledText = finalText
@@ -37,20 +39,22 @@ const ScrambleText: React.FC<ScrambleTextComponentProps> = ({
           if (index > endIndex - charsPerGroup && index <= endIndex) {
             return chars[Math.floor(Math.random() * chars.length)];
           }
-          return index <= endIndex - charsPerGroup ? char : " ";
+          return index <= endIndex - charsPerGroup ? char : (currentText[index] || " ");
         })
         .join("");
       element.textContent = scrambledText;
     };
 
-    for (let i = 0; i < finalText.length; i += charsPerGroup) {
-      const endIndex = Math.min(i + charsPerGroup, finalText.length);
+    const maxLength = Math.max(initialText.length, finalText.length);
+
+    for (let i = 0; i < maxLength; i += charsPerGroup) {
+      const endIndex = Math.min(i + charsPerGroup, maxLength);
       timeline.to(
         {},
         {
-          duration: (duration / finalText.length) * charsPerGroup,
+          duration: (duration / maxLength) * charsPerGroup,
           onStart: () => {
-            currentText = finalText.substring(0, endIndex);
+            currentText = finalText.substring(0, endIndex) + currentText.substring(endIndex);
           },
           onUpdate: () => scrambleText(endIndex),
           onComplete: () => {
@@ -63,7 +67,7 @@ const ScrambleText: React.FC<ScrambleTextComponentProps> = ({
     return () => {
       timeline.kill(); // Clean up the animation when component unmounts
     };
-  }, [finalText, duration, charsPerGroup, delay]);
+  }, [initialText, finalText, duration, charsPerGroup, delay]);
 
   return <div ref={textRef} className={className}></div>;
 };

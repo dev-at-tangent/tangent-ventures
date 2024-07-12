@@ -24,7 +24,6 @@
     "react-card-flip": "^1.2.3",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.3",
-    "use-scramble": "^2.2.15"
+    "typescript": "^5.5.3"
   }
 }

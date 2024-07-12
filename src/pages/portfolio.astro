@@ -1,24 +1,20 @@
 ---
-import PortfolioCard from "../components/PortfolioCard";
+import PortfolioContent from "../components/PortfolioContent";
 import Layout from "../layout/Layout.astro";
+import ScrambleText from "../components/ScrambleText";
 ---
 
 <Layout>
   <div class="flex flex-col items-center">
     <div class="gap-y-6 text-center flex flex-col items-center">
       <span class="text-turq font-semibold">PORTFOLIO</span>
-      <h1 class="text-5xl font-medium">
-        PORTFOLIO
-      </h1>
+      <ScrambleText
+        finalText="PORTFOLIO"
+        className="text-5xl font-medium"
+        duration={1}
+        client:load
+      />
     </div>
-    <div class="flex flex-wrap justify-center gap-8 mt-20">
-      <PortfolioCard client:only="react"/>
-      <PortfolioCard client:only="react"/>
-      <PortfolioCard client:only="react"/>
-      <PortfolioCard client:only="react"/>
-      <PortfolioCard client:only="react"/>
-      <PortfolioCard client:only="react"/>
-      <PortfolioCard client:only="react"/>
-    </div>
+    <PortfolioContent client:only="react" />
   </div>
 </Layout>

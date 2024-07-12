@@ -1,12 +1,17 @@
 ---
 import ReactComponent from "../components/ReactComponent";
 import Layout from "../layout/Layout.astro";
+import Test from "../components/Test";
 ---
 
-<!-- <Layout> -->
-<div class="bg-[url('/bg.png')] bg-contain bg-scroll">
-
-  <ReactComponent client:only="react" />
-  <div class="h-screen"></div>
-</div>
-<!-- </Layout> -->
+<Layout>
+  <div class="">
+    <Test client:only="react"/>
+    <ReactComponent client:only="react" />
+    <div class="h-screen"></div>
+    <div class="h-screen"></div>
+    <div class="h-screen"></div>
+    <div class="h-screen"></div>
+    
+  </div>
+</Layout>
