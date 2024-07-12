@@ -1,44 +1,7 @@
-import { useRef } from "react";
-import { gsap } from "gsap/gsap-core";
-import { useGSAP } from "@gsap/react";
 import Logo from "../assets/Logo.svg";
 import XIcon from "../assets/XIcon";
 
 export default function Navbar({ currentPath }: { currentPath: string }) {
-  const containerRef = useRef(null);
-  const originalTextRef = useRef(null);
-  const newTextRef = useRef(null);
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({ paused: true });
-
-      tl.to(originalTextRef.current, {
-        yPercent: -100,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-      }).fromTo(
-        newTextRef.current,
-        {
-          yPercent: 100,
-          opacity: 0,
-        },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "<" // This makes the second animation start at the same time as the first
-      );
-
-      // Event listeners
-      containerRef.current.addEventListener("mouseenter", () => tl.play());
-      containerRef.current.addEventListener("mouseleave", () => tl.reverse());
-    },
-    { scope: containerRef }
-  );
   return (
     <div className="sticky z-10 top-4 w-full">
       <div className="mx-20 flex items-center justify-evenly text-sm font-medium gap-x-1 rounded-full backdrop-blur-lg bg-white/60 px-4 py-2">
@@ -48,61 +11,85 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         <div className="grow" />
         <a
           href="/about"
-          className={`hover:bg-turq px-6 py-2 rounded-full transition-colors ${
+          className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
             currentPath === "about" && "bg-turq"
           }`}
         >
-          ABOUT
+          <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
+            ABOUT
+          </span>
+          <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">
+            ABOUT
+          </span>
         </a>
         <a
           href="/endorsements"
-          className={`hover:bg-turq px-6 py-2 rounded-full transition-colors ${
+          className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
             currentPath === "endorsements" && "bg-turq"
           }`}
         >
-          ENDORSEMENTS
+          <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
+            ENDORSEMENTS
+          </span>
+          <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">
+            ENDORSEMENTS
+          </span>
         </a>
         <a
           href="/thesis"
-          className={`hover:bg-turq px-6 py-2 rounded-full transition-colors ${
+          className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
             currentPath === "thesis" && "bg-turq"
           }`}
         >
-          THESIS
+          <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
+            THESIS
+          </span>
+          <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">
+            THESIS
+          </span>
         </a>
         <a
           href="/portfolio"
-          className={`hover:bg-turq px-6 py-2 rounded-full transition-colors ${
+          className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
             currentPath === "portfolio" && "bg-turq"
           }`}
         >
-          PORTFOLIO
+          <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
+            PORTFOLIO
+          </span>
+          <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">
+            PORTFOLIO
+          </span>
         </a>
+
         <a
           href="/media"
-          ref={containerRef}
-          className="relative inline-block overflow-hidden"
+          className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
+            currentPath === "media" && "bg-turq"
+          }`}
         >
-          <span ref={originalTextRef} className="inline-block">
+          <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
             MEDIA
           </span>
-          <span ref={newTextRef} className="absolute left-0 inline-block">
+          <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">
             MEDIA
           </span>
         </a>
-        
+
         <a
           href="/contact"
-          ref={containerRef}
-          className="relative inline-block overflow-hidden"
+          className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
+            currentPath === "contact" && "bg-turq"
+          }`}
         >
-          <span ref={originalTextRef} className="inline-block">
+          <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
             CONTACT
           </span>
-          <span ref={newTextRef} className="absolute left-0 inline-block">
+          <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">
             CONTACT
           </span>
         </a>
+
         <a
           href="https://www.x.com"
           target="_blank"
