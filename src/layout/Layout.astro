@@ -23,8 +23,7 @@ const currentPath = pathname.replaceAll("/", "");
     class="bg-grey-20 flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none"
   >
     <Navbar currentPath={currentPath} />
-
-    <main class="mt-20 px-8 flex max-w-7xl">
+    <main class="mt-20 px-8 pb-32 flex max-w-7xl">
       <slot />
     </main>
     <div class="grow"></div>

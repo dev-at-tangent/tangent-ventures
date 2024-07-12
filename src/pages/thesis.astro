@@ -1,87 +1,33 @@
 ---
 import Layout from "../layout/Layout.astro";
+import ThesisHeader from "../components/ThesisHeader";
 import ThesisSection from "../components/ThesisSection";
-import Balloon from "../assets/balloon.png";
-import Satellite from "../assets/Satellite.png";
-import { Image } from "astro:assets";
 ---
 
 <Layout>
   <div class="flex flex-col items-center">
     <span class="text-turq font-semibold">THESIS</span>
-    <ThesisSection client:only="react" />
-    <div class="flex flex-col items-center gap-y-8 text-lg">
-      <Image src={Balloon} alt="balloon" class="w-1/2" />
-      <h1 class="text-5xl">0-TO-1 APPS</h1>
-      <p class="text-center w-1/2 group">
-        “Web 2 app, but on a blockchain” is a not a credible product strategy.
-        Crypto’s biggest unlocks come from enabling behaviors simply not
-        possible elsewhere. From open social graphs to <strong>
-          borderless in-game economies
-        </strong>,
-        <span
-          class="bg-gradient-to-r font-bold from-transparent from-50% via-transparent via-50% to-turq to-50%
-          bg-[-0%_0]
-          bg-[length:200%_auto]
-          no-underline
-          transition-[background-position]
-          duration-500
-          ease-out
-          group-hover:bg-[-99.99%_0]"
-          >we want to uncover breakthrough, zero-to-one applications.</span
-        >
-      </p>
-    </div>
+    <ThesisHeader client:only="react" />
 
-    <div class="flex flex-col items-center gap-y-8 text-lg">
-      <Image src={Balloon} alt="balloon" class="w-1/2" />
-      <h1 class="text-5xl">MARKETS FOR EVERYTHING</h1>
-      <p class="text-center w-1/2 group">
-        Crypto has created a global pool of liquidity more accessible than any
-        asset class’ that any developer can tap into. This makes crypto the most
-        powerful trustless, interoperable and 24/7 financial rails of the world.
-        <strong>
-        From Internet-native financial primitives, digitizing real world assets,
-        creating prediction markets, to financialized consumer applications,
-      </strong>
-        <span
-          class="font-bold bg-gradient-to-r from-transparent from-50% via-transparent via-50% to-turq to-50%
-          bg-[-0%_0]
-          bg-[length:200%_auto]
-          no-underline
-          transition-[background-position]
-          duration-500
-          ease-out
-          group-hover:bg-[-99.99%_0]"
-          >crypto enables a global truth machine for value discovery on
-          everything.</span
-        >
-      </p>
-    </div>
+    <ThesisSection
+      title="0-TO-1 APPS"
+      text="Web2 app, but on a blockchain is not a credible product strategy. Crypto's biggest unlocks come from enable behaviors simply not possible elsewhere. From open social graphs to borderless in-game economies. We "
+      highlightedText="want to uncover breakthrough, zero-to-one applications."
+      client:only="react"
+    />
 
-    <div class="flex flex-col items-center gap-y-8 text-lg">
-      <Image src={Satellite} alt="balloon" class="w-1/2" />
-      <h1 class="text-5xl">COORDINATION NETWORKS</h1>
-      <p class="text-center w-1/2 group">
-        Bitcoin at its core is simply an instrument that coordinates a group of
-        humans and/or hardware around the world. The same idea can be applied to
-        other forms of resource coordination to build networks of any kind. <strong> From
-        coordinating GPU clusters to provide compute for AI models to
-        orchestrating transparent exchange between biobanks for pharmaceutical
-        use cases -
-      </strong>
-        <span
-          class="font-bold bg-gradient-to-r from-transparent from-50% via-transparent via-50% to-turq to-50%
-          bg-[-0%_0]
-          bg-[length:200%_auto]
-          no-underline
-          transition-[background-position]
-          duration-500
-          ease-out
-          group-hover:bg-[-99.99%_0]"
-          >crypto is the ultimate global coordination layer.</span
-        >
-      </p>
-    </div>
+    <ThesisSection
+      title="MARKETS FOR EVERYTHING"
+      text="Crypto has created a global pool of liquidity more accessible than any asset class’ that any developer can tap into. This makes crypto the most powerful trustless, interoperable and 24/7 financial rails of the world. From Internet-native financial primitives, digitizing real world assets, creating prediction markets, to financialized consumer applications,"
+      highlightedText="crypto enables a global truth machine for value discovery on everything."
+      client:only="react"
+    />
+
+    <ThesisSection
+      title="0-TO-1 APPS"
+      text="Bitcoin at its core is simply an instrument that coordinates a group of humans and/or hardware around the world. The same idea can be applied to other forms of resource coordination to build networks of any kind. > From coordinating GPU clusters to provide compute for AI models to orchestrating transparent exchange between biobanks for pharmaceutical use cases -"
+      highlightedText="crypto is the ultimate global coordination layer."
+      client:only="react"
+    />
   </div>
 </Layout>
