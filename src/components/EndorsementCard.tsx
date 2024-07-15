@@ -10,8 +10,7 @@ export default function EndorsementCard() {
       <div className="flex flex-col ml-12">
         <p>
           "...carved out a unique segment of the venture market. Whilst some
-          investors are too large and
-          <span
+          investors are too large and <span
             className="font-bold bg-gradient-to-r from-transparent from-50% via-transparent via-50% to-turq to-50%
           bg-[-0%_0]
           bg-[length:200%_auto]
@@ -21,7 +20,7 @@ export default function EndorsementCard() {
           ease-out
           group-hover:bg-[-99.99%_0]"
           >
-            spread to thin to provide tangible value at the early stage,
+             spread to thin to provide tangible value at the early stage,
           </span>{" "}
           their structure of angel investing with prop capital into only high
           conviction ideas enables them to support founders unlike any other

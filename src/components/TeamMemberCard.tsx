@@ -3,14 +3,21 @@ import PFP from "../assets/pfp.png";
 import XIcon from "../assets/XIcon";
 import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import ReactCardFlip from "react-card-flip";
+import type { Entry, Asset } from "contentful";
+import type { TeamMember } from "../pages/about.astro";
 
-const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
+const TeamMemberCard = ({
+  details,
+  isHighlighted,
+}: {
+  details: Entry<TeamMember>;
+  isHighlighted: Boolean;
+}) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const toggleShowDetails = () => {
     setShowDetails((prev) => !prev);
   };
-
   return (
     <div className="max-w-sm h-full">
       <ReactCardFlip
@@ -18,12 +25,18 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
         flipDirection="horizontal"
         containerClassName="h-full"
       >
-        <div className="p-4 bg-turq rounded-xl flex flex-col">
-          <img src={PFP.src} className="" />
-          <span className="my-2">Co-Founder</span>
-          <h1 className="text-3xl font-semibold mb-8">JASON CHOI</h1>
+        <div className="p-4 bg-turq rounded-xl flex flex-col h-full">
+          <img
+            src={(
+              details.fields.pfp as unknown as Asset
+            )?.fields?.file?.url?.toString()}
+          />
+          <span className="my-2">{details.fields.title.toString()}</span>
+          <h1 className="text-3xl font-semibold mb-8">
+            {details.fields.name.toString()}
+          </h1>
           <div className="flex items-center">
-            <a href="https://www.x.com" target="_blank">
+            <a href={details.fields.twitterLink.toString()} target="_blank">
               <XIcon />
             </a>
             <div className="grow" />
@@ -37,21 +50,20 @@ const TeamMemberCard = ({ isHighlighted }: { isHighlighted: Boolean }) => {
           </div>
         </div>
         <div className="p-4 bg-white rounded-xl flex flex-col h-full">
-          <p className={`text-grey-80  ${!isHighlighted && "text-sm"}`}>
-            Darryl helped build Southeast Asia's largest crypto fund from its
-            early days as Principal at DeFiance Capital. Darryl spent his early
-            life building a career in reputable tradfi institutions before
-            seeing the light and dedicating all his efforts in crypto. <br />
-            <br /> Darryl is a lifelong investor across multiple asset classes
-            and holds a Bachelors from the London School of Economics. <br />
-            <br /> His unique insights are crucial in helping founders navigate
-            the challenges in crypto's 24/7 markets.
+          <p
+            className={`text-grey-80 whitespace-pre-wrap  ${
+              !isHighlighted && "text-sm"
+            }`}
+          >
+            {details.fields.bio.toString()}
           </p>
-          <div className="grow" />
-          <span className="my-2">Co-Founder</span>
-          <h1 className="text-3xl font-semibold mb-8">JASON CHOI</h1>
+          <div className="grow bg-red-400" />
+          <span className="my-2">{details.fields.title.toString()}</span>
+          <h1 className="text-3xl font-semibold mb-8">
+            {details.fields.name.toString()}
+          </h1>
           <div className="flex items-center">
-            <a href="https://www.x.com" target="_blank">
+            <a href={details.fields.twitterLink.toString()} target="_blank">
               <XIcon />
             </a>
             <div className="grow" />

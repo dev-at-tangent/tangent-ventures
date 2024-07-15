@@ -91,11 +91,15 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         </a>
 
         <a
-          href="https://www.x.com"
-          target="_blank"
-          className="hover:bg-turq px-4 py-2 rounded-full transition-colors"
+          href="https://x.com/tangent_xyz"
+          className={`relative flex overflow-hidden py-2 group rounded-full hover:bg-turq`}
         >
-          <XIcon />
+          <span className="inline-block mx-4 translate-y-10 transition-all group-hover:translate-y-0">
+            <XIcon className="w-5" />
+          </span>
+          <span className="absolute left-0 mx-4 inline-block transition-all group-hover:-translate-y-10">
+            <XIcon className="w-5" />
+          </span>
         </a>
       </div>
     </div>

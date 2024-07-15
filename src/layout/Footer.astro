@@ -3,7 +3,10 @@ import Logo from "../assets/DarkLogo.svg";
 import XIcon from "../assets/XIcon";
 ---
 
-<div class="bg-black p-8 text-white items-center mt-16 w-full hidden" id="footer">
+<div
+  class="bg-black p-8 text-white items-center mt-16 w-full hidden"
+  id="footer"
+>
   <div class="flex flex-col gap-y-4">
     <img src={Logo.src} />
     <span class="text-sm text-grey-40">Tangent 2024 | All Rights Reserved</span>
@@ -17,7 +20,7 @@ import XIcon from "../assets/XIcon";
       <a href="/portfolio">PORTFOLIO</a>
       <a href="/media">MEDIA</a>
       <a href="/contact">CONTACT</a>
-      <a>
+      <a href="https://x.com/tangent_xyz" target="_blank">
         <XIcon className="h-5" />
       </a>
     </div>
@@ -32,9 +35,9 @@ import XIcon from "../assets/XIcon";
 </div>
 <script>
   setTimeout(() => {
-    const footer = document.getElementById('footer');
+    const footer = document.getElementById("footer");
     if (footer) {
-      footer.style.display = 'flex';
+      footer.style.display = "flex";
     }
   }, 2000); // 2000 milliseconds = 2 seconds delay
 </script>

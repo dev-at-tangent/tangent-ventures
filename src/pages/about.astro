@@ -1,12 +1,44 @@
 ---
 import Layout from "../layout/Layout.astro";
 import AboutSection from "../components/AboutSection";
-import TeamSection from "../components/TeamSection"
+import TeamSection from "../components/TeamSection";
+
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
+
+export interface TeamMember {
+  contentTypeId: "teamMember";
+  fields: {
+    name: EntryFieldTypes.Text;
+    title: EntryFieldTypes.Text;
+    twitterLink: EntryFieldTypes.Text;
+    bio: EntryFieldTypes.Text;
+    highlighted: EntryFieldTypes.Boolean;
+    rank: EntryFieldTypes.Number;
+    pfp: Asset;
+  };
+}
+
+const highlightedEntries = await contentfulClient.getEntries<TeamMember>({
+  content_type: "teamMember",
+  "fields.highlighted": true,
+});
+
+//@ts-ignore
+const regularEntries = await contentfulClient.getEntries<TeamMember>({
+  content_type: "teamMember",
+  "fields.highlighted": false,
+  order: "fields.rank",
+});
 ---
 
 <Layout>
   <div class="w-full">
     <AboutSection client:only="react" />
-    <TeamSection client:only="react" />
+    <TeamSection
+      highlightedMembers={highlightedEntries.items}
+      members={regularEntries.items}
+      client:only="react"
+    />
   </div>
 </Layout>
