@@ -6,28 +6,36 @@ import {
 } from "@heroicons/react/24/solid";
 import Ena from "../assets/ena.png";
 import ReactCardFlip from "react-card-flip";
+import type { Entry } from "contentful";
+import type { PortfolioItem } from "../pages/portfolio.astro";
 
-export default function PortfolioCard() {
-  const tags = ["SEED", "SERIES A", "SECONDARY MARKET"];
-
+export default function PortfolioCard({
+  details,
+}: {
+  details: Entry<PortfolioItem>;
+}) {
   const [showDetails, setShowDetails] = useState(false);
   const toggleShowDetails = () => {
     setShowDetails((prev) => !prev);
   };
+
   return (
-    <ReactCardFlip
-      isFlipped={showDetails}
-      flipDirection="horizontal"
-    >
+    <ReactCardFlip isFlipped={showDetails} flipDirection="horizontal">
       <div className="bg-white flex flex-col rounded-xl p-6 max-w-60 text-grey-90 font-medium">
-        <img src={Ena.src} className="mb-4 w-1/3" />
-        ETHENA
+        <img
+          src={(details.fields.logo as any)?.fields?.file?.url}
+          className="mb-4 w-1/3"
+        />
+        {details.fields.name.toString()}
         <div className="flex-wrap mt-2">
-          {tags.map((tag) => (
-            <div className="inline-block outline outline-1 outline-grey-60 text-grey-60 text-xs m-1 py-1 px-2 rounded-full">
+          {(details.fields.tags as unknown as string[])?.map((tag: string) => (
+            <div
+              key={tag}
+              className="inline-block outline outline-1 outline-grey-60 text-grey-60 text-xs m-1 py-1 px-2 rounded-full"
+            >
               {tag}
             </div>
-          ))}
+          )) ?? []}
         </div>
         <div className="h-12" />
         <div
@@ -42,12 +50,13 @@ export default function PortfolioCard() {
         <a href="https://www.google.com" target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4" />
         </a>
-        <img src={Ena.src} className="mb-2 w-1/4" />
-        <h1 className="text-lg my-2">SEI</h1>
+        <img
+          src={(details.fields.logo as any)?.fields?.file?.url}
+          className="mb-2 w-1/4"
+        />
+        <h1 className="text-lg my-2">{details.fields.name.toString()}</h1>
         <p className="text-sm font-normal">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus
-          ultricies tellus. In consectetur orci ipsum, vitae facilisis nunc
-          facilisis sit amet.
+          {details.fields.description.toString()}
         </p>
         <div className="grow" />
         <div

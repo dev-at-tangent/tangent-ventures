@@ -2,11 +2,52 @@
 import MediaSection from "../components/MediaSection";
 import Layout from "../layout/Layout.astro";
 import ScrambleText from "../components/ScrambleText";
+
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
+
+export interface Article {
+  contentTypeId: "article";
+  fields: {
+    title: EntryFieldTypes.Text;
+    date: EntryFieldTypes.Date;
+    tags: EntryFieldTypes.Text[];
+    description: EntryFieldTypes.Text;
+    link: EntryFieldTypes.Text;
+    featured: EntryFieldTypes.Boolean;
+    rank: EntryFieldTypes.Number;
+  };
+}
+
+export interface Podcast {
+  contentTypeId: "podcast";
+  fields: {
+    title: EntryFieldTypes.Text;
+    date: EntryFieldTypes.Date;
+    tags: EntryFieldTypes.Text[];
+    link: EntryFieldTypes.Text;
+    featured: EntryFieldTypes.Boolean;
+    rank: EntryFieldTypes.Number;
+    thumbnail: Asset;
+    embedId: EntryFieldTypes.Text;
+  };
+
+}
+
+const articleEntries = await contentfulClient.getEntries<Article>({
+  content_type: "article",
+  order: ["fields.date"],
+});
+
+const podcastEntries = await contentfulClient.getEntries<Podcast>({
+  content_type: "podcast",
+  order: ["fields.date"],
+});
 ---
 
 <Layout>
   <div class="flex flex-col items-center">
-    <div class="gap-y-6 text-center flex flex-col items-center w-1/2">
+    <!-- <div class="gap-y-6 text-center flex flex-col items-center w-1/2">
       <span class="text-turq font-semibold">MEDIA</span>
 
       <ScrambleText
@@ -15,7 +56,7 @@ import ScrambleText from "../components/ScrambleText";
         duration={2}
         client:load
       />
-    </div>
-    <MediaSection client:only="react" />
+    </div> -->
+    <MediaSection client:only="react" articles={articleEntries.items} podcasts={podcastEntries.items} />
   </div>
 </Layout>

@@ -2,6 +2,28 @@
 import EndorsementContent from "../components/EndorsementContent";
 import Layout from "../layout/Layout.astro";
 import ScrambleText from "../components/ScrambleText";
+
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
+import type { Document } from "@contentful/rich-text-types";
+
+export interface Endorsement {
+  contentTypeId: "endorsement";
+  fields: {
+    name: EntryFieldTypes.Text;
+    title: EntryFieldTypes.Text;
+    profilePicture: Asset;
+    projectLogo: Asset;
+    projectLogoColour: Asset;
+    quote: Document;
+    rank: EntryFieldTypes.Number;
+  };
+}
+
+const entries = await contentfulClient.getEntries<Endorsement>({
+  content_type: "endorsement",
+  order: ["fields.rank"],
+});
 ---
 
 <Layout>
@@ -22,6 +44,6 @@ import ScrambleText from "../components/ScrambleText";
         duration={1}
       />
     </div>
-    <EndorsementContent client:only="react" />
+    <EndorsementContent endorsements={entries.items} client:only="react" />
   </div>
 </Layout>

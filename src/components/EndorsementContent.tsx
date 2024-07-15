@@ -2,8 +2,14 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/gsap-core";
 import EndorsementCard from "./EndorsementCard";
+import type { Entry } from "contentful";
+import type { Endorsement } from "../pages/endorsements.astro";
 
-export default function EndorsementContent() {
+export default function EndorsementContent({
+  endorsements,
+}: {
+  endorsements: Entry<Endorsement>[];
+}) {
   const ref = useRef(null);
   useGSAP(
     () => {
@@ -18,12 +24,9 @@ export default function EndorsementContent() {
   );
   return (
     <div ref={ref} className="grid grid-cols-2 gap-8 mt-20">
-      <EndorsementCard />
-      <EndorsementCard />
-      <EndorsementCard />
-      <EndorsementCard />
-      <EndorsementCard />
-      <EndorsementCard />
+      {endorsements.map((endorsement) => (
+        <EndorsementCard key={endorsement.sys.id} details={endorsement} />
+      ))}
     </div>
   );
 }

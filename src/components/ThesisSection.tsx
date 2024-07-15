@@ -3,17 +3,19 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Balloon from "../assets/balloon.png";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { MARKS, type Document } from "@contentful/rich-text-types";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ThesisSection({
   title,
-  text,
-  highlightedText,
+  content,
+  image,
 }: {
   title: string;
-  text: string;
-  highlightedText: string;
+  content: Document;
+  image: string;
 }) {
   const ref = useRef(null);
   const triggerRef = useRef(null);
@@ -41,15 +43,9 @@ export default function ThesisSection({
     return () => clearTimeout(refreshTimer);
   }, []);
 
-  return (
-    <div className="flex flex-col items-center text-lg">
-      <img src={Balloon.src} alt="balloon" className="w-1/2" />
-
-      <h1 ref={triggerRef} className="text-5xl">
-        {title}
-      </h1>
-      <p className="text-center w-1/2 mt-8">
-        {text}
+  const options = {
+    renderMark: {
+      [MARKS.CODE]: (text: React.ReactNode) => (
         <span
           ref={ref}
           className="font-bold bg-gradient-to-r from-transparent from-50% via-transparent via-50% to-turq to-50%
@@ -59,9 +55,22 @@ export default function ThesisSection({
           duration-500
           ease-out"
         >
-          {highlightedText}
+          {text}
         </span>
-      </p>
+      ),
+    },
+  };
+
+  return (
+    <div className="flex flex-col items-center text-lg">
+      <img src={Balloon.src} alt="balloon" className="w-1/2" />
+
+      <h1 ref={triggerRef} className="text-5xl">
+        {title}
+      </h1>
+      <div className="w-1/2 text-center">
+        {documentToReactComponents(content, options)}
+      </div>
     </div>
   );
 }

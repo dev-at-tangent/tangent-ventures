@@ -24,11 +24,10 @@ const highlightedEntries = await contentfulClient.getEntries<TeamMember>({
   "fields.highlighted": true,
 });
 
-//@ts-ignore
 const regularEntries = await contentfulClient.getEntries<TeamMember>({
   content_type: "teamMember",
   "fields.highlighted": false,
-  order: "fields.rank",
+  order: ["fields.rank"],
 });
 ---
 

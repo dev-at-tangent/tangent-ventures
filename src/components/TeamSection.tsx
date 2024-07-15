@@ -35,6 +35,7 @@ export default function TeamSection({
         className="text-5xl font-medium mt-16"
         delay={5}
         duration={1}
+        charsPerGroup={5}
       />
 
       <div ref={ref} className="flex flex-col items-center gap-y-12">

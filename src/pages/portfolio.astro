@@ -2,6 +2,26 @@
 import PortfolioContent from "../components/PortfolioContent";
 import Layout from "../layout/Layout.astro";
 import ScrambleText from "../components/ScrambleText";
+
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
+
+export interface PortfolioItem {
+  contentTypeId: "portfolio";
+  fields: {
+    name: EntryFieldTypes.Text;
+    tags: EntryFieldTypes.Text[];
+    logo: Asset;
+    description: EntryFieldTypes.Text;
+    rank: EntryFieldTypes.Number;
+    link: EntryFieldTypes.Text;
+  };
+}
+
+const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
+  content_type: "portfolio",
+  order: ["fields.rank"],
+});
 ---
 
 <Layout>
@@ -15,6 +35,6 @@ import ScrambleText from "../components/ScrambleText";
         client:load
       />
     </div>
-    <PortfolioContent client:only="react" />
+    <PortfolioContent items={portfolioEntries.items} client:only="react" />
   </div>
 </Layout>

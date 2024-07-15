@@ -34,6 +34,7 @@ export default function AboutSection() {
         <ScrambleText
           finalText="THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER"
           className="text-5xl font-medium"
+          charsPerGroup={5}
         />
         <span ref={ref} className="text-grey-80">
           Tangent is an evergreen angel fund uniquely built for founders in

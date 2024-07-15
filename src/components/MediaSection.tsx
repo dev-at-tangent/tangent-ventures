@@ -7,41 +7,37 @@ import SearchBar from "./SearchBar";
 import MediaTabs from "./MediaTabs";
 import Podcasts from "./Podcasts";
 import Articles from "./Articles";
+import type { Entry } from "contentful";
+import type { Article, Podcast } from "../pages/media.astro";
 
-export default function MediaSection() {
+export default function MediaSection({
+  articles,
+  podcasts,
+}: {
+  articles: Entry<Article>[];
+  podcasts: Entry<Podcast>[];
+}) {
   const [tab, setTab] = useState("PODCASTS");
 
-  const filters = ["ALL", "ON THE TANGENT", "GUEST"];
+  const podcastFilters = ["ALL", "ON THE TANGENT", "GUEST"];
+  const articleFilters = ["ALL", "FEATURED", "INTERNAL"];
   const [selectedPodcastsFilter, setSelectedPodcastsFilter] = useState("ALL");
   const [selectedArticlesFilter, setSelectedArticlesFilter] = useState("ALL");
-  const podcasts = [
-    {
-      type: "ON THE TANGENT",
-    },
-    {
-      type: "GUEST",
-    },
-    {
-      type: "ON THE TANGENT",
-    },
-    {
-      type: "ON THE TANGENT",
-    },
-    {
-      type: "GUEST",
-    },
-    {
-      type: "GUEST",
-    },
-    {
-      type: "GUEST",
-    },
-  ];
 
   const filteredPodcasts = podcasts.filter(
     (podcast) =>
       selectedPodcastsFilter === "ALL" ||
-      podcast.type === selectedPodcastsFilter
+      (podcast.fields.tags as unknown as string[]).includes(
+        selectedPodcastsFilter
+      )
+  );
+
+  const filteredArticles = articles.filter(
+    (article) =>
+      selectedArticlesFilter === "ALL" ||
+      (article.fields.tags as unknown as string[]).includes(
+        selectedArticlesFilter
+      )
   );
 
   const ref = useRef(null);
@@ -63,9 +59,15 @@ export default function MediaSection() {
       <div className="flex items-center w-full mt-12 gap-x-6 text-lg">
         Categories:
         <FilterBar
-          filters={filters}
-          selectedFilter={selectedPodcastsFilter}
-          setSelectedFilter={setSelectedPodcastsFilter}
+          filters={tab === "PODCASTS" ? podcastFilters : articleFilters}
+          selectedFilter={
+            tab === "PODCASTS" ? selectedPodcastsFilter : selectedArticlesFilter
+          }
+          setSelectedFilter={
+            tab === "PODCASTS"
+              ? setSelectedPodcastsFilter
+              : setSelectedArticlesFilter
+          }
         />
         <div className="grow" />
         <SearchBar />
@@ -73,7 +75,7 @@ export default function MediaSection() {
       {tab === "PODCASTS" ? (
         <Podcasts podcasts={filteredPodcasts} />
       ) : (
-        <Articles />
+        <Articles articles={filteredArticles} />
       )}
     </div>
   );

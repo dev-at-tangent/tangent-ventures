@@ -2,8 +2,14 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/gsap-core";
 import PortfolioCard from "./PortfolioCard";
+import type { Entry } from "contentful";
+import type { PortfolioItem } from "../pages/portfolio.astro";
 
-export default function PortfolioContent() {
+export default function PortfolioContent({
+  items,
+}: {
+  items: Entry<PortfolioItem>[];
+}) {
   const ref = useRef(null);
   useGSAP(
     () => {
@@ -18,13 +24,9 @@ export default function PortfolioContent() {
   );
   return (
     <div ref={ref} className="flex flex-wrap justify-center gap-8 mt-20">
-      <PortfolioCard />
-      <PortfolioCard />
-      <PortfolioCard />
-      <PortfolioCard />
-      <PortfolioCard />
-      <PortfolioCard />
-      <PortfolioCard />
+      {items.map((item) => (
+        <PortfolioCard key={item.sys.id} details={item} />
+      ))}
     </div>
   );
 }
