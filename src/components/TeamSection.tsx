@@ -32,23 +32,23 @@ export default function TeamSection({
     <div className="flex flex-col items-center gap-y-12">
       <ScrambleText
         finalText="MEET OUR TEAM"
-        className="text-5xl font-medium mt-16"
+        className="text-3xl md:text-5xl font-medium mt-16"
         delay={5}
         duration={1}
         charsPerGroup={5}
       />
 
       <div ref={ref} className="flex flex-col items-center gap-y-12">
-        <span className="w-2/5 text-center text-grey-80">
+        <span className="md:w-2/5 text-center text-grey-80">
           We are a collective of experienced operators and founders behind some
           of the largest projects and protocols in Web3.
         </span>
-        <div className="grid grid-cols-2 gap-12">
+        <div className="grid desktop:grid-cols-2 gap-12">
           {highlightedMembers.map((member) => (
             <TeamMemberCard key={member.sys.id} isHighlighted={true} details={member} />
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-12 w-11/12 ">
+        <div className="grid desktop:grid-cols-3 gap-12 desktop:w-11/12 ">
           {members.map((member) => (
             <TeamMemberCard key={member.sys.id} isHighlighted={false} details={member} />
           ))}

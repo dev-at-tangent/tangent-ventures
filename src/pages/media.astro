@@ -6,6 +6,9 @@ import ScrambleText from "../components/ScrambleText";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 
+import { Image } from "astro:assets";
+import Circle from "../assets/circle.png";
+
 export interface Article {
   contentTypeId: "article";
   fields: {
@@ -31,7 +34,6 @@ export interface Podcast {
     thumbnail: Asset;
     embedId: EntryFieldTypes.Text;
   };
-
 }
 
 const articleEntries = await contentfulClient.getEntries<Article>({
@@ -47,8 +49,9 @@ const podcastEntries = await contentfulClient.getEntries<Podcast>({
 
 <Layout>
   <div class="flex flex-col items-center">
-    <div class="gap-y-6 text-center flex flex-col items-center w-1/2">
-      <span class="text-turq font-semibold">MEDIA</span>
+    <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
+
+    <div class="gap-y-6 text-center flex flex-col items-center w-3/5">
 
       <ScrambleText
         finalText="CHECK OUT THE LATEST MUSINGS AND EXPLORATIONS"
@@ -57,6 +60,10 @@ const podcastEntries = await contentfulClient.getEntries<Podcast>({
         client:load
       />
     </div>
-    <MediaSection client:only="react" articles={articleEntries.items} podcasts={podcastEntries.items} />
+    <MediaSection
+      client:only="react"
+      articles={articleEntries.items}
+      podcasts={podcastEntries.items}
+    />
   </div>
 </Layout>

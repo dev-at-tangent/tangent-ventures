@@ -23,9 +23,9 @@ const TeamMemberCard = ({
       <ReactCardFlip
         isFlipped={showDetails}
         flipDirection="horizontal"
-        containerClassName={`h-full min-h-[50vh]`}
+        containerClassName={`h-full min-h-[70vh] sm:min-h-[50vh]`}
       >
-        <div className="p-4 bg-turq rounded-xl flex flex-col">
+        <div className="p-4 bg-turq rounded-xl flex flex-col h-full">
           <img
             src={(
               details.fields.pfp as unknown as Asset
@@ -37,7 +37,7 @@ const TeamMemberCard = ({
           </h1>
           <div className="flex items-center">
             <a href={details.fields.twitterLink.toString()} target="_blank">
-              <XIcon />
+              <XIcon className="w-6" />
             </a>
             <div className="grow" />
             <div
@@ -51,8 +51,8 @@ const TeamMemberCard = ({
         </div>
         <div className="p-4 bg-white rounded-xl flex flex-col h-full">
           <p
-            className={`text-grey-80 whitespace-pre-wrap  ${
-              !isHighlighted && "text-sm"
+            className={`text-grey-80 text-xs whitespace-pre-wrap sm:text-base ${
+              !isHighlighted && "sm:text-sm"
             }`}
           >
             {details.fields.bio.toString()}

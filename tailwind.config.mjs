@@ -2,21 +2,10 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    screens: {
-      uhd: "1500px",
-    },
     extend: {
-      keyframes: {
-        "fade-in-up": {
-          "0%": {
-            opacity: 0,
-            transform: "translate3d(0, 100%, 0)",
-          },
-          "100%": {
-            opacity: 1,
-            transform: "translate3d(0, 0, 0)",
-          },
-        },
+      screens: {
+        desktop: "1200px",
+        uhd: "2000px",
       },
       colors: {
         error: "#E00004",

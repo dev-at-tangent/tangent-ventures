@@ -6,6 +6,9 @@ import ScrambleText from "../components/ScrambleText";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 
+import { Image } from "astro:assets";
+import Circle from "../assets/circle.png";
+
 export interface PortfolioItem {
   contentTypeId: "portfolio";
   fields: {
@@ -27,8 +30,9 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
 
 <Layout>
   <div class="flex flex-col items-center">
+    <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
+
     <div class="gap-y-6 text-center flex flex-col items-center">
-      <span class="text-turq font-semibold">PORTFOLIO</span>
       <ScrambleText
         finalText="PORTFOLIO"
         className="text-5xl font-medium"

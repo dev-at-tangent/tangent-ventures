@@ -7,6 +7,9 @@ import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 import type { Document } from "@contentful/rich-text-types";
 
+import { Image } from "astro:assets";
+import Circle from "../assets/circle.png";
+
 export interface ThesisContent {
   contentTypeId: "thesis";
   fields: {
@@ -36,9 +39,8 @@ const header = await contentfulClient.getEntries<ThesisHeaderContent>({
 
 <Layout>
   <div class="flex flex-col items-center">
-    <span class="text-turq font-semibold">THESIS</span>
+    <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
     <ThesisHeader content={header.items[0]} client:only="react" />
-
     {
       entries.items.map((entry: any) => (
         <ThesisSection

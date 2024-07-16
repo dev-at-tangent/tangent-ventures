@@ -6,6 +6,9 @@ import TeamSection from "../components/TeamSection";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 
+import { Image } from "astro:assets";
+import Circle from "../assets/circle.png";
+
 export interface TeamMember {
   contentTypeId: "teamMember";
   fields: {
@@ -25,7 +28,7 @@ export interface AboutStats {
     descriptor: EntryFieldTypes.Text;
     statistic: EntryFieldTypes.Text;
     description: EntryFieldTypes.Text;
-  }
+  };
 }
 
 const highlightedEntries = await contentfulClient.getEntries<TeamMember>({
@@ -46,7 +49,8 @@ const aboutStats = await contentfulClient.getEntries<AboutStats>({
 ---
 
 <Layout>
-  <div class="w-full">
+  <div class="w-full flex flex-col items-center">
+    <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
     <AboutSection aboutStats={aboutStats.items} client:only="react" />
     <TeamSection
       highlightedMembers={highlightedEntries.items}

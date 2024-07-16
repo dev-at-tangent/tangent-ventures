@@ -35,11 +35,11 @@ export default function AboutSection({
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-1/2 gap-y-6 text-center flex flex-col items-center">
-        <span className="text-turq font-semibold">ABOUT US</span>
+      <div className="md:w-1/2 gap-y-6 text-center flex flex-col items-center">
+        
         <ScrambleText
           finalText="THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER"
-          className="text-5xl font-medium"
+          className="text-3xl md:text-5xl font-medium"
           charsPerGroup={5}
         />
         <span ref={ref} className="text-grey-80">
@@ -47,7 +47,7 @@ export default function AboutSection({
           crypto
         </span>
       </div>
-      <div className="grid grid-cols-3 gap-x-10 w-full  mt-12">
+      <div className="grid md:grid-cols-3 gap-10 w-full  mt-12">
         {aboutStats.map((stat, idx) => (
           <StatCard key={stat.sys.id} details={stat} delay={2 + idx} />
         ))}

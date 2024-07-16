@@ -126,7 +126,7 @@ export default function ContactForm() {
     { scope: ref }
   );
   return (
-    <div>
+    <div ref={ref}>
       I'm interested in...
       <div className="flex flex-col gap-y-8">
         <TopicSelector
