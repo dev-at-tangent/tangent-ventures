@@ -31,6 +31,7 @@ const TeamMemberCard = ({
               details.fields.pfp as unknown as Asset
             )?.fields?.file?.url?.toString()}
           />
+          <div className="grow" />
           <span className="my-2">{details.fields.title.toString()}</span>
           <h1 className="text-3xl font-semibold mb-8">
             {details.fields.name.toString()}
@@ -51,7 +52,7 @@ const TeamMemberCard = ({
         </div>
         <div className="p-4 bg-white rounded-xl flex flex-col h-full">
           <p
-            className={`text-grey-80 text-xs whitespace-pre-wrap sm:text-base ${
+            className={`text-grey-80 text-sm whitespace-pre-wrap sm:text-base ${
               !isHighlighted && "sm:text-sm"
             }`}
           >

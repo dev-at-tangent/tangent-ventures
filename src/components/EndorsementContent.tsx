@@ -23,7 +23,7 @@ export default function EndorsementContent({
     { scope: ref }
   );
   return (
-    <div ref={ref} className="grid grid-cols-2 gap-8 mt-20">
+    <div ref={ref} className="grid desktop:grid-cols-2 gap-8 mt-20">
       {endorsements.map((endorsement) => (
         <EndorsementCard key={endorsement.sys.id} details={endorsement} />
       ))}

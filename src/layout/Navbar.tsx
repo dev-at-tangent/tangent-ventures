@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "../assets/Logo.svg";
 import XIcon from "../assets/XIcon";
 
@@ -63,10 +63,17 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
           <a href="/" className="w-1/3 max-w-48">
             <img src={Logo.src} />
           </a>
-          <Bars3Icon
-            className="size-6 cursor-pointer"
-            onClick={() => setOpenMenu((prev) => !prev)}
-          />
+          {!openMenu ? (
+            <Bars3Icon
+              className="size-6 cursor-pointer"
+              onClick={() => setOpenMenu(true)}
+            />
+          ) : (
+            <XMarkIcon
+              className="size-6 cursor-pointer"
+              onClick={() => setOpenMenu(false)}
+            />
+          )}
         </div>
       </div>
       <div

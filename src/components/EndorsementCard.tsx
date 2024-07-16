@@ -13,34 +13,34 @@ export default function EndorsementCard({
       [MARKS.CODE]: (text: React.ReactNode) => (
         <span
           className="font-bold bg-gradient-to-r from-transparent from-50% via-transparent via-50% to-turq to-50%
-      bg-[-0%_0]
-      bg-[length:200%_auto]
-      no-underline
-      transition-[background-position]
-      duration-500
-      ease-out
-      group-hover:bg-[-99.99%_0]"
+          sm:bg-[-0%_0]
+          sm:bg-[length:200%_auto]
+          no-underline
+          transition-[background-position]
+          duration-500
+          ease-out
+          group-hover:bg-[-99.99%_0]"
         >
-          {text}
+          <mark className="bg-turq sm:bg-transparent">{text}</mark>
         </span>
       ),
     },
   };
   return (
-    <div className="flex items-start bg-white rounded-xl p-12 max-w-xl group min-h-[45vh]">
+    <div className="flex flex-col sm:flex-row items-start bg-white rounded-xl p-8 desktop:p-12 max-w-xl group sm:min-h-[45vh]">
       <img
         src={(
           details.fields.projectLogo as unknown as Asset
         )?.fields?.file?.url?.toString()}
-        className="group-hover:hidden"
+        className="hidden sm:block group-hover:hidden"
       />
       <img
         src={(
           details.fields.projectLogoColour as unknown as Asset
         )?.fields?.file?.url?.toString()}
-        className="hidden group-hover:block"
+        className="w-12 sm:w-24 sm:hidden group-hover:block"
       />
-      <div className="flex flex-col ml-12 h-full">
+      <div className="flex flex-col sm:ml-12 mt-8 sm:mt-0 h-full">
         {documentToReactComponents(
           details.fields.quote as unknown as Document,
           options
@@ -51,12 +51,10 @@ export default function EndorsementCard({
             src={(
               details.fields.profilePicture as unknown as Asset
             )?.fields?.file?.url?.toString()}
-            className="w-16 rounded-full"
+            className="w-10 sm:w-16 rounded-full"
           />
-          <div className="flex flex-col ml-4">
-            <span className="text-sm font-bold">
-              {details.fields.name.toString()}
-            </span>
+          <div className="text-sm sm:text-base flex flex-col ml-4">
+            <span className="font-bold">{details.fields.name.toString()}</span>
             <span className="text-grey-80">
               {details.fields.title.toString()}
             </span>

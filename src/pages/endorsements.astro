@@ -35,13 +35,13 @@ const entries = await contentfulClient.getEntries<Endorsement>({
     <div class="gap-y-6 text-center flex flex-col items-center">
       <ScrambleText
         finalText="DON'T TAKE OUR WORD FOR IT."
-        className="text-5xl font-medium"
+        className="text-3xl sm:text-5xl font-medium"
         client:only="react"
         duration={1}
       />
       <ScrambleText
-        finalText="TAKE THEIRS"
-        className="text-5xl font-medium"
+        finalText="TAKE THEIRS."
+        className="text-3xl sm:text-5xl font-medium"
         delay={1}
         client:only="react"
         duration={1}
