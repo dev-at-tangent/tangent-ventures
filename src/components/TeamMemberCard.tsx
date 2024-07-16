@@ -23,7 +23,7 @@ const TeamMemberCard = ({
       <ReactCardFlip
         isFlipped={showDetails}
         flipDirection="horizontal"
-        containerClassName={isHighlighted ? "h-[550px]" : "h-[500px]"}
+        containerClassName={isHighlighted ? "h-[500px] desktop:h-[550px]" : "h-[500px]"}
       >
         <div className="p-4 bg-turq rounded-xl flex flex-col h-full">
           <img
