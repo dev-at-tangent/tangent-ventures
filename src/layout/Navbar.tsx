@@ -59,7 +59,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         </div>
       </div>
       <div className="desktop:hidden w-full px-4 top-4 sticky z-20">
-        <div className="rounded-full backdrop-blur-lg bg-white/60 w-full flex items-center justify-between py-2 px-4">
+        <div className="rounded-full backdrop-blur-lg bg-white/60 w-full flex items-center justify-between p-4">
           <a href="/" className="w-1/3 max-w-48">
             <img src={Logo.src} />
           </a>

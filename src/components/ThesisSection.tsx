@@ -61,12 +61,12 @@ export default function ThesisSection({
   };
   return (
     <div className="flex flex-col items-center text-lg">
-      <img src={image} alt="balloon" className="w-1/2" />
+      <img src={image} alt="balloon" className="desktop:w-1/2" />
 
-      <h1 ref={triggerRef} className="text-5xl">
+      <h1 ref={triggerRef} className="text-3xl text-center desktop:text-5xl">
         {title}
       </h1>
-      <div className="w-1/2 text-center mt-12">
+      <div className="desktop:w-1/2 text-center mt-12">
         {documentToReactComponents(content, options)}
       </div>
     </div>
