@@ -28,21 +28,22 @@ export default function PortfolioCard({
     <ReactCardFlip
       isFlipped={showDetails}
       flipDirection="horizontal"
-      containerClassName="h-[40vh] max-h-[400px] w-[20vw] max-w-72"
+      containerClassName="h-[60vh] desktop:h-[40vh] max-h-[400px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md"
     >
       <div
-        className="bg-white flex flex-col rounded-xl p-6  text-grey-90 font-medium h-full w-full group"
+        className="bg-white flex flex-col rounded-xl p-6  text-grey-90 font-medium h-full w-full group "
         onMouseOver={replay}
       >
         <img
           src={(details.fields.logo as any)?.fields?.file?.url}
-          className="mb-4 w-1/3 group-hover:hidden"
+          className="hidden desktop:block mb-4 w-1/3 group-hover:hidden"
         />
         <img
           src={(details.fields.logoColour as any)?.fields?.file?.url}
-          className="mb-4 w-1/3 hidden group-hover:block"
+          className="mb-4 w-1/3 desktop:hidden group-hover:block"
         />
-        <span ref={ref} />
+        <span ref={ref} className="hidden desktop:flex" />
+        <span className="font-semibold text-lg desktop:hidden">{details.fields.name.toString()}</span>
         <div className="flex-wrap mt-2">
           {(details.fields.tags as unknown as string[])?.map((tag: string) => (
             <div
@@ -71,7 +72,7 @@ export default function PortfolioCard({
           src={(details.fields.logoColour as any)?.fields?.file?.url}
           className="mb-2 w-1/4"
         />
-        <h1 className="text-lg my-2">{details.fields.name.toString()}</h1>
+        <h1 className="text-lg font-semibold my-2">{details.fields.name.toString()}</h1>
         <p className="text-sm font-normal">
           {details.fields.description.toString()}
         </p>

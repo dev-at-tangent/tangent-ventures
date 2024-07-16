@@ -58,7 +58,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
           </a>
         </div>
       </div>
-      <div className="desktop:hidden w-full px-4 top-4 sticky z-20">
+      <div className="desktop:hidden w-full px-4 top-4 sticky z-30">
         <div className="rounded-full backdrop-blur-lg bg-white/60 w-full flex items-center justify-between p-4">
           <a href="/" className="w-1/3 max-w-48">
             <img src={Logo.src} />
@@ -77,7 +77,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         </div>
       </div>
       <div
-        className={`fixed flex flex-col gap-6 z-10 h-screen w-screen pt-24 px-8 bg-grey-40 transition-transform ${
+        className={`fixed flex flex-col gap-6 z-20 h-screen w-screen pt-24 px-8 bg-grey-40 transition-transform ${
           openMenu ? "translate-y-0" : "-translate-y-full"
         }`}
       >
