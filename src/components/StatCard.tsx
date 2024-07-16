@@ -2,8 +2,16 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrambleText from "./ScrambleText";
+import type { Entry } from "contentful";
+import type { AboutStats } from "../pages/about.astro";
 
-export default function StatCard({ delay = 0 }) {
+export default function StatCard({
+  delay = 0,
+  details,
+}: {
+  delay: number;
+  details: Entry<AboutStats>;
+}) {
   const cardRef = useRef(null);
 
   useGSAP(
@@ -22,19 +30,18 @@ export default function StatCard({ delay = 0 }) {
   return (
     <div
       ref={cardRef}
-      className="bg-white/60 backdrop-blur-lg rounded-2xl p-8 hover:animate-fadeInUp"
+      className="bg-white/60 backdrop-blur-lg rounded-2xl p-8 flex flex-col min-h-[30vh] uhd:min-h-[20vh]"
     >
-      <span className="text-lg"> since </span>
+      <span className="text-lg"> {details.fields.descriptor.toString()} </span>
       <ScrambleText
-        finalText="2018"
+        finalText={details.fields.statistic.toString()}
         className="text-4xl font-bold"
         duration={1}
         charsPerGroup={1}
         delay={delay}
       />
-      <span className="text-grey-80">
-        Our team helped establish the defining APAC investment funds behind the
-        most important crypto protocols and applications since 2018.
+      <span className="text-grey-80 mt-4">
+        {details.fields.description.toString()}
       </span>
     </div>
   );

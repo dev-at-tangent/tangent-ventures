@@ -23,9 +23,9 @@ const TeamMemberCard = ({
       <ReactCardFlip
         isFlipped={showDetails}
         flipDirection="horizontal"
-        containerClassName="h-full"
+        containerClassName={`h-full min-h-[50vh]`}
       >
-        <div className="p-4 bg-turq rounded-xl flex flex-col h-full">
+        <div className="p-4 bg-turq rounded-xl flex flex-col">
           <img
             src={(
               details.fields.pfp as unknown as Asset
@@ -57,7 +57,7 @@ const TeamMemberCard = ({
           >
             {details.fields.bio.toString()}
           </p>
-          <div className="grow bg-red-400" />
+          <div className="grow" />
           <span className="my-2">{details.fields.title.toString()}</span>
           <h1 className="text-3xl font-semibold mb-8">
             {details.fields.name.toString()}

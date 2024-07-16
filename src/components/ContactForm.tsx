@@ -126,7 +126,7 @@ export default function ContactForm() {
     { scope: ref }
   );
   return (
-    <div ref={ref}>
+    <div>
       I'm interested in...
       <div className="flex flex-col gap-y-8">
         <TopicSelector
@@ -138,7 +138,7 @@ export default function ContactForm() {
           placeholder="Name*"
           value={name}
           onChange={nameChangeHandler}
-          className={`bg-transparent py-4 border-b placeholder-grey-80 focus:outline-none ${
+          className={`bg-transparent py-4 border-b placeholder-grey-80 focus:outline-none focus:border-b focus:border-turq ${
             nameError ? "border-error" : "border-grey-60"
           }`}
         />
@@ -151,7 +151,7 @@ export default function ContactForm() {
           placeholder="Email*"
           value={email}
           onChange={emailChangeHandler}
-          className={`bg-transparent py-4 border-b placeholder-grey-80 focus:outline-none ${
+          className={`bg-transparent py-4 border-b placeholder-grey-80 focus:outline-none focus:border-b focus:border-turq ${
             emailError ? "border-error" : "border-grey-60"
           }`}
         />
@@ -164,7 +164,7 @@ export default function ContactForm() {
           placeholder="Company"
           value={company}
           onChange={(e) => setCompany(e.target.value)}
-          className="bg-transparent py-4 border-b border-grey-60 placeholder-grey-80 focus:outline-none"
+          className="bg-transparent py-4 border-b border-grey-60 placeholder-grey-80 focus:outline-none focus:border-b focus:border-turq"
         />
         <div className="flex gap-x-8">
           <div className="w-1/2">
@@ -172,7 +172,7 @@ export default function ContactForm() {
               placeholder="Twitter Handle*"
               value={twitter}
               onChange={twitterChangeHandler}
-              className={`bg-transparent py-4 w-full border-b placeholder-grey-80 focus:outline-none ${
+              className={`bg-transparent py-4 w-full border-b placeholder-grey-80 focus:outline-none focus:border-b focus:border-turq ${
                 twitterError ? "border-error" : "border-grey-60"
               }`}
             />
@@ -187,7 +187,7 @@ export default function ContactForm() {
               placeholder="Telegram*"
               value={telegram}
               onChange={telegramChangeHandler}
-              className={`bg-transparent py-4 w-full border-b placeholder-grey-80 focus:outline-none ${
+              className={`bg-transparent py-4 w-full border-b placeholder-grey-80 focus:outline-none focus:border-b focus:border-turq ${
                 telegramError ? "border-error" : "border-grey-60"
               }`}
             />
@@ -202,7 +202,7 @@ export default function ContactForm() {
           placeholder="Message*"
           value={message}
           onChange={messageChangeHandler}
-          className={`bg-transparent py-4 w-full h-32 border-b placeholder-grey-80 focus:outline-none resize-none ${
+          className={`bg-transparent py-4 w-full h-32 border-b placeholder-grey-80 focus:outline-none focus:border-b focus:border-turq resize-none ${
             messageError ? "border-error" : "border-grey-60"
           }`}
         />

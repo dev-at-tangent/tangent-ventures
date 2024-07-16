@@ -25,7 +25,7 @@ export default function ContactBody() {
         the largest projects and protocols in Web3.
       </p>
       <div className="flex items-center gap-x-8">
-        <XIcon />
+        <XIcon className="w-6" />
         <TeleIcon />
       </div>
     </div>

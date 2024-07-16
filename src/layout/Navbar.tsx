@@ -12,7 +12,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         <a
           href="/about"
           className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
-            currentPath === "about" && "bg-turq"
+            currentPath === "about" && "bg-grey-40"
           }`}
         >
           <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
@@ -25,7 +25,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         <a
           href="/endorsements"
           className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
-            currentPath === "endorsements" && "bg-turq"
+            currentPath === "endorsements" && "bg-grey-40"
           }`}
         >
           <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
@@ -38,7 +38,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         <a
           href="/thesis"
           className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
-            currentPath === "thesis" && "bg-turq"
+            currentPath === "thesis" && "bg-grey-40"
           }`}
         >
           <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
@@ -51,7 +51,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         <a
           href="/portfolio"
           className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
-            currentPath === "portfolio" && "bg-turq"
+            currentPath === "portfolio" && "bg-grey-40"
           }`}
         >
           <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
@@ -65,7 +65,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         <a
           href="/media"
           className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
-            currentPath === "media" && "bg-turq"
+            currentPath === "media" && "bg-grey-40"
           }`}
         >
           <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
@@ -79,7 +79,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         <a
           href="/contact"
           className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
-            currentPath === "contact" && "bg-turq"
+            currentPath === "contact" && "bg-grey-40"
           }`}
         >
           <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
@@ -92,7 +92,8 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
 
         <a
           href="https://x.com/tangent_xyz"
-          className={`relative flex overflow-hidden py-2 group rounded-full hover:bg-turq`}
+          target="_blank"
+          className={`relative flex  overflow-hidden py-2 group rounded-full hover:bg-turq`}
         >
           <span className="inline-block mx-4 translate-y-10 transition-all group-hover:translate-y-0">
             <XIcon className="w-5" />

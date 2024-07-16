@@ -19,6 +19,15 @@ export interface TeamMember {
   };
 }
 
+export interface AboutStats {
+  contentTypeId: "aboutStats";
+  fields: {
+    descriptor: EntryFieldTypes.Text;
+    statistic: EntryFieldTypes.Text;
+    description: EntryFieldTypes.Text;
+  }
+}
+
 const highlightedEntries = await contentfulClient.getEntries<TeamMember>({
   content_type: "teamMember",
   "fields.highlighted": true,
@@ -29,11 +38,16 @@ const regularEntries = await contentfulClient.getEntries<TeamMember>({
   "fields.highlighted": false,
   order: ["fields.rank"],
 });
+
+const aboutStats = await contentfulClient.getEntries<AboutStats>({
+  content_type: "aboutStats",
+  order: ["sys.createdAt"],
+});
 ---
 
 <Layout>
   <div class="w-full">
-    <AboutSection client:only="react" />
+    <AboutSection aboutStats={aboutStats.items} client:only="react" />
     <TeamSection
       highlightedMembers={highlightedEntries.items}
       members={regularEntries.items}

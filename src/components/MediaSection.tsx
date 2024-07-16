@@ -23,21 +23,30 @@ export default function MediaSection({
   const articleFilters = ["ALL", "FEATURED", "INTERNAL"];
   const [selectedPodcastsFilter, setSelectedPodcastsFilter] = useState("ALL");
   const [selectedArticlesFilter, setSelectedArticlesFilter] = useState("ALL");
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   const filteredPodcasts = podcasts.filter(
     (podcast) =>
-      selectedPodcastsFilter === "ALL" ||
-      (podcast.fields.tags as unknown as string[]).includes(
-        selectedPodcastsFilter
-      )
+      (selectedPodcastsFilter === "ALL" ||
+        (podcast.fields.tags as unknown as string[]).includes(
+          selectedPodcastsFilter
+        )) &&
+      podcast.fields.title
+        .toString()
+        .toLowerCase()
+        .includes(searchKeyword.toLowerCase())
   );
 
   const filteredArticles = articles.filter(
     (article) =>
-      selectedArticlesFilter === "ALL" ||
-      (article.fields.tags as unknown as string[]).includes(
-        selectedArticlesFilter
-      )
+      (selectedArticlesFilter === "ALL" ||
+        (article.fields.tags as unknown as string[]).includes(
+          selectedArticlesFilter
+        )) &&
+      article.fields.title
+        .toString()
+        .toLowerCase()
+        .includes(searchKeyword.toLowerCase())
   );
 
   const ref = useRef(null);
@@ -54,7 +63,7 @@ export default function MediaSection({
   );
 
   return (
-    <div ref={ref} className="w-full">
+    <div ref={ref} className="w-[75vw] max-w-7xl">
       <MediaTabs tab={tab} setTab={setTab} />
       <div className="flex items-center w-full mt-12 gap-x-6 text-lg">
         Categories:
@@ -70,12 +79,12 @@ export default function MediaSection({
           }
         />
         <div className="grow" />
-        <SearchBar />
+        <SearchBar input={searchKeyword} setInput={setSearchKeyword} />
       </div>
       {tab === "PODCASTS" ? (
-        <Podcasts podcasts={filteredPodcasts} />
+        <Podcasts podcasts={filteredPodcasts} searchKeyword={searchKeyword} />
       ) : (
-        <Articles articles={filteredArticles} />
+        <Articles articles={filteredArticles} searchKeyword={searchKeyword} />
       )}
     </div>
   );

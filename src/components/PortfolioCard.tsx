@@ -4,10 +4,10 @@ import {
   PlusIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-import Ena from "../assets/ena.png";
 import ReactCardFlip from "react-card-flip";
 import type { Entry } from "contentful";
 import type { PortfolioItem } from "../pages/portfolio.astro";
+import { useScramble } from "use-scramble";
 
 export default function PortfolioCard({
   details,
@@ -19,14 +19,30 @@ export default function PortfolioCard({
     setShowDetails((prev) => !prev);
   };
 
+  const { ref, replay } = useScramble({
+    text: details.fields.name.toString(),
+    playOnMount: false,
+    speed: 0.5,
+  });
   return (
-    <ReactCardFlip isFlipped={showDetails} flipDirection="horizontal">
-      <div className="bg-white flex flex-col rounded-xl p-6 max-w-60 text-grey-90 font-medium">
+    <ReactCardFlip
+      isFlipped={showDetails}
+      flipDirection="horizontal"
+      containerClassName="h-[40vh] max-h-[400px] w-[20vw] max-w-72"
+    >
+      <div
+        className="bg-white flex flex-col rounded-xl p-6  text-grey-90 font-medium h-full w-full group"
+        onMouseOver={replay}
+      >
         <img
           src={(details.fields.logo as any)?.fields?.file?.url}
-          className="mb-4 w-1/3"
+          className="mb-4 w-1/3 group-hover:hidden"
         />
-        {details.fields.name.toString()}
+        <img
+          src={(details.fields.logoColour as any)?.fields?.file?.url}
+          className="mb-4 w-1/3 hidden group-hover:block"
+        />
+        <span ref={ref} />
         <div className="flex-wrap mt-2">
           {(details.fields.tags as unknown as string[])?.map((tag: string) => (
             <div
@@ -37,21 +53,22 @@ export default function PortfolioCard({
             </div>
           )) ?? []}
         </div>
-        <div className="h-12" />
+        <div className="grow" />
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer"
+          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={toggleShowDetails}
         >
           READ MORE
           <PlusIcon className="size-4 ml-2" />
         </div>
       </div>
-      <div className="bg-white flex flex-col rounded-xl p-6 max-w-60 text-grey-90 font-medium h-full">
+      <div className="bg-white flex flex-col rounded-xl p-6 text-grey-90 font-medium h-full w-full">
         <a href="https://www.google.com" target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4" />
         </a>
+
         <img
-          src={(details.fields.logo as any)?.fields?.file?.url}
+          src={(details.fields.logoColour as any)?.fields?.file?.url}
           className="mb-2 w-1/4"
         />
         <h1 className="text-lg my-2">{details.fields.name.toString()}</h1>
@@ -60,7 +77,7 @@ export default function PortfolioCard({
         </p>
         <div className="grow" />
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer"
+          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={toggleShowDetails}
         >
           CLOSE

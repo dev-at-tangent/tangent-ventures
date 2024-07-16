@@ -27,7 +27,7 @@ export default function EndorsementCard({
     },
   };
   return (
-    <div className="flex items-start bg-white rounded-xl p-12 max-w-xl group">
+    <div className="flex items-start bg-white rounded-xl p-12 max-w-xl group min-h-[45vh]">
       <img
         src={(
           details.fields.projectLogo as unknown as Asset
@@ -40,12 +40,12 @@ export default function EndorsementCard({
         )?.fields?.file?.url?.toString()}
         className="hidden group-hover:block"
       />
-      <div className="flex flex-col ml-12">
+      <div className="flex flex-col ml-12 h-full">
         {documentToReactComponents(
           details.fields.quote as unknown as Document,
           options
         )}
-
+        <div className="grow" />
         <div className="flex items-center mt-12">
           <img
             src={(

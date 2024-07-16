@@ -2,7 +2,6 @@ import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Balloon from "../assets/balloon.png";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS, type Document } from "@contentful/rich-text-types";
 
@@ -60,15 +59,14 @@ export default function ThesisSection({
       ),
     },
   };
-
   return (
     <div className="flex flex-col items-center text-lg">
-      <img src={Balloon.src} alt="balloon" className="w-1/2" />
+      <img src={image} alt="balloon" className="w-1/2" />
 
       <h1 ref={triggerRef} className="text-5xl">
         {title}
       </h1>
-      <div className="w-1/2 text-center">
+      <div className="w-1/2 text-center mt-12">
         {documentToReactComponents(content, options)}
       </div>
     </div>

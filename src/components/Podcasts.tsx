@@ -5,19 +5,24 @@ import type { Podcast } from "../pages/media.astro";
 
 export default function Podcasts({
   podcasts,
+  searchKeyword,
 }: {
   podcasts: Entry<Podcast>[];
+  searchKeyword: string;
 }) {
+  const startIndex = searchKeyword === "" ? 1 : 0;
   return (
-    <div>
-      <FeaturedVideo details={podcasts[0]} />
-      <div className="grid grid-cols-3 mt-8 gap-8">
-        {
-          podcasts.slice(1, podcasts.length).map((podcast) => (
-            <PodcastCard key={podcast.fields.title.toString()} details={podcast} />
-          ))
-        }
+    <div className="w-full">
+      {searchKeyword === "" && <FeaturedVideo details={podcasts[0]} />}
+      <div className="grid grid-cols-3 mt-8 gap-8 w-full">
+        {podcasts.slice(startIndex, podcasts.length).map((podcast) => (
+          <PodcastCard
+            key={podcast.fields.title.toString()}
+            details={podcast}
+          />
+        ))}
       </div>
+      {podcasts.length===0 && <div className="w-full">No podcasts found.</div>}
     </div>
   );
 }

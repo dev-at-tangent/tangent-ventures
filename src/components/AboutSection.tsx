@@ -4,8 +4,14 @@ import { useGSAP } from "@gsap/react";
 
 import StatCard from "./StatCard";
 import ScrambleText from "./ScrambleText";
+import type { Entry } from "contentful";
+import type { AboutStats } from "../pages/about.astro";
 
-export default function AboutSection() {
+export default function AboutSection({
+  aboutStats,
+}: {
+  aboutStats: Entry<AboutStats>[];
+}) {
   const ref = useRef(null);
   const lineRef = useRef(null);
 
@@ -42,9 +48,9 @@ export default function AboutSection() {
         </span>
       </div>
       <div className="grid grid-cols-3 gap-x-10 w-full  mt-12">
-        <StatCard delay={2} />
-        <StatCard delay={3} />
-        <StatCard delay={4} />
+        {aboutStats.map((stat, idx) => (
+          <StatCard key={stat.sys.id} details={stat} delay={2 + idx} />
+        ))}
       </div>
       <hr ref={lineRef} className="w-full mt-16 border-grey-40" />
     </div>
