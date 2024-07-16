@@ -5,6 +5,7 @@ export default {
     extend: {
       screens: {
         desktop: "1200px",
+        hd: "1600px",
         uhd: "2000px",
       },
       colors: {
