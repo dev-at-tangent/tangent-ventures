@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function FilterBar({
   filters,
   selectedFilter,
@@ -10,7 +8,7 @@ export default function FilterBar({
   setSelectedFilter: (filter: string) => void;
 }) {
   return (
-    <div className="flex gap-2 text-sm font-semibold text-grey-80">
+    <div className="flex flex-wrap justify-center gap-2 text-sm font-semibold text-grey-80">
       {filters.map((filter) => (
         <div
           key={filter}

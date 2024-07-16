@@ -65,7 +65,7 @@ export default function MediaSection({
   return (
     <div ref={ref} className="w-[75vw] max-w-7xl">
       <MediaTabs tab={tab} setTab={setTab} />
-      <div className="flex items-center w-full mt-12 gap-x-6 text-lg">
+      <div className="flex flex-col desktop:flex-row items-center w-full mt-12 gap-6 text-lg">
         Categories:
         <FilterBar
           filters={tab === "PODCASTS" ? podcastFilters : articleFilters}

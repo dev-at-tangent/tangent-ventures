@@ -6,7 +6,7 @@ export default function PodcastCard({ details }: { details: Entry<Podcast> }) {
   return (
     <a
       href={details.fields.link.toString()}
-      className="group flex flex-col p-8 rounded-xl text-grey-80 bg-white gap-y-4"
+      className="group flex flex-col p-4 desktop:p-8 rounded-xl text-grey-80 bg-white gap-y-4"
     >
       <img
         src={(
@@ -15,9 +15,9 @@ export default function PodcastCard({ details }: { details: Entry<Podcast> }) {
         alt="thumbnail"
         className="w-full"
       />
-      <div className="flex items-end justify-between w-full">
-        <span>{details.fields.date.toString()}</span>
-        <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-sm px-4">
+      <div className="flex items-center desktop:items-end justify-between w-full">
+        <span className="text-sm desktop:text-base">{details.fields.date.toString()}</span>
+        <div className="flex items-center justify-center border border-grey-60 text-grey-60  font-medium rounded-full text-xs desktop:text-sm text-center px-4">
           {details.fields.tags.toString()}
         </div>
       </div>

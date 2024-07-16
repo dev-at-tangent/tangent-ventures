@@ -8,7 +8,7 @@ export default function SearchBar({
   setInput: (input: string) => void;
 }) {
   return (
-    <div className="w-1/4 flex items-center">
+    <div className="w-full desktop:w-1/4 flex items-center">
       <input
         placeholder="Search"
         value={input}

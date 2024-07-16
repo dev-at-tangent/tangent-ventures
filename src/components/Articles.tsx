@@ -14,13 +14,13 @@ export default function Articles({
   return (
     <div className="flex flex-col gap-y-8 mt-20">
       {searchKeyword === "" && (
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid desktop:grid-cols-2 gap-8">
           {articles.slice(0, 2).map((article) => (
             <ArticleCard article={article} />
           ))}
         </div>
       )}
-      <div className="grid grid-cols-3 gap-8 mt-8">
+      <div className="grid desktop:grid-cols-3 gap-8 mt-8">
         {articles.slice(startIndex, articles.length).map((article) => (
           <ArticleCard article={article} />
         ))}
