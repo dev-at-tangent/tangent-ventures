@@ -38,7 +38,7 @@ export default function TeamSection({
         charsPerGroup={5}
       />
 
-      <div ref={ref} className="flex flex-col items-center gap-y-12">
+      <div className="flex flex-col items-center gap-y-12">
         <span className="md:w-2/5 text-center text-grey-80">
           We are a collective of experienced operators and founders behind some
           of the largest projects and protocols in Web3.

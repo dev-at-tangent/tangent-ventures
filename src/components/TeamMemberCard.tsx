@@ -19,11 +19,15 @@ const TeamMemberCard = ({
     setShowDetails((prev) => !prev);
   };
   return (
-    <div className="max-w-sm h-full">
+    <div
+      className={`w-80 ${
+        isHighlighted ? "h-[500px] desktop:h-[550px]" : "h-[500px]"
+      }`}
+    >
       <ReactCardFlip
         isFlipped={showDetails}
         flipDirection="horizontal"
-        containerClassName={isHighlighted ? "h-[500px] desktop:h-[550px]" : "h-[500px]"}
+        containerClassName="h-full"
       >
         <div className="p-4 bg-turq rounded-xl flex flex-col h-full">
           <img
@@ -51,11 +55,7 @@ const TeamMemberCard = ({
           </div>
         </div>
         <div className="p-4 bg-white rounded-xl flex flex-col h-full">
-          <p
-            className={`text-grey-80 text-sm whitespace-pre-wrap sm:text-base ${
-              !isHighlighted && "sm:text-sm"
-            }`}
-          >
+          <p className={`text-grey-80 text-sm whitespace-pre-wrap`}>
             {details.fields.bio.toString()}
           </p>
           <div className="grow bg-red-400" />

@@ -21,7 +21,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
   return (
     <>
       <div className="hidden desktop:block sticky z-10 top-4 w-full">
-        <div className="mx-20 flex items-center justify-evenly text-sm font-medium gap-x-1 rounded-full backdrop-blur-lg bg-white/60 px-4 py-2">
+        <div className="mx-20 flex items-center justify-evenly text-sm font-medium gap-x-1 rounded-full backdrop-blur-lg bg-white/60 px-4 py-3">
           <a href="/">
             <img src={Logo.src} />
           </a>
