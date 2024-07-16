@@ -20,11 +20,11 @@ export default function ContactBody() {
   );
   return (
     <div ref={ref} className="flex flex-col gap-y-8">
-      <p className="text-lg ">
+      <p className="text-lg text-center lg:text-left">
         We are a collective of experienced operators and founders behind some of
         the largest projects and protocols in Web3.
       </p>
-      <div className="flex items-center gap-x-8">
+      <div className="flex items-center justify-center lg:justify-start gap-x-8">
         <XIcon className="w-6" />
         <TeleIcon />
       </div>

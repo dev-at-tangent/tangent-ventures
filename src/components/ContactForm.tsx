@@ -126,7 +126,10 @@ export default function ContactForm() {
     { scope: ref }
   );
   return (
-    <div ref={ref}>
+    <div
+      ref={ref}
+      className="flex flex-col items-center mt-12 lg:mt-0 lg:items-start"
+    >
       I'm interested in...
       <div className="flex flex-col gap-y-8">
         <TopicSelector
@@ -215,7 +218,7 @@ export default function ContactForm() {
         <button
           onClick={submitFormHandler}
           disabled={loading || submitted}
-          className={`rounded-full w-1/3 h-12 flex justify-center items-center text-sm font-medium self-end ${
+          className={`rounded-full w-full sm:w-2/5 h-12 flex justify-center items-center text-sm font-medium self-end ${
             loading || submitted ? "bg-white" : "bg-turq"
           }`}
         >

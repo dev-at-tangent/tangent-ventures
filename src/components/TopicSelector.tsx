@@ -14,7 +14,7 @@ export default function TopicSelector({
       {topics.map((topic) => (
         <div
           key={topic}
-          className={`inline-block outline outline-1  rounded-full py-3 px-6 cursor-pointer ${
+          className={`w-full lg:w-fit inline-block text-center outline outline-1  rounded-full py-3 px-6 cursor-pointer ${
             selected === topic && "bg-turq outline-none"
           } `}
           onClick={() => setSelected(topic)}
