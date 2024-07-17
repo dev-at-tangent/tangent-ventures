@@ -35,6 +35,7 @@ export default function PodcastCard({ details }: { details: Entry<Podcast> }) {
       <h1 className="text-2xl font-semibold text-black">
         {details.fields.title.toString()}
       </h1>
+      <div className="grow" />
       <div className="flex mt-8 font-semibold items-center text-sm group-hover:underline underline-offset-8">
         WATCH ON YOUTUBE
         <ArrowTopRightOnSquareIcon className="size-5 ml-2" />
