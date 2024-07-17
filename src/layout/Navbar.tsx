@@ -15,9 +15,6 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
 
   const [openMenu, setOpenMenu] = useState(false);
 
-  useEffect(() => {
-    console.log(openMenu);
-  }, [openMenu]);
   return (
     <>
       <div className="hidden desktop:block sticky z-10 top-4 w-full">
@@ -32,7 +29,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
               key={link.name}
               href={link.path}
               className={`relative inline-block overflow-hidden group rounded-full py-2 hover:bg-turq ${
-                currentPath === link.name && "bg-grey-40"
+                currentPath === link.name.toLowerCase() && "bg-grey-40"
               }`}
             >
               <span className="inline-block mx-6 translate-y-8 transition-all group-hover:translate-y-0">
@@ -77,12 +74,16 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
         </div>
       </div>
       <div
-        className={`fixed flex flex-col gap-6 z-20 h-screen w-screen pt-24 px-8 bg-grey-40 transition-transform ${
+        className={`fixed flex flex-col gap-6 z-20 h-screen w-screen pt-24 px-8 bg-grey-20 transition-transform ${
           openMenu ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         {links.map((link) => (
-          <a className="text-grey-80 font-semibold text-3xl" href={link.path}>
+          <a
+            key={link.name}
+            className="text-grey-80 font-semibold text-3xl"
+            href={link.path}
+          >
             {link.name}
           </a>
         ))}

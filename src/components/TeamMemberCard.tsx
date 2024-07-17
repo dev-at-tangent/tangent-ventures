@@ -20,8 +20,8 @@ const TeamMemberCard = ({
   };
   return (
     <div
-      className={`w-80 ${
-        isHighlighted ? "h-[500px] desktop:h-[550px]" : "h-[500px]"
+      className={` ${
+        isHighlighted ? "h-[500px] w-80 lg:w-96 lg:h-[550px]" : "w-80 h-[500px]"
       }`}
     >
       <ReactCardFlip

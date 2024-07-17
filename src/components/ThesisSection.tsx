@@ -4,6 +4,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS, type Document } from "@contentful/rich-text-types";
+import { useScramble } from "use-scramble";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,17 +17,23 @@ export default function ThesisSection({
   content: Document;
   image: string;
 }) {
-  const ref = useRef(null);
+  const highlightRef = useRef(null);
   const triggerRef = useRef(null);
+
+  const { ref, replay } = useScramble({
+    text: title,
+  });
   useGSAP(
     () => {
-      gsap.to(ref.current, {
+      gsap.to(highlightRef.current, {
         backgroundPosition: "-99.99% 0",
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top 60%",
           end: "bottom 60%",
           scrub: true,
+          markers: true,
+          onEnter: () => replay(),
         },
       });
     },
@@ -46,7 +53,7 @@ export default function ThesisSection({
     renderMark: {
       [MARKS.CODE]: (text: React.ReactNode) => (
         <span
-          ref={ref}
+          ref={highlightRef}
           className="font-bold bg-gradient-to-r from-transparent from-50% via-transparent via-50% to-turq to-50%
           bg-[-0%_0]
           bg-[length:200%_auto]
@@ -64,7 +71,7 @@ export default function ThesisSection({
       <img src={image} alt="balloon" className="desktop:w-1/2" />
 
       <h1 ref={triggerRef} className="text-3xl text-center desktop:text-5xl">
-        {title}
+        <span ref={ref} />
       </h1>
       <div className="desktop:w-1/2 text-center mt-12">
         {documentToReactComponents(content, options)}

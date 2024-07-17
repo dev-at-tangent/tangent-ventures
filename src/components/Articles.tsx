@@ -20,7 +20,7 @@ export default function Articles({
           ))}
         </div>
       )}
-      <div className="grid desktop:grid-cols-3 gap-8 mt-8">
+      <div className="grid desktop:grid-cols-3 gap-8 desktop:mt-8">
         {articles.slice(startIndex, articles.length).map((article) => (
           <ArticleCard article={article} />
         ))}

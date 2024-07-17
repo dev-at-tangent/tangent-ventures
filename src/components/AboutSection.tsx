@@ -20,13 +20,13 @@ export default function AboutSection({
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 2,
+        delay: 1,
         ease: "power2.out",
       });
       gsap.from(lineRef.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 4,
+        delay: 3,
         ease: "power2.out",
       });
     },
@@ -41,6 +41,7 @@ export default function AboutSection({
           finalText="THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER"
           className="text-3xl md:text-5xl font-medium"
           charsPerGroup={5}
+          duration={1}
         />
         <span ref={ref} className="text-grey-80">
           Tangent is an evergreen angel fund uniquely built for founders in
@@ -49,7 +50,7 @@ export default function AboutSection({
       </div>
       <div className="grid md:grid-cols-3 gap-10 w-full  mt-12">
         {aboutStats.map((stat, idx) => (
-          <StatCard key={stat.sys.id} details={stat} delay={2 + idx} />
+          <StatCard key={stat.sys.id} details={stat} delay={1 + idx} />
         ))}
       </div>
       <hr ref={lineRef} className="w-full mt-16 border-grey-40" />

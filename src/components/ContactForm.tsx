@@ -30,22 +30,21 @@ export default function ContactForm() {
   const submitFormHandler = async () => {
     if (!name) {
       setNameError(true);
-      return;
     }
     if (!email) {
       setEmailError(true);
-      return;
     }
     if (!twitter) {
       setTwitterError(true);
-      return;
     }
     if (!telegram) {
       setTelegramError(true);
-      return;
     }
     if (!message) {
       setMessageError(true);
+    }
+
+    if (!name || !email || !twitter || !telegram || !message) {
       return;
     }
 
@@ -126,10 +125,7 @@ export default function ContactForm() {
     { scope: ref }
   );
   return (
-    <div
-      ref={ref}
-      className="flex flex-col items-center mt-12 lg:mt-0 lg:items-start"
-    >
+    <div className="flex flex-col items-center mt-12 lg:mt-0 lg:items-start">
       I'm interested in...
       <div className="flex flex-col gap-y-8">
         <TopicSelector
@@ -218,9 +214,9 @@ export default function ContactForm() {
         <button
           onClick={submitFormHandler}
           disabled={loading || submitted}
-          className={`rounded-full w-full sm:w-2/5 h-12 flex justify-center items-center text-sm font-medium self-end ${
+          className={`group rounded-full w-full sm:w-2/5 h-12 flex justify-center items-center text-sm font-medium self-end ${
             loading || submitted ? "bg-white" : "bg-turq"
-          }`}
+          } ${!loading && !submitted && "hover:bg-black"}`}
         >
           {loading ? (
             <div className="flex items-center gap-3">
@@ -234,7 +230,14 @@ export default function ContactForm() {
           ) : submitted ? (
             "SUBMITTED"
           ) : (
-            "SUBMIT"
+            <div className="relative overflow-hidden">
+              <span className="inline-block mx-6 translate-y-8 text-white transition-all group-hover:translate-y-0">
+                SUBMIT
+              </span>
+              <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">
+                SUBMIT
+              </span>
+            </div>
           )}
         </button>
       </div>

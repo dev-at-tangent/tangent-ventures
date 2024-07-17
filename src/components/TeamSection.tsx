@@ -21,7 +21,7 @@ export default function TeamSection({
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 6,
+        delay: 4,
         ease: "power2.out",
       });
     },
@@ -29,12 +29,12 @@ export default function TeamSection({
   );
 
   return (
-    <div className="flex flex-col items-center gap-y-12">
+    <div ref={ref} className="flex flex-col items-center gap-y-12">
       <ScrambleText
         finalText="MEET OUR TEAM"
         className="text-3xl md:text-5xl font-medium mt-16"
-        delay={5}
-        duration={1}
+        delay={3}
+        duration={1.5}
         charsPerGroup={5}
       />
 
@@ -43,12 +43,12 @@ export default function TeamSection({
           We are a collective of experienced operators and founders behind some
           of the largest projects and protocols in Web3.
         </span>
-        <div className="grid desktop:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12">
           {highlightedMembers.map((member) => (
             <TeamMemberCard key={member.sys.id} isHighlighted={true} details={member} />
           ))}
         </div>
-        <div className="grid desktop:grid-cols-3 gap-12 desktop:w-11/12 ">
+        <div className="grid lg:grid-cols-3 gap-12 lg:w-11/12 ">
           {members.map((member) => (
             <TeamMemberCard key={member.sys.id} isHighlighted={false} details={member} />
           ))}

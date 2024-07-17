@@ -15,9 +15,9 @@ export default function PodcastCard({ details }: { details: Entry<Podcast> }) {
         alt="thumbnail"
         className="w-full"
       />
-      <div className="flex items-center desktop:items-end justify-between w-full">
+      <div className="flex items-center justify-between w-full">
         <span className="text-sm desktop:text-base">{details.fields.date.toString()}</span>
-        <div className="flex items-center justify-center border border-grey-60 text-grey-60  font-medium rounded-full text-xs desktop:text-sm text-center px-4">
+        <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-xs desktop:text-sm text-center px-4 py-1">
           {details.fields.tags.toString()}
         </div>
       </div>
