@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
@@ -15,6 +15,7 @@ export default function TeamSection({
   members: Entry<TeamMember>[];
 }) {
   const ref = useRef(null);
+  const [selected, setSelected] = useState("");
 
   useGSAP(
     () => {
@@ -45,12 +46,24 @@ export default function TeamSection({
         </span>
         <div className="grid lg:grid-cols-2 gap-12">
           {highlightedMembers.map((member) => (
-            <TeamMemberCard key={member.sys.id} isHighlighted={true} details={member} />
+            <TeamMemberCard
+              key={member.sys.id}
+              isHighlighted={true}
+              details={member}
+              selected={selected}
+              setSelected={setSelected}
+            />
           ))}
         </div>
         <div className="grid lg:grid-cols-3 gap-12 lg:w-11/12 ">
           {members.map((member) => (
-            <TeamMemberCard key={member.sys.id} isHighlighted={false} details={member} />
+            <TeamMemberCard
+              key={member.sys.id}
+              isHighlighted={false}
+              details={member}
+              selected={selected}
+              setSelected={setSelected}
+            />
           ))}
         </div>
       </div>

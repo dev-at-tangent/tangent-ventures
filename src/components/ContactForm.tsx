@@ -125,7 +125,7 @@ export default function ContactForm() {
     { scope: ref }
   );
   return (
-    <div className="flex flex-col items-center mt-12 lg:mt-0 lg:items-start">
+    <div ref={ref} className="flex flex-col items-center mt-12 lg:mt-0 lg:items-start">
       I'm interested in...
       <div className="flex flex-col gap-y-8">
         <TopicSelector

@@ -30,6 +30,8 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
 
 <Layout>
   <div class="flex flex-col items-center">
+    <span class="text-turq font-semibold mb-8 desktop:hidden">PORTFOLIO</span>
+
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
 
     <div class="gap-y-6 text-center flex flex-col items-center">

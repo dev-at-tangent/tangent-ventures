@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   ArrowTopRightOnSquareIcon,
   PlusIcon,
@@ -11,12 +10,16 @@ import { useScramble } from "use-scramble";
 
 export default function PortfolioCard({
   details,
+  selected,
+  setSelected,
 }: {
   details: Entry<PortfolioItem>;
+  selected: string;
+  setSelected: (selected: string) => void;
 }) {
-  const [showDetails, setShowDetails] = useState(false);
+
   const toggleShowDetails = () => {
-    setShowDetails((prev) => !prev);
+    setSelected(details.fields.name.toString());
   };
 
   const { ref, replay } = useScramble({
@@ -26,12 +29,12 @@ export default function PortfolioCard({
   });
   return (
     <ReactCardFlip
-      isFlipped={showDetails}
+      isFlipped={selected === details.fields.name.toString()}
       flipDirection="horizontal"
-      containerClassName="h-[60vh] desktop:h-[40vh] max-h-[400px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md"
+      containerClassName="h-[45vh] md:h-[35vh] max-h-[400px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md "
     >
       <div
-        className="bg-white flex flex-col rounded-xl p-6  text-grey-90 font-medium h-full w-full group "
+        className="bg-white/70 rounded-xl backdrop-blur-sm flex flex-col  p-6  text-grey-90 font-medium h-full w-full group hover:bg-white"
         onMouseOver={replay}
       >
         <img
@@ -43,7 +46,9 @@ export default function PortfolioCard({
           className="mb-4 w-1/3 desktop:hidden group-hover:block"
         />
         <span ref={ref} className="hidden desktop:flex" />
-        <span className="font-semibold text-lg desktop:hidden">{details.fields.name.toString()}</span>
+        <span className="font-semibold text-lg desktop:hidden">
+          {details.fields.name.toString()}
+        </span>
         <div className="flex-wrap mt-2">
           {(details.fields.tags as unknown as string[])?.map((tag: string) => (
             <div
@@ -65,21 +70,23 @@ export default function PortfolioCard({
       </div>
       <div className="bg-white flex flex-col rounded-xl p-6 text-grey-90 font-medium h-full w-full">
         <a href="https://www.google.com" target="_blank">
-          <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4" />
+          <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
 
         <img
           src={(details.fields.logoColour as any)?.fields?.file?.url}
           className="mb-2 w-1/4"
         />
-        <h1 className="text-lg font-semibold my-2">{details.fields.name.toString()}</h1>
+        <h1 className="text-lg font-semibold my-2">
+          {details.fields.name.toString()}
+        </h1>
         <p className="text-sm font-normal">
           {details.fields.description.toString()}
         </p>
         <div className="grow" />
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white hover:outline-none"
-          onClick={toggleShowDetails}
+          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white  hover:outline-none"
+          onClick={() => setSelected("")}
         >
           CLOSE
           <XMarkIcon className="size-4 ml-2" />

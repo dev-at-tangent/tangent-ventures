@@ -40,6 +40,8 @@ const header = await contentfulClient.getEntries<ThesisHeaderContent>({
 <Layout>
   <div class="flex flex-col items-center">
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
+    <span class="text-turq font-semibold desktop:hidden">THESIS</span>
+
     <ThesisHeader content={header.items[0]} client:only="react" />
     {
       entries.items.map((entry: any) => (

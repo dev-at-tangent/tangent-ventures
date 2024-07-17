@@ -16,14 +16,14 @@ export default function EndorsementContent({
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 2,
+        delay: 1,
         ease: "power2.out",
       });
     },
     { scope: ref }
   );
   return (
-    <div ref={ref} className="grid desktop:grid-cols-2 gap-8 mt-20">
+    <div ref={ref} className="grid desktop:grid-cols-2 gap-8 mt-12 sm:mt-20">
       {endorsements.map((endorsement) => (
         <EndorsementCard key={endorsement.sys.id} details={endorsement} />
       ))}

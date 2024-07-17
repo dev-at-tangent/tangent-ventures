@@ -9,15 +9,20 @@ import type { TeamMember } from "../pages/about.astro";
 const TeamMemberCard = ({
   details,
   isHighlighted,
+  selected,
+  setSelected,
 }: {
   details: Entry<TeamMember>;
   isHighlighted: Boolean;
+  selected: string;
+  setSelected: (selected: string) => void;
 }) => {
-  const [showDetails, setShowDetails] = useState(false);
+  // const [showDetails, setShowDetails] = useState(false);
 
   const toggleShowDetails = () => {
-    setShowDetails((prev) => !prev);
+    setSelected(details.fields.name.toString());
   };
+
   return (
     <div
       className={` ${
@@ -25,7 +30,7 @@ const TeamMemberCard = ({
       }`}
     >
       <ReactCardFlip
-        isFlipped={showDetails}
+        isFlipped={selected === details.fields.name.toString()}
         flipDirection="horizontal"
         containerClassName="h-full"
       >
@@ -71,7 +76,7 @@ const TeamMemberCard = ({
             <div className="grow" />
             <div
               className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer transition-colors duration-500 hover:bg-black hover:text-white hover:outline-none"
-              onClick={toggleShowDetails}
+              onClick={() => setSelected("")}
             >
               CLOSE BIO
               <XMarkIcon className="size-6 ml-2" />
