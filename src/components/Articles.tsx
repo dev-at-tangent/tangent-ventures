@@ -33,7 +33,7 @@ export default function Articles({
       )}
       <div className="grid desktop:grid-cols-3 gap-8 desktop:mt-8">
         {sortedArticles.map((article) => (
-          <ArticleCard article={article} />
+          <ArticleCard key={article.fields.title.toString()} article={article} />
         ))}
       </div>
       {articles.length === 0 && (

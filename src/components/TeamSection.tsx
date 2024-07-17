@@ -29,8 +29,6 @@ export default function TeamSection({
     { scope: ref }
   );
 
-  console.log(highlightedMembers)
-
   return (
     <div ref={ref} className="flex flex-col items-center gap-y-12">
       <ScrambleText
@@ -57,7 +55,7 @@ export default function TeamSection({
             />
           ))}
         </div>
-        <div className="grid lg:grid-cols-3 gap-12 lg:w-11/12 ">
+        <div className="grid lg:grid-cols-3 gap-12  ">
           {members.map((member) => (
             <TeamMemberCard
               key={member.sys.id}

@@ -19,12 +19,21 @@ export default function ThesisSection({
 }) {
   const highlightRef = useRef(null);
   const triggerRef = useRef(null);
+  const containerRef = useRef(null);
 
   const { ref, replay } = useScramble({
     text: title,
   });
   useGSAP(
     () => {
+      gsap.from(containerRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 1,
+        ease: "power3.out",
+      });
+
       gsap.to(highlightRef.current, {
         backgroundPosition: "-99.99% 0",
         scrollTrigger: {
@@ -67,7 +76,7 @@ export default function ThesisSection({
     },
   };
   return (
-    <div className="flex flex-col items-center text-lg">
+    <div ref={containerRef} className="flex flex-col items-center text-lg">
       <img src={image} alt="balloon" className="desktop:w-1/2" />
 
       <h1 ref={triggerRef} className="text-3xl text-center desktop:text-5xl">

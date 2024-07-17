@@ -26,7 +26,7 @@ const TeamMemberCard = ({
   return (
     <div
       className={` ${
-        isHighlighted ? "h-[500px] w-80 lg:w-96 lg:h-[550px]" : "w-80 h-[500px]"
+        isHighlighted ? "h-[500px] w-80 lg:w-96 lg:h-[550px]" : "w-80 h-[475px]"
       }`}
     >
       <ReactCardFlip
@@ -41,15 +41,21 @@ const TeamMemberCard = ({
             )?.fields?.file?.url?.toString()}
           />
           <div className="grow" />
-          <span className="my-2">{details.fields.title.toString()}</span>
-          <h1 className="text-3xl font-semibold mb-8">
+          <span className={`my-2 ${isHighlighted && "text-lg"}`}>
+            {details.fields.title.toString()}
+          </span>
+          <h1
+            className={`font-semibold mb-8 text-2xl ${
+              isHighlighted && "text-3xl"
+            }`}
+          >
             {details.fields.name.toString()}
           </h1>
           <div className="flex items-center">
             <a href={details.fields.twitterLink.toString()} target="_blank">
               <XIcon className="w-6" />
             </a>
-            <div className="grow" />
+            <div className="grow " />
             <div
               className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer transition-colors duration-500 hover:bg-black hover:text-white hover:outline-none"
               onClick={toggleShowDetails}
@@ -64,8 +70,15 @@ const TeamMemberCard = ({
             {details.fields.bio.toString()}
           </p>
           <div className="grow bg-red-400" />
-          <span className="my-2">{details.fields.title.toString()}</span>
-          <h1 className="text-3xl font-semibold mb-8">
+          <span className={`my-2 ${isHighlighted && "text-lg"}`}>
+            {details.fields.title.toString()}
+          </span>
+
+          <h1
+            className={`font-semibold mb-8 text-2xl ${
+              isHighlighted && "text-3xl"
+            }`}
+          >
             {details.fields.name.toString()}
           </h1>
 

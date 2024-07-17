@@ -41,7 +41,7 @@ export default function AboutSection({
       <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ width: '100vw', left: '50%', transform: 'translateX(-50%)' }}>
         <Lottie
           animationData={leftCloud}
-          className="absolute -left-96 desktop:-left-48 top-0 scale-50 desktop:scale-100 uhd:scale-125"
+          className="absolute -left-96 desktop:-left-48 top-20 scale-50 desktop:top-10 desktop:scale-75 uhd:scale-125"
         />
         <Lottie
           animationData={rightCloud}

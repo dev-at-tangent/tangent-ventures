@@ -1,16 +1,37 @@
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/gsap-core";
 import Lottie from "lottie-react";
-import data from "../assets/lotties/thesis.json";
+import data from "../assets/lotties/thesis-holo.json";
 import type { Entry } from "contentful";
 import type { ThesisHeaderContent } from "../pages/thesis.astro";
-import mobiledata from "../assets/lotties/thesis-mobile.json";
+import mobiledata from "../assets/lotties/thesis-holo-mobile.json";
 
 export default function ThesisHeader({
   content,
 }: {
   content: Entry<ThesisHeaderContent>;
 }) {
+  const ref = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(ref.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0,
+        ease: "power3.out",
+      });
+    },
+    { scope: ref }
+  );
+
   return (
-    <div className="flex items-center justify-center -mx-8 overflow-hidden h-[50vh] ">
+    <div
+      ref={ref}
+      className="flex items-center justify-center -mx-8 mt-6 overflow-hidden h-[50vh] "
+    >
       <Lottie
         animationData={data}
         className="hidden scale-[2] h-full sm:flex sm:scale-100"
@@ -20,7 +41,7 @@ export default function ThesisHeader({
         className="h-full scale-125 sm:hidden"
       ></Lottie>
 
-      <p className="absolute mt-10 text-sm md:text-base text-center mx-8 sm:w-1/2 z-10 text-grey-80 font-semibold">
+      <p className="absolute text-sm md:text-base text-center mx-8 sm:w-1/2 z-10 text-grey-80 font-semibold">
         {content.fields.content.toString()}
       </p>
     </div>

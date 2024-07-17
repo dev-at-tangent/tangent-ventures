@@ -8,7 +8,7 @@ const currentPath = pathname.replaceAll("/", "");
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,7 +17,14 @@ const currentPath = pathname.replaceAll("/", "");
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Astro</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Tangent</title>
   </head>
   <body
     class={`flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none ${currentPath === "" ? "bg-[url('/bg.png')] bg-cover bg-scroll" : "bg-grey-20"}`}
@@ -28,8 +35,7 @@ const currentPath = pathname.replaceAll("/", "");
     </main>
     <div class="grow"></div>
     <Footer />
-    <footer class="self-stretch">
-    </footer>
+    <footer class="self-stretch"></footer>
   </body>
 </html>
 

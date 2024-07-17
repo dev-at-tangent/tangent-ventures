@@ -1,12 +1,13 @@
 import Lottie from "lottie-react";
 
-import data3 from "../assets/lotties/holo.json";
+import holo from "../assets/lotties/home-holo.json";
+import holoMobile from "../assets/lotties/home-holo-mobile.json";
 
 export default function ReactComponent() {
   return (
-    <div className="relative">
-      <Lottie animationData={data3} />
-
+    <div className="relative overflow-hidden -mx-6">
+      <Lottie animationData={holo} className="hidden sm:flex" />
+      <Lottie animationData={holoMobile} className="sm:hidden" />
     </div>
   );
 }
