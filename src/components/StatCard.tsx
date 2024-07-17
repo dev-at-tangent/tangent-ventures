@@ -30,7 +30,7 @@ export default function StatCard({
   return (
     <div
       ref={cardRef}
-      className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 flex flex-col min-h-[30vh] uhd:min-h-[20vh]"
+      className="bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col min-h-[30vh] uhd:min-h-[20vh]"
     >
       <span className="text-lg"> {details.fields.descriptor.toString()} </span>
       <ScrambleText

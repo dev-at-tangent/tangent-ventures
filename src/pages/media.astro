@@ -17,7 +17,7 @@ export interface Article {
     tags: EntryFieldTypes.Text[];
     description: EntryFieldTypes.Text;
     link: EntryFieldTypes.Text;
-    featured: EntryFieldTypes.Boolean;
+    highlighted: EntryFieldTypes.Boolean;
     rank: EntryFieldTypes.Number;
   };
 }
@@ -36,15 +36,32 @@ export interface Podcast {
   };
 }
 
-const articleEntries = await contentfulClient.getEntries<Article>({
+const featuredArticles = await contentfulClient.getEntries<Article>({
   content_type: "article",
+  "fields.highlighted": true,
+  order: ["fields.rank"],
+});
+
+const regularArticles = await contentfulClient.getEntries<Article>({
+  content_type: "article",
+  "fields.highlighted": false,
   order: ["fields.date"],
 });
 
-const podcastEntries = await contentfulClient.getEntries<Podcast>({
+const featuredPodcasts = await contentfulClient.getEntries<Podcast>({
   content_type: "podcast",
+  "fields.featured": true,
+  order: ["fields.rank"],
+});
+
+const regularPodcasts = await contentfulClient.getEntries<Podcast>({
+  content_type: "podcast",
+  "fields.featured": false,
   order: ["fields.date"],
 });
+
+const podcasts = featuredPodcasts.items.concat(regularPodcasts.items);
+const articles = featuredArticles.items.concat(regularArticles.items);
 ---
 
 <Layout>
@@ -54,7 +71,6 @@ const podcastEntries = await contentfulClient.getEntries<Podcast>({
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
 
     <div class="gap-y-6 text-center flex flex-col items-center desktop:w-3/5">
-
       <ScrambleText
         finalText="CHECK OUT THE LATEST MUSINGS AND EXPLORATIONS"
         className="text-3xl sm:text-5xl font-medium"
@@ -64,8 +80,8 @@ const podcastEntries = await contentfulClient.getEntries<Podcast>({
     </div>
     <MediaSection
       client:only="react"
-      articles={articleEntries.items}
-      podcasts={podcastEntries.items}
+      articles={articles}
+      podcasts={podcasts}
     />
   </div>
 </Layout>

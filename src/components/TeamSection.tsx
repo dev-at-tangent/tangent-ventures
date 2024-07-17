@@ -29,6 +29,8 @@ export default function TeamSection({
     { scope: ref }
   );
 
+  console.log(highlightedMembers)
+
   return (
     <div ref={ref} className="flex flex-col items-center gap-y-12">
       <ScrambleText

@@ -12,7 +12,7 @@ export default function MediaTabs({
       <div
         className={`${
           tab === "PODCASTS" &&
-          "text-black underline underline-offset-8 decoration-2"
+          "text-black underline underline-offset-8 decoration-2 cursor-pointer"
         }`}
         onClick={() => setTab("PODCASTS")}
       >
@@ -22,7 +22,7 @@ export default function MediaTabs({
       <div
         className={`${
           tab === "ARTICLES" &&
-          "text-black underline underline-offset-8 decoration-2"
+          "text-black underline underline-offset-8 decoration-2 cursor-pointer"
         } `}
         onClick={() => setTab("ARTICLES")}
       >

@@ -3,10 +3,19 @@ import type { Entry, Asset } from "contentful";
 import type { Podcast } from "../pages/media.astro";
 
 export default function PodcastCard({ details }: { details: Entry<Podcast> }) {
+  const formatDate = (date: string) => {
+    return new Date(date)
+      .toDateString()
+      .split(" ")
+      .slice(1)
+      .join(" ")
+      .replace(/(\w+\s\d+)\s(\d+)/, "$1, $2");
+  };
+
   return (
     <a
       href={details.fields.link.toString()}
-      className="group flex flex-col p-4 desktop:p-8 rounded-xl text-grey-80 bg-white gap-y-4"
+      className="group flex flex-col p-4 desktop:p-8 rounded-xl text-grey-80 bg-white/70 backdrop-blur-sm gap-y-4 drop-shadow-md transition-colors hover:bg-white"
     >
       <img
         src={(
@@ -16,8 +25,10 @@ export default function PodcastCard({ details }: { details: Entry<Podcast> }) {
         className="w-full"
       />
       <div className="flex items-center justify-between w-full">
-        <span className="text-sm desktop:text-base">{details.fields.date.toString()}</span>
-        <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-xs desktop:text-sm text-center px-4 py-1">
+        <span className="text-sm desktop:text-base">
+          {formatDate(details.fields.date.toString())}
+        </span>
+        <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-xs desktop:text-sm text-center px-4 py-1 ">
           {details.fields.tags.toString()}
         </div>
       </div>

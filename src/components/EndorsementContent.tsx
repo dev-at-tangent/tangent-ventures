@@ -4,6 +4,8 @@ import { gsap } from "gsap/gsap-core";
 import EndorsementCard from "./EndorsementCard";
 import type { Entry } from "contentful";
 import type { Endorsement } from "../pages/endorsements.astro";
+import leftCloud from "../assets/lotties/endorsement-left-cloud.json";
+import Lottie from "lottie-react";
 
 export default function EndorsementContent({
   endorsements,
@@ -23,10 +25,13 @@ export default function EndorsementContent({
     { scope: ref }
   );
   return (
-    <div ref={ref} className="grid desktop:grid-cols-2 gap-8 mt-12 sm:mt-20">
-      {endorsements.map((endorsement) => (
-        <EndorsementCard key={endorsement.sys.id} details={endorsement} />
-      ))}
-    </div>
+    <>
+      <Lottie animationData={leftCloud} className="absolute top-1/3 sm:top-1/4 -left-72 scale-75 sm:scale-100 sm:-left-32" />
+      <div ref={ref} className="grid desktop:grid-cols-2 gap-8 mt-12 z-10 sm:mt-20">
+        {endorsements.map((endorsement) => (
+          <EndorsementCard key={endorsement.sys.id} details={endorsement} />
+        ))}
+      </div>
+    </>
   );
 }

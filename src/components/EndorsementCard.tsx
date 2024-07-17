@@ -27,7 +27,7 @@ export default function EndorsementCard({
     },
   };
   return (
-    <div className="flex flex-col sm:flex-row items-start bg-white rounded-xl p-8 desktop:p-12 max-w-xl group sm:min-h-[45vh]">
+    <div className="flex flex-col sm:flex-row items-start bg-white/40 backdrop-blur-md rounded-xl p-8 desktop:p-12 max-w-xl group sm:min-h-[450px] transition-colors hover:bg-white">
       <img
         src={(
           details.fields.projectLogo as unknown as Asset

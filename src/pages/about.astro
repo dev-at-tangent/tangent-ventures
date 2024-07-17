@@ -34,6 +34,7 @@ export interface AboutStats {
 const highlightedEntries = await contentfulClient.getEntries<TeamMember>({
   content_type: "teamMember",
   "fields.highlighted": true,
+  order: ["fields.rank"],
 });
 
 const regularEntries = await contentfulClient.getEntries<TeamMember>({
