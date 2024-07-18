@@ -32,7 +32,7 @@ const TeamMemberCard = ({
       <ReactCardFlip
         isFlipped={selected === details.fields.name.toString()}
         flipDirection="horizontal"
-        containerClassName="h-full"
+        containerClassName="h-full drop-shadow-lg"
       >
         <div className="p-4 bg-turq rounded-xl flex flex-col h-full">
           <img

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useScroll } from "../utils/useScroll";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "../assets/Logo.svg";
 import XIcon from "../assets/XIcon";
@@ -14,10 +15,21 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
   ];
 
   const [openMenu, setOpenMenu] = useState(false);
+  const { scrollDirection } = useScroll();
+  const styles = {
+    active: "opacity-1 translate-y-0 transition-all duration-300",
+    inactive: "opacity-0 -translate-y-full transition-all duration-300",
+  };
 
   return (
     <>
-      <div className="hidden desktop:block sticky z-20 top-4 w-full">
+      <div
+        className={`hidden desktop:block sticky z-20 top-4 w-full ${
+          scrollDirection === "up" && window.scrollY > 0
+            ? styles.inactive
+            : styles.active
+        }`}
+      >
         <div className="mx-20 flex items-center justify-evenly text-sm font-medium gap-x-1 rounded-full backdrop-blur-lg bg-white/60 px-4 py-3">
           <a href="/">
             <img src={Logo.src} />
@@ -55,7 +67,13 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
           </a>
         </div>
       </div>
-      <div className="desktop:hidden w-full px-6 top-4 sticky z-30">
+      <div
+        className={`desktop:hidden w-full px-6 top-4 sticky z-30 ${
+          scrollDirection === "up" && window.scrollY > 0
+            ? styles.inactive
+            : styles.active
+        }`}
+      >
         <div className="rounded-full backdrop-blur-lg bg-white/60 w-full flex items-center justify-between p-4">
           <a href="/" className="w-1/3 max-w-48">
             <img src={Logo.src} />
@@ -76,7 +94,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
       <div
         className={`fixed flex flex-col gap-6 z-20 h-screen w-screen pt-24 px-8 bg-grey-30 transition-transform duration-300 ${
           openMenu ? "translate-y-0" : "-translate-y-full"
-        }`}
+        } `}
       >
         {links.map((link) => (
           <a

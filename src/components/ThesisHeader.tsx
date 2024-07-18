@@ -30,7 +30,7 @@ export default function ThesisHeader({
   return (
     <div
       ref={ref}
-      className="flex items-center justify-center -mx-8 mt-6  h-[50vh] "
+      className="flex items-center justify-center -mx-8 mt-6 h-[50vh]"
     >
       <Lottie
         animationData={data}
@@ -38,7 +38,7 @@ export default function ThesisHeader({
       ></Lottie>
       <Lottie
         animationData={mobiledata}
-        className="h-full scale-125 sm:hidden"
+        className="sm:hidden"
       ></Lottie>
 
       <p className="absolute text-sm md:text-base uhd:text-xl text-center mx-8 sm:w-1/2 z-10 text-grey-80 font-semibold">

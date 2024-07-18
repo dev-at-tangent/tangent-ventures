@@ -2,7 +2,7 @@
 import EndorsementContent from "../components/EndorsementContent";
 import Layout from "../layout/Layout.astro";
 import ScrambleText from "../components/ScrambleText";
-
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 import type { Document } from "@contentful/rich-text-types";
@@ -44,4 +44,6 @@ const entries = await contentfulClient.getEntries<Endorsement>({
 
     <EndorsementContent endorsements={entries.items} client:only="react" />
   </div>
+  <ScrollToTopButton client:only="react" />
+
 </Layout>

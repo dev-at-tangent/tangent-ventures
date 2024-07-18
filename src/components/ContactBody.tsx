@@ -25,7 +25,9 @@ export default function ContactBody() {
         the largest projects and protocols in Web3.
       </p>
       <div className="flex items-center justify-center lg:justify-start gap-x-8">
-        <XIcon className="w-6" />
+        <a href="https://x.com/tangent_xyz" target="_blank">
+          <XIcon className="w-6" />
+        </a>
         <TeleIcon />
       </div>
     </div>

@@ -2,7 +2,7 @@
 import PortfolioContent from "../components/PortfolioContent";
 import Layout from "../layout/Layout.astro";
 import ScrambleText from "../components/ScrambleText";
-
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 
@@ -43,5 +43,7 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
       />
     </div>
     <PortfolioContent items={portfolioEntries.items} client:only="react" />
+  <ScrollToTopButton client:only="react" />
+
   </div>
 </Layout>

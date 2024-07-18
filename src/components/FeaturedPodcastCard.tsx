@@ -29,7 +29,7 @@ export default function FeaturedVideo({
         <div className="flex text-sm items-center lg:text-base">
           <span>{formatDate(details.fields.date.toString())}</span>
           <div className="grow" />
-          <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-xs lg:text-sm px-4 py-1">
+          <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-xs px-4 py-1">
             {details.fields.tags.toString()}
           </div>
         </div>
@@ -38,6 +38,7 @@ export default function FeaturedVideo({
         </h1>
         <a
           href={details.fields.link.toString()}
+          target="_blank"
           className="flex mt-8 font-semibold items-center text-sm hover:underline underline-offset-8"
         >
           WATCH ON YOUTUBE

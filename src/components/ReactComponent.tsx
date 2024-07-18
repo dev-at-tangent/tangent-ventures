@@ -5,7 +5,7 @@ import holoMobile from "../assets/lotties/home-holo-mobile.json";
 
 export default function ReactComponent() {
   return (
-    <div className="relative overflow-hidden -mx-6">
+    <div className="relative -mx-6">
       <Lottie animationData={holo} className="hidden sm:flex" />
       <Lottie animationData={holoMobile} className="sm:hidden" />
     </div>

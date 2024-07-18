@@ -2,7 +2,7 @@
 import MediaSection from "../components/MediaSection";
 import Layout from "../layout/Layout.astro";
 import ScrambleText from "../components/ScrambleText";
-
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 
@@ -78,10 +78,7 @@ const articles = featuredArticles.items.concat(regularArticles.items);
         client:load
       />
     </div>
-    <MediaSection
-      client:only="react"
-      articles={articles}
-      podcasts={podcasts}
-    />
+    <MediaSection client:only="react" articles={articles} podcasts={podcasts} />
+    <ScrollToTopButton client:only="react" />
   </div>
 </Layout>

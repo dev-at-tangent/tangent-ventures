@@ -20,11 +20,11 @@ export default function ArticleCard({ article }: { article: Entry<Article> }) {
     >
       <div className="flex items-end justify-between w-full">
         <span>{formatDate(article.fields.date.toString())}</span>
-        <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-sm px-4">
+        <div className="flex items-center justify-center border border-grey-60 text-grey-60 font-medium rounded-full text-xs py-1 px-4">
           {article.fields.tags.toString()}
         </div>
       </div>
-      <h1 className="text-3xl text-black font-medium line-clamp-2">
+      <h1 className="text-3xl text-black font-semibold line-clamp-2">
         {article.fields.title.toString()}
       </h1>
       <p className="line-clamp-3">{article.fields.description.toString()}</p>
