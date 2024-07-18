@@ -11,6 +11,7 @@ import { Image } from "astro:assets";
 import Circle from "../assets/circle.png";
 import balloonData from "../assets/lotties/balloon.json";
 import robotData from "../assets/lotties/robot.json";
+import satData from "../assets/lotties/sat.json";
 
 export interface ThesisContent {
   contentTypeId: "thesis";
@@ -28,7 +29,7 @@ export interface ThesisHeaderContent {
   };
 }
 
-const lotties = [balloonData, robotData, robotData];
+const lotties = [robotData, balloonData, satData];
 
 const entries = await contentfulClient.getEntries<ThesisContent>({
   content_type: "thesis",

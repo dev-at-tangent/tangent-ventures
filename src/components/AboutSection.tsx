@@ -8,6 +8,7 @@ import type { AboutStats } from "../pages/about.astro";
 import Lottie from "lottie-react";
 import leftCloud from "../assets/lotties/about-cloud-left.json";
 import rightCloud from "../assets/lotties/about-cloud-right.json";
+import spaceship from "../assets/lotties/spaceship.json";
 
 export default function AboutSection({
   aboutStats,
@@ -38,14 +39,18 @@ export default function AboutSection({
   return (
     <div className="relative">
       {/* Cloud container */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none w-screen left-1/2 -translate-x-1/2">
+      <div className="absolute inset-0 overflow-hidden w-screen left-1/2 -translate-x-1/2">
         <Lottie
           animationData={leftCloud}
           className="absolute -left-96 desktop:-left-48 top-20 scale-50 desktop:top-10 desktop:scale-75 uhd:scale-125"
         />
         <Lottie
           animationData={rightCloud}
-          className="absolute -right-72 desktop:-right-40 top-32 scale-50 desktop:scale-100 uhd:scale-125"
+          className="absolute -right-72 desktop:-right-40 top-48 scale-50 desktop:scale-100 uhd:scale-125 z-20"
+        />
+        <Lottie
+          animationData={spaceship}
+          className="absolute scale-50 uhd:scale-75 -right-80 top-24 desktop:-right-80 desktop:-top-20"
         />
       </div>
 

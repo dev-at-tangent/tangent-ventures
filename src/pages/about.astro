@@ -53,6 +53,7 @@ const aboutStats = await contentfulClient.getEntries<AboutStats>({
   <div class="w-full flex flex-col items-center">
     <span class="text-turq font-semibold mb-12 desktop:hidden">ABOUT</span>
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
+    
     <AboutSection aboutStats={aboutStats.items} client:only="react" />
     <TeamSection
       highlightedMembers={highlightedEntries.items}
