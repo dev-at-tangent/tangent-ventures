@@ -7,9 +7,6 @@ import SearchBar from "./SearchBar";
 import MediaTabs from "./MediaTabs";
 import Podcasts from "./Podcasts";
 import Articles from "./Articles";
-import Lottie from "lottie-react";
-import leftCloud from "../assets/lotties/about-cloud-right.json";
-import rightCloud from "../assets/lotties/portfolio-cloud-bottom.json";
 import type { Entry } from "contentful";
 import type { Article, Podcast } from "../pages/media.astro";
 
@@ -66,8 +63,7 @@ export default function MediaSection({
   );
 
   return (
-    <div className="md:w-[75vw] max-w-7xl relative">
-      
+    <div ref={ref} className="md:w-[75vw] max-w-7xl relative">
       <MediaTabs tab={tab} setTab={setTab} />
       <div className="flex flex-col desktop:flex-row items-center w-full mt-12 gap-6 text-lg">
         Categories:
