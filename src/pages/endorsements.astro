@@ -9,6 +9,7 @@ import type { Document } from "@contentful/rich-text-types";
 
 import { Image } from "astro:assets";
 import Circle from "../assets/circle.png";
+import EndorsementHeader from "../components/EndorsementHeader";
 export interface Endorsement {
   contentTypeId: "endorsement";
   fields: {
@@ -34,16 +35,10 @@ const entries = await contentfulClient.getEntries<Endorsement>({
     >
 
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
-
-    <ScrambleText
-      finalText="DON'T TAKE OUR WORD FOR IT.\nTAKE THEIRS."
-      className="text-3xl sm:text-5xl font-medium text-center whitespace-pre-wrap z-10"
-      client:only="react"
-      duration={1}
-    />
-
-    <EndorsementContent endorsements={entries.items} client:only="react" />
+    <div class="relative">
+      <EndorsementHeader client:only="react" />
+      <EndorsementContent endorsements={entries.items} client:only="react" />
+    </div>
   </div>
   <ScrollToTopButton client:only="react" />
-
 </Layout>

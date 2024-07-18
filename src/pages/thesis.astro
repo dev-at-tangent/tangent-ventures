@@ -9,13 +9,14 @@ import type { Document } from "@contentful/rich-text-types";
 
 import { Image } from "astro:assets";
 import Circle from "../assets/circle.png";
+import balloonData from "../assets/lotties/balloon.json";
+import robotData from "../assets/lotties/robot.json";
 
 export interface ThesisContent {
   contentTypeId: "thesis";
   fields: {
     title: EntryFieldTypes.Text;
     description: Document;
-    image: Asset;
     rank: EntryFieldTypes.Number;
   };
 }
@@ -26,6 +27,8 @@ export interface ThesisHeaderContent {
     content: EntryFieldTypes.Text;
   };
 }
+
+const lotties = [balloonData, robotData, robotData];
 
 const entries = await contentfulClient.getEntries<ThesisContent>({
   content_type: "thesis",
@@ -44,11 +47,11 @@ const header = await contentfulClient.getEntries<ThesisHeaderContent>({
 
     <ThesisHeader content={header.items[0]} client:only="react" />
     {
-      entries.items.map((entry: any) => (
+      entries.items.map((entry: any, idx: number) => (
         <ThesisSection
           title={entry.fields.title}
           content={entry.fields.description}
-          image={entry.fields.image.fields.file.url}
+          lottie={lotties[idx]}
           client:only="react"
         />
       ))

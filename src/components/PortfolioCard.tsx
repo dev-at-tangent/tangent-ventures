@@ -30,10 +30,10 @@ export default function PortfolioCard({
     <ReactCardFlip
       isFlipped={selected === details.fields.name.toString()}
       flipDirection="horizontal"
-      containerClassName="h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md "
+      containerClassName="h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md backdrop-blur-sm"
     >
       <div
-        className="bg-white/60 backdrop-blur-sm rounded-xl flex flex-col p-6  text-grey-90 font-medium h-full w-full group desktop:hover:bg-white "
+        className="bg-white/60  rounded-xl flex flex-col p-6  text-grey-90 font-medium h-full w-full group desktop:hover:bg-white "
         onMouseOver={replay}
       >
         <img

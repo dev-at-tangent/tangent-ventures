@@ -38,7 +38,7 @@ export default function AboutSection({
   return (
     <div className="relative">
       {/* Cloud container */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ width: '100vw', left: '50%', transform: 'translateX(-50%)' }}>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none w-screen left-1/2 -translate-x-1/2">
         <Lottie
           animationData={leftCloud}
           className="absolute -left-96 desktop:-left-48 top-20 scale-50 desktop:top-10 desktop:scale-75 uhd:scale-125"

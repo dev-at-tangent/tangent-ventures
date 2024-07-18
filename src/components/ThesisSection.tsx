@@ -5,17 +5,18 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS, type Document } from "@contentful/rich-text-types";
 import { useScramble } from "use-scramble";
+import Lottie from "lottie-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ThesisSection({
   title,
   content,
-  image,
+  lottie,
 }: {
   title: string;
   content: Document;
-  image: string;
+  lottie: any;
 }) {
   const highlightRef = useRef(null);
   const triggerRef = useRef(null);
@@ -84,18 +85,17 @@ export default function ThesisSection({
     },
   };
   return (
-    <div ref={containerRef} className="flex flex-col items-center text-lg">
-      <img
-        src={image}
-        alt="balloon"
-        ref={scrambleTriggerRef}
-        className="desktop:w-1/2"
-      />
-
+    <div
+      ref={containerRef}
+      className="flex flex-col items-center text-lg my-16 gap-y-8"
+    >
+      <div ref={scrambleTriggerRef}>
+        <Lottie animationData={lottie} />
+      </div>
       <h1 ref={triggerRef} className="text-3xl text-center desktop:text-5xl">
         <span ref={ref} />
       </h1>
-      <div className="desktop:w-1/2 text-center mt-12">
+      <div className="desktop:w-1/2 text-center">
         {documentToReactComponents(content, options)}
       </div>
     </div>

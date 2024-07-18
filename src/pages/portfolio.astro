@@ -1,13 +1,13 @@
 ---
 import PortfolioContent from "../components/PortfolioContent";
 import Layout from "../layout/Layout.astro";
-import ScrambleText from "../components/ScrambleText";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes, Asset } from "contentful";
 
 import { Image } from "astro:assets";
 import Circle from "../assets/circle.png";
+import PortfolioHeader from "../components/PortfolioHeader";
 
 export interface PortfolioItem {
   contentTypeId: "portfolio";
@@ -33,17 +33,10 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
     <span class="text-turq font-semibold mb-8 desktop:hidden">PORTFOLIO</span>
 
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
-
-    <div class="gap-y-6 text-center flex flex-col items-center">
-      <ScrambleText
-        finalText="PORTFOLIO"
-        className="text-3xl sm:text-5xl font-medium"
-        duration={1}
-        client:load
-      />
+    <div class="relative">
+      <PortfolioHeader client:only="react" />
+      <PortfolioContent items={portfolioEntries.items} client:only="react" />
     </div>
-    <PortfolioContent items={portfolioEntries.items} client:only="react" />
-  <ScrollToTopButton client:only="react" />
-
+    <ScrollToTopButton client:only="react" />
   </div>
 </Layout>
