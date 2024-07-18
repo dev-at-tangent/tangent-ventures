@@ -51,7 +51,6 @@ export default function ThesisSection({
           start: "top 30%",
           end: "bottom 30%",
           onEnter: () => replay(),
-          markers: true,
         },
       });
     },
