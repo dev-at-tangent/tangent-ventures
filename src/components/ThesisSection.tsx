@@ -90,7 +90,7 @@ export default function ThesisSection({
 
       className="flex flex-col items-center text-lg my-16 gap-y-8"
     >
-      <ScrambleText initialText="initial" finalText="final" delay={0.5}  duration={1} className="text-5xl"/>
+      <ScrambleText initialText="initial" finalText="final" delay={1.5}  duration={1} className="text-5xl"/>
       <div ref={scrambleTriggerRef}>
         <Lottie animationData={lottie} />
       </div>
