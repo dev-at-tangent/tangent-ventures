@@ -12,7 +12,7 @@ export default function ContactBody() {
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 2,
+        delay: 1,
         ease: "power2.out",
       });
     },

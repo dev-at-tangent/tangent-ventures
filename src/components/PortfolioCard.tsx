@@ -17,7 +17,6 @@ export default function PortfolioCard({
   selected: string;
   setSelected: (selected: string) => void;
 }) {
-
   const toggleShowDetails = () => {
     setSelected(details.fields.name.toString());
   };
@@ -34,16 +33,16 @@ export default function PortfolioCard({
       containerClassName="h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md "
     >
       <div
-        className="bg-white/40 rounded-xl backdrop-blur-sm flex flex-col  p-6  text-grey-90 font-medium h-full w-full group hover:bg-white"
+        className="bg-white/60 backdrop-blur-sm rounded-xl flex flex-col p-6  text-grey-90 font-medium h-full w-full group hover:bg-white "
         onMouseOver={replay}
       >
         <img
           src={(details.fields.logo as any)?.fields?.file?.url}
-          className="hidden desktop:block mb-4 w-1/3 group-hover:hidden"
+          className="hidden desktop:block mb-4 w-1/3 rounded-md group-hover:hidden"
         />
         <img
           src={(details.fields.logoColour as any)?.fields?.file?.url}
-          className="mb-4 w-1/3 desktop:hidden group-hover:block"
+          className="mb-4 w-1/3 desktop:hidden rounded-md group-hover:block"
         />
         <span ref={ref} className="hidden desktop:flex" />
         <span className="font-semibold text-lg desktop:hidden">
@@ -75,7 +74,7 @@ export default function PortfolioCard({
 
         <img
           src={(details.fields.logoColour as any)?.fields?.file?.url}
-          className="mb-2 w-1/4"
+          className="mb-2 w-1/4 rounded-md"
         />
         <h1 className="text-lg font-semibold my-2">
           {details.fields.name.toString()}

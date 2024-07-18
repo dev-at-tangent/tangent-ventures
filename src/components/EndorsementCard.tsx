@@ -27,18 +27,18 @@ export default function EndorsementCard({
     },
   };
   return (
-    <div className="flex flex-col sm:flex-row items-start bg-white/30 backdrop-blur-sm rounded-xl p-8 desktop:p-12 max-w-xl group sm:min-h-[450px] transition-colors hover:bg-white">
+    <div className="flex flex-col sm:flex-row items-start bg-white/60 backdrop-blur-sm drop-shadow-md rounded-xl p-8 desktop:p-12 max-w-xl group sm:min-h-[450px] transition-colors hover:bg-white">
       <img
         src={(
           details.fields.projectLogo as unknown as Asset
         )?.fields?.file?.url?.toString()}
-        className="hidden w-24 sm:block rounded-full group-hover:hidden"
+        className="hidden w-24 sm:block rounded-md group-hover:hidden"
       />
       <img
         src={(
           details.fields.projectLogoColour as unknown as Asset
         )?.fields?.file?.url?.toString()}
-        className="w-12 sm:w-24 sm:hidden rounded-full group-hover:block"
+        className="w-12 sm:w-24 sm:hidden rounded-md group-hover:block"
       />
       <div className="flex flex-col sm:ml-12 mt-8 sm:mt-0 h-full">
         {documentToReactComponents(
