@@ -19,7 +19,7 @@ export default function StatCard({
       gsap.from(cardRef.current, {
         y: 50,
         opacity: 0,
-        duration: 1,
+        duration: 0.5,
         delay: delay,
         ease: "power3.out",
       });
@@ -36,7 +36,7 @@ export default function StatCard({
       <ScrambleText
         finalText={details.fields.statistic.toString()}
         className="text-4xl font-bold"
-        duration={1}
+        duration={0.5}
         charsPerGroup={1}
         delay={delay}
       />

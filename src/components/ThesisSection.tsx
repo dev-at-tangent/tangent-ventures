@@ -6,6 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { MARKS, type Document } from "@contentful/rich-text-types";
 import { useScramble } from "use-scramble";
 import Lottie from "lottie-react";
+import ScrambleText from "./ScrambleText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,9 +87,10 @@ export default function ThesisSection({
   };
   return (
     <div
-      ref={containerRef}
+
       className="flex flex-col items-center text-lg my-16 gap-y-8"
     >
+      <ScrambleText initialText="initial" finalText="final" delay={0.5}  duration={1} className="text-5xl"/>
       <div ref={scrambleTriggerRef}>
         <Lottie animationData={lottie} />
       </div>
