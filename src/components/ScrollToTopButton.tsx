@@ -23,7 +23,7 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`desktop:hidden rounded-full bg-white p-3 fixed drop-shadow-lg bottom-12 right-8 lg:bottom-16 lg:right-16 z-20 ${
+      className={`rounded-full bg-white p-3 fixed drop-shadow-lg bottom-12 right-4 lg:bottom-16 lg:right-16 z-20 ${
         showButton ? "block" : "hidden"
       }`}
     >

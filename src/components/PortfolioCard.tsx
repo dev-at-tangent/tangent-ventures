@@ -33,7 +33,7 @@ export default function PortfolioCard({
       containerClassName="h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md "
     >
       <div
-        className="bg-white/60 backdrop-blur-sm rounded-xl flex flex-col p-6  text-grey-90 font-medium h-full w-full group hover:bg-white "
+        className="bg-white/60 backdrop-blur-sm rounded-xl flex flex-col p-6  text-grey-90 font-medium h-full w-full group desktop:hover:bg-white "
         onMouseOver={replay}
       >
         <img

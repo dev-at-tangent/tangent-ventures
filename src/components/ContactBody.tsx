@@ -25,10 +25,13 @@ export default function ContactBody() {
         the largest projects and protocols in Web3.
       </p>
       <div className="flex items-center justify-center lg:justify-start gap-x-8">
-        <a href="https://x.com/tangent_xyz" target="_blank">
-          <XIcon className="w-6" />
+        <a
+          href="https://x.com/tangent_xyz"
+          target="_blank"
+          className="flex items-center hover:text-turq"
+        >
+          <XIcon className="w-6 mr-2" /> @tangent_xyz
         </a>
-        <TeleIcon />
       </div>
     </div>
   );
