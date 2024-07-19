@@ -19,7 +19,7 @@ export default function MediaSection({
 }) {
   const [tab, setTab] = useState("PODCASTS");
 
-  const podcastFilters = ["ALL", "ON THE TANGENT", "GUEST"];
+  const podcastFilters = ["ALL", "ON A TANGENT", "GUEST"];
   const articleFilters = ["ALL", "FEATURED", "INTERNAL"];
   const [selectedPodcastsFilter, setSelectedPodcastsFilter] = useState("ALL");
   const [selectedArticlesFilter, setSelectedArticlesFilter] = useState("ALL");
