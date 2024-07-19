@@ -4,17 +4,17 @@ import XIcon from "../assets/XIcon";
 ---
 
 <div
-  class="bg-grey-90 p-8 text-white desktop:items-center  desktop:mt-16 w-full hidden flex-col desktop:flex-row"
+  class="w-full bg-grey-90 p-8 text-white flex-col justify-center text-center desktop:text-left desktop:items-center desktop:mt-16 desktop:flex-row"
   id="footer"
 >
-  <div class="flex flex-col gap-y-4">
-    <img src={Logo.src} class="w-1/2 max-w-96 desktop:w-3/4" />
+  <div class="flex flex-col items-center gap-y-4 desktop:items-start">
+    <img src={Logo.src} class="max-w-96 w-3/4" />
     <span class="text-sm text-grey-40">Tangent 2024 | All Rights Reserved</span>
   </div>
   <div class="grow"></div>
   <div class="desktop:w-1/2">
     <div
-      class="text-sm flex flex-col desktop:flex-row desktop:items-center justify-between gap-4 desktop:gap-8 mt-6 text-grey-20"
+      class="text-sm hidden desktop:flex desktop:flex-row desktop:items-center justify-between gap-4 desktop:gap-8 mt-6 text-grey-20"
     >
       <a href="/about">ABOUT</a>
       <a href="/endorsements">ENDORSEMENTS</a>
@@ -26,7 +26,7 @@ import XIcon from "../assets/XIcon";
         <XIcon className="h-5" />
       </a>
     </div>
-    <p class="text-xs text-grey-40 mt-10">
+    <p class="text-[10px] desktop:text-xs text-grey-40 mt-10">
       Disclaimer: Tangent is brand name used to refer to an informally organized
       group of angel investors investing their personal assets and is not a
       licensed entity. Each investor invests independently with their personal

@@ -30,16 +30,13 @@ export default function ThesisHeader({
   return (
     <div
       ref={ref}
-      className="flex items-center justify-center -mx-6 mt-6 "
+      className="flex items-center justify-center -mx-6 mt-6 uhd:mt-36"
     >
       <Lottie
         animationData={data}
         className="hidden h-full sm:flex sm:scale-125 uhd:scale-150"
       ></Lottie>
-      <Lottie
-        animationData={mobiledata}
-        className="sm:hidden"
-      ></Lottie>
+      <Lottie animationData={mobiledata} className="sm:hidden"></Lottie>
 
       <p className="absolute text-sm md:text-base uhd:text-xl text-center mx-8 sm:w-1/2 z-10 text-grey-80 font-semibold">
         {content.fields.content.toString()}
