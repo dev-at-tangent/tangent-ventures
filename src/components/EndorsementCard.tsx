@@ -4,8 +4,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { MARKS, type Document } from "@contentful/rich-text-types";
 
 export default function EndorsementCard({
+  home,
   details,
 }: {
+  home?: boolean;
   details: Entry<Endorsement>;
 }) {
   const options = {
@@ -26,9 +28,12 @@ export default function EndorsementCard({
       ),
     },
   };
-  console.log(details.fields.projectLogo)
   return (
-    <div className="flex flex-col sm:flex-row items-start bg-white/60 backdrop-blur-sm drop-shadow-md rounded-xl p-8 desktop:p-12 max-w-xl group sm:min-h-[450px] transition-colors sm:hover:bg-white">
+    <div
+      className={`flex flex-col sm:flex-row items-start bg-white/60 backdrop-blur-sm drop-shadow-md rounded-xl p-8 desktop:p-12 group transition-colors sm:hover:bg-white ${
+        home ? "w-1/2" : "max-w-xl sm:min-h-[450px]"
+      }`}
+    >
       <img
         src={(
           details.fields.projectLogo as unknown as Asset
@@ -41,7 +46,7 @@ export default function EndorsementCard({
         )?.fields?.file?.url?.toString()}
         className="w-12 sm:w-24 sm:hidden rounded-md group-hover:block"
       />
-      <div className="flex flex-col sm:ml-12 mt-8 sm:mt-0 h-full">
+      <div className="flex flex-col sm:ml-12 mt-8 sm:mt-0 h-full text-start">
         {documentToReactComponents(
           details.fields.quote as unknown as Document,
           options

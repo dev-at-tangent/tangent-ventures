@@ -3,7 +3,6 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/gsap-core";
 
 import XIcon from "../assets/XIcon";
-import TeleIcon from "../assets/TeleIcon";
 
 export default function ContactBody() {
   const ref = useRef(null);

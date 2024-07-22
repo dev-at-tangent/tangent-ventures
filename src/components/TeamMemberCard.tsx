@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PFP from "../assets/pfp.png";
+
 import XIcon from "../assets/XIcon";
 import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import ReactCardFlip from "react-card-flip";

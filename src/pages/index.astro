@@ -1,14 +1,17 @@
 ---
 import ReactComponent from "../components/ReactComponent";
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
+import type { Endorsement } from "./endorsements.astro";
 import Layout from "../layout/Layout.astro";
+
+const entries = await contentfulClient.getEntries<Endorsement>({
+  content_type: "endorsement",
+  order: ["fields.rank"],
+});
+
 ---
 
 <Layout>
-  <div class="">
-    <ReactComponent client:only="react" />
-    <div class="h-screen"></div>
-    <div class="h-screen"></div>
-    <div class="h-screen"></div>
-    <div class="h-screen"></div>
-  </div>
+    <ReactComponent endorsements={entries.items} client:only="react" />
 </Layout>

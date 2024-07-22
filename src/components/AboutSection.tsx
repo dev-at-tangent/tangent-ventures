@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import StatCard from "./StatCard";
 import ScrambleText from "./ScrambleText";
+
 import type { Entry } from "contentful";
 import type { AboutStats } from "../pages/about.astro";
 import Lottie from "lottie-react";
