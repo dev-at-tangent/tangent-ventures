@@ -1,10 +1,11 @@
 ---
 import Logo from "../assets/DarkLogo.svg";
 import XIcon from "../assets/XIcon";
+const { currentPath } = Astro.props;
 ---
 
 <div
-  class="w-full bg-grey-90 p-8 text-white flex-col justify-center text-center desktop:text-left desktop:items-center desktop:mt-16 desktop:flex-row"
+  class={`w-full bg-grey-90 p-8 text-white flex-col justify-center text-center desktop:text-left desktop:items-center desktop:flex-row ${currentPath !== "" && "desktop:mt-16"}`}
   id="footer"
 >
   <div class="flex flex-col items-center gap-y-4 desktop:items-start">

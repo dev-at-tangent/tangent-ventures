@@ -27,16 +27,16 @@ const currentPath = pathname.replaceAll("/", "");
     <title>Tangent</title>
   </head>
   <body
-    class={`flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none bg-grey-20`}
+    class={`flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none bg-grey-20 ${currentPath === "" && "bg-[url('/bg.png')] bg-cover"}`}
   >
     <Navbar currentPath={currentPath} client:only="react" />
     <main
-      class="mt-12 sm:mt-20 px-6 pb-16 desktop:pb-32 flex justify-center max-w-[1400px]"
+      class={`mt-12 sm:mt-20  flex justify-center ${currentPath !== "" && "px-6 max-w-[1400px] pb-16 desktop:pb-32"} `}
     >
       <slot />
     </main>
     <div class="grow"></div>
-    {currentPath !== "" && <Footer />}
+    <Footer currentPath={currentPath} />
   </body>
 </html>
 

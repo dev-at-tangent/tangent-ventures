@@ -14,7 +14,7 @@ const SliderNumber = () => {
   const duplicatedSlides = [...slides, ...slides];
 
   return (
-    <div className="relative w-full mt-12 overflow-hidden">
+    <div className="w-full overflow-hidden -z-20">
       {/* Wrapping div for seamless looping */}
       <motion.div
         className="flex"
@@ -34,7 +34,7 @@ const SliderNumber = () => {
             className="flex-shrink-0"
             style={{ width: `${100 / slides.length}%` }}
           >
-            <div className="flex items-center justify-center h-full py-4 text-6xl backdrop-blur-sm bg-white/15">
+            <div className="flex items-center justify-center h-full py-4 desktop:text-6xl backdrop-blur-sm bg-white/15">
               {slide.number}
             </div>
           </div>

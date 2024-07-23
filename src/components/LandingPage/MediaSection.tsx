@@ -2,10 +2,11 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 
 export default function MediaSection() {
   return (
-    <div className="flex flex-col items-center mt-56 gap-y-8 h-[50vh]">
-      <h2 className="text-5xl font-medium">FEATURED MEDIA</h2>
-      <div className="grid grid-cols-3 gap-x-8 w-2/3 z-50">
-        <div className="flex flex-col  bg-white/70 backdrop-blur-sm rounded-xl p-8">
+    <div className="flex flex-col items-center gap-y-8 mt-20 desktop:mt-0">
+      <h2 className="text-3xl desktop:text-5xl font-medium w-2/3 text-center desktop:w-full">FEATURED MEDIA</h2>
+      <div className="grid desktop:grid-cols-3 gap-4 desktop:gap-8 mx-8 desktop:w-2/3 z-30">
+        
+        <div className="flex flex-col bg-white/70 backdrop-blur-sm rounded-xl p-4 desktop:p-8">
           <div className="flex items-center">
             <span className="text-grey-80 text-sm">May 14, 2024</span>
             <div className="grow" />
@@ -13,15 +14,16 @@ export default function MediaSection() {
               PODCAST
             </div>
           </div>
-          <h1 className="text-2xl font-semibold mt-4 line-clamp-2 self-start">
+          <h1 className="text-xl desktop:text-2xl font-semibold mt-4 line-clamp-2 self-start">
             Impedit laboriosam sunt aut autem. Sint reprehenderit temporibus ea
             nemo.
           </h1>
-          <a className="flex items-center text-grey-80 text-sm font-semibold mt-8">
+          <a className="flex items-center text-grey-80 text-sm font-semibold mt-4 desktop:mt-8">
             READ MORE <ArrowTopRightOnSquareIcon className="size-5 ml-3" />
           </a>
         </div>
-        <div className="flex flex-col  bg-white/70 backdrop-blur-sm rounded-xl p-8">
+        
+        <div className="flex flex-col  bg-white/70 backdrop-blur-sm rounded-xl p-4 desktop:p-8">
           <div className="flex items-center">
             <span className="text-grey-80 text-sm">May 14, 2024</span>
             <div className="grow" />
@@ -29,15 +31,16 @@ export default function MediaSection() {
               PODCAST
             </div>
           </div>
-          <h1 className="text-2xl font-semibold mt-4 line-clamp-2 self-start">
+          <h1 className="text-xl desktop:text-2xl font-semibold mt-4 line-clamp-2 self-start">
             Impedit laboriosam sunt aut autem. Sint reprehenderit temporibus ea
             nemo.
           </h1>
-          <a className="flex items-center text-grey-80 text-sm font-semibold mt-8">
+          <a className="flex items-center text-grey-80 text-sm font-semibold mt-4 desktop:mt-8">
             READ MORE <ArrowTopRightOnSquareIcon className="size-5 ml-3" />
           </a>
         </div>
-        <div className="flex flex-col  bg-white/70 backdrop-blur-sm rounded-xl p-8">
+        
+        <div className="flex flex-col  bg-white/70 backdrop-blur-sm rounded-xl p-4 desktop:p-8">
           <div className="flex items-center">
             <span className="text-grey-80 text-sm">May 14, 2024</span>
             <div className="grow" />
@@ -45,17 +48,18 @@ export default function MediaSection() {
               PODCAST
             </div>
           </div>
-          <h1 className="text-2xl font-semibold mt-4 line-clamp-2 self-start">
+          <h1 className="text-xl desktop:text-2xl font-semibold mt-4 line-clamp-2 self-start">
             Impedit laboriosam sunt aut autem. Sint reprehenderit temporibus ea
             nemo.
           </h1>
-          <a className="flex items-center text-grey-80 text-sm font-semibold mt-8">
+          <a className="flex items-center text-grey-80 text-sm font-semibold mt-4 desktop:mt-8">
             READ MORE <ArrowTopRightOnSquareIcon className="size-5 ml-3" />
           </a>
         </div>
       </div>
+      
       <a
-        className="bg-white rounded-full px-6 py-3 font-medium group relative overflow-hidden"
+        className="bg-white rounded-full px-6 py-3 text-sm desktop:text-base font-medium group relative overflow-hidden"
         href="/media"
       >
         <span className="inline-block translate-y-8 transition-all group-hover:translate-y-0">

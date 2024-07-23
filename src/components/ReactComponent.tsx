@@ -1,53 +1,43 @@
-import { useRef, useState, useEffect } from "react";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import LandingPageContent from "./LandingPageContent";
-import leftBuilding from "../assets/LeftBuilding.png";
-import rightBuilding from "../assets/RightBuilding.png";
-import bg from "../assets/bg.png";
-import XIcon from "../assets/XIcon";
-import Logo from "../assets/DarkLogo.svg";
-
 import type { Entry } from "contentful";
 import type { Endorsement } from "../pages/endorsements.astro";
+import LandingPageContent from "./LandingPageContent";
+
+import LeftBuilding from "../assets/LeftBuilding.png";
+import RightBuilding from "../assets/RightBuilding.png";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function ReactComponent({
   endorsements,
 }: {
   endorsements: Entry<Endorsement>[];
 }) {
-  const parallax = useRef(null);
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
+  const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const md = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const lg = useTransform(scrollYProgress, [0, 1], [0, -300]);
+
 
   return (
-    <Parallax
-      ref={parallax}
-      pages={3}
-      className="-mt-36 [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none"
-    >
-      {/* Background Layer */}
-      <ParallaxLayer
-        offset={0}
-        factor={4.5}
-        speed={1.5}
-        style={{
-          backgroundImage: `url(${bg.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+    <div className="relative overflow-hidden" ref={container}>
+      <LandingPageContent endorsements={endorsements} />
 
-      {/* Foreground Layer with Buildings */}
-      <ParallaxLayer
-        speed={1}
-        factor={4}
-        style={{ position: "relative" }} // Adjust the top value to move the buildings higher
-      >
-        <img src={leftBuilding.src} className="absolute left-0 " />
-        <img src={rightBuilding.src} className="absolute right-0" />
-      </ParallaxLayer>
-      {/* Content Layer */}
-      <ParallaxLayer speed={1} factor={3}>
-        <LandingPageContent endorsements={endorsements} />
-      </ParallaxLayer>
-    </Parallax>
+      <img
+        // style={{ y: lg }}
+        src={LeftBuilding.src}
+        alt="background"
+        className="absolute scale-[4] sm:scale-[3] desktop:scale-150 2xl:scale-100 top-[100vh] md:top-[50vh] desktop:-top-[70vh] 2xl:-top-[120vh] -left-24 desktop:-left-12 w-1/4 desktop:w-1/5 uhd:w-1/6 "
+      />
+      <img
+      // style={{ y: lg }}
+        src={RightBuilding.src}
+        alt="background"
+        className="absolute scale-[4.5] sm:scale-[3] desktop:scale-150 2xl:scale-100 top-[100vh] md:top-[50vh] desktop:-top-[70vh] 2xl:-top-[100vh] -right-24 desktop:-right-12 w-1/5 uhd:w-1/6 "
+      />
+    </div>
   );
 }
