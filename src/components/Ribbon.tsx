@@ -1,28 +1,37 @@
 import { motion } from "framer-motion";
+import bg from "../assets/RibbonBG.png"
+import type { PortfolioItem } from "../pages/portfolio.astro";
+import type { Entry } from "contentful";
 
-// Define the array of slides with numbers
-const slides = [
-  { number: 1 },
-  { number: 2 },
-  { number: 3 },
-  { number: 4 },
-  { number: 5 },
-];
+const SliderNumber = ({
+  portfolioIcons,
+}: {
+  portfolioIcons: Entry<PortfolioItem>[];
+}) => {
+  // Define the array of slides with numbers
+  const icons = portfolioIcons.map((icon) => {
+    return (icon.fields.logo as any)?.fields?.file?.url;
+  });
 
-const SliderNumber = () => {
-  // Duplicate the slides array to ensure seamless looping
-  const duplicatedSlides = [...slides, ...slides];
+  // Duplicate the slides array multiple times to ensure seamless looping
+  const duplicatedSlides = [...icons, ...icons, ...icons, ...icons];
+
+  // Define the number of icons to show at a time
+  const iconsToShow = 6; // Adjust this number as needed
 
   return (
-    <div className="w-full overflow-hidden -z-20">
+    <div className="w-full -z-20 relative">
       {/* Wrapping div for seamless looping */}
       <motion.div
         className="flex"
+        style={{
+          marginLeft: `-${100 / iconsToShow}%`, // Hide the first set of duplicates
+        }}
         animate={{
-          x: ["-100%", "0%"],
+          x: [`-${(100 * icons.length) / iconsToShow}%`, `0%`],
           transition: {
             ease: "linear",
-            duration: 15,
+            duration: 15, // Adjust duration as needed
             repeat: Infinity,
           },
         }}
@@ -32,14 +41,25 @@ const SliderNumber = () => {
           <div
             key={index}
             className="flex-shrink-0"
-            style={{ width: `${100 / slides.length}%` }}
+            style={{
+              width: `${100 / iconsToShow}%`,
+            }}
           >
-            <div className="flex items-center justify-center h-full py-4 desktop:text-6xl backdrop-blur-sm bg-white/15">
-              {slide.number}
+            <div className="flex items-center justify-center  desktop:text-6xl">
+              <img
+                src={slide}
+                className="mt-7 sm:mt-12 w-8 sm:w-16"
+                alt={`Icon ${index}`}
+              />
             </div>
           </div>
         ))}
       </motion.div>
+      <img
+        src={bg.src}
+        className="w-full -z-10 absolute top-0 h-20 sm:h-36"
+        alt="Ribbon background"
+      />
     </div>
   );
 };

@@ -1,8 +1,14 @@
+import type { Entry } from "contentful";
+import type { PortfolioItem } from "../../pages/portfolio.astro";
 import Ribbon from "../Ribbon";
 
-export default function PortfolioSection() {
+export default function PortfolioSection({
+  portfolioIcons
+}: {
+  portfolioIcons: Entry<PortfolioItem>[];
+}) {
   return (
-    <div className="flex flex-col items-center text-center gap-y-4 w-full">
+    <div className="flex flex-col items-center text-center gap-y-8 w-full">
       <h2 className="text-3xl desktop:text-5xl font-medium w-2/3">
         WE INVEST TO EXPAND THE <br /> ONCHAIN ECONOMY
       </h2>
@@ -17,7 +23,7 @@ export default function PortfolioSection() {
           OUR PORTFOLIO
         </span>
       </a>
-      <Ribbon />
+      <Ribbon portfolioIcons={portfolioIcons} />
     </div>
   );
 }

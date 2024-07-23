@@ -1,8 +1,8 @@
 ---
 import ReactComponent from "../components/ReactComponent";
 import { contentfulClient } from "../lib/contentful";
-import type { EntryFieldTypes, Asset } from "contentful";
 import type { Endorsement } from "./endorsements.astro";
+import type { PortfolioItem } from "./portfolio.astro";
 import Layout from "../layout/Layout.astro";
 
 const entries = await contentfulClient.getEntries<Endorsement>({
@@ -10,8 +10,21 @@ const entries = await contentfulClient.getEntries<Endorsement>({
   order: ["fields.rank"],
 });
 
+const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
+  content_type: "portfolio",
+  order: ["fields.rank"],
+});
+
+const featuredMediaEntries = await contentfulClient.getEntries({
+  content_type: "landingPageFeaturedMedia",
+});
 ---
 
 <Layout>
-    <ReactComponent endorsements={entries.items} client:only="react" />
+  <ReactComponent
+    endorsements={entries.items}
+    portfolioIcons={portfolioEntries.items}
+    featuredMedia={featuredMediaEntries.items}
+    client:only="react"
+  />
 </Layout>

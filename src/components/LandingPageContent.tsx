@@ -1,24 +1,30 @@
 import MediaSection from "./LandingPage/MediaSection";
-import XIcon from "../assets/XIcon";
-import Logo from "../assets/DarkLogo.svg";
 import EndorsementSection from "./LandingPage/EndorsementSection";
 import PortfolioSection from "./LandingPage/PortfolioSection";
 import ContactSection from "./LandingPage/ContactSection";
 import ThesisSection from "./LandingPage/ThesisSection";
 import AboutSection from "./LandingPage/AboutSection";
 
+import type { Endorsement } from "../pages/endorsements.astro";
+import type { PortfolioItem } from "../pages/portfolio.astro";
+import type { Entry } from "contentful";
+
 export default function LandingPageContent({
   endorsements,
+  portfolioIcons,
+  featuredMedia,
 }: {
-  endorsements: any[];
+  endorsements: Entry<Endorsement>[];
+  portfolioIcons: Entry<PortfolioItem>[];
+  featuredMedia: any;
 }) {
   return (
     <div className="flex flex-col items-center pb-24 gap-y-20 uhd:gap-y-64">
       <AboutSection />
       <EndorsementSection endorsements={endorsements} />
-      <PortfolioSection />
+      <PortfolioSection portfolioIcons={portfolioIcons} />
       <ThesisSection />
-      <MediaSection />
+      <MediaSection featuredMedia={featuredMedia} />
       <ContactSection />
     </div>
   );

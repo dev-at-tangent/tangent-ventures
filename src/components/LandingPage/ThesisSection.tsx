@@ -4,19 +4,19 @@ import holoMobile from "../../assets/lotties/home-holo-mobile.json";
 
 export default function ThesisSection() {
   return (
-    <div className="relative mt-20 xs:mt-36 desktop:mt-0">
+    <div className="relative mt-20 xs:mt-36 desktop:mt-12">
       <div className="w-full flex flex-col items-center absolute sm:top-1/3  desktop:top-1/2 left-1/2 -translate-x-1/2 text-grey-80 text-xl desktop:text-3xl font-semibold z-10">
-        <div className="flex flex-col mt-4 gap-y-8  desktop:mt-0 desktop:flex-row justify-center items-center desktop:w-2/3">
+        <div className="flex flex-col mt-4 gap-x-8  desktop:mt-0 desktop:flex-row justify-center items-center desktop:w-2/3">
           
-          <div className="flex items-center h-full justify-center text-center w-2/3 desktop:w-96  desktop:border-r-2 border-white">
+          <div className="flex items-center border-b-2 desktop:border-b-0 py-4 desktop:h-24 justify-center text-center w-2/3 desktop:w-96 desktop:border-r-2 border-white">
             0-TO-1 APPS
           </div>
           
-          <span className="flex items-center text-center w-2/3 desktop:w-96 desktop:border-r-2 border-white">
+          <span className="flex items-center  border-b-2 desktop:border-b-0 py-4 desktop:h-24 text-center w-2/3 desktop:w-96 desktop:border-r-2 border-white">
             COORDINATION NETWORKS
           </span>
           
-          <span className="flex items-center text-center w-2/3 desktop:w-96 ">
+          <span className="flex items-center py-4 desktop:h-24 text-center w-2/3 desktop:w-96 ">
             MARKETS FOR EVERYTHING
           </span>
         </div>
