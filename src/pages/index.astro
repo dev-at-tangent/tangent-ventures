@@ -22,7 +22,7 @@ const featuredMediaEntries = await contentfulClient.getEntries({
 
 <Layout>
   <ReactComponent
-    endorsements={entries.items}
+    endorsements={entries.items.splice(0, 4)}
     portfolioIcons={portfolioEntries.items}
     featuredMedia={featuredMediaEntries.items}
     client:only="react"

@@ -8,6 +8,7 @@ import AboutSection from "./LandingPage/AboutSection";
 import type { Endorsement } from "../pages/endorsements.astro";
 import type { PortfolioItem } from "../pages/portfolio.astro";
 import type { Entry } from "contentful";
+import Test from "./LandingPage/EndorsementCarousel";
 
 export default function LandingPageContent({
   endorsements,

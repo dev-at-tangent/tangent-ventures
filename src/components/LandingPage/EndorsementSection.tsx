@@ -1,19 +1,20 @@
-import React from "react";
-import EndorsementCard from "../EndorsementCard";
+import type { Entry } from "contentful";
+import type { Endorsement } from "../../pages/endorsements.astro";
+import EndorsementCarousel from "./EndorsementCarousel";
 
 export default function EndorsementSection({
   endorsements,
 }: {
-  endorsements: any[];
+  endorsements: Entry<Endorsement>[];
 }) {
   return (
-    <div className="flex flex-col items-center text-center gap-y-8 mx-12">
+    <div className="flex flex-col items-center text-center gap-y-8 ">
       <h2 className="text-3xl desktop:text-5xl font-medium">
         DON'T TAKE OUR WORD FOR IT. <br /> TAKE THEIRS.
       </h2>
-
-      <EndorsementCard home details={endorsements[0]} />
-
+      <div className="h-full w-screen z-20">
+        <EndorsementCarousel endorsements={endorsements} />
+      </div>
       <a
         className="bg-white rounded-full px-6 py-3 font-medium text-sm desktop:text-base group relative overflow-hidden"
         href="/endorsements"

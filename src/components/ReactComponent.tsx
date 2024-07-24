@@ -3,11 +3,12 @@ import type { Endorsement } from "../pages/endorsements.astro";
 import LandingPageContent from "./LandingPageContent";
 
 import GIF from "../assets/podcast.gif";
-import LeftBuilding from "../assets/LeftBuilding.png";
-import RightBuilding from "../assets/RightBuilding.png";
+import LeftBuilding from "../assets/LeftBuilding.webp";
+import RightBuilding from "../assets/RightBuilding.webp";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import type { PortfolioItem } from "../pages/portfolio.astro";
+import Test from "./LandingPage/EndorsementCarousel";
 
 export default function ReactComponent({
   endorsements,
@@ -34,10 +35,10 @@ export default function ReactComponent({
         portfolioIcons={portfolioIcons}
         featuredMedia={featuredMedia}
       />
-      <div className="absolute scale-[4] sm:scale-[4] desktop:scale-150 2xl:scale-100 top-[300vh] md:top-[50vh] desktop:top-[100vh] 2xl:top-[40vh] -left-28 desktop:-left-12 w-1/4 desktop:w-1/5 uhd:w-1/6">
+      <div className="absolute scale-[4] sm:scale-[2] desktop:scale-125 2xl:scale-100 top-[320vh] md:top-[180vh] desktop:top-[80vh] 2xl:top-[40vh] -left-36 md:-left-20 desktop:-left-12 w-1/4 desktop:w-1/5 uhd:w-1/6">
         <motion.img style={{ y: lg }} src={LeftBuilding.src} alt="background" />
       </div>
-      <div className="absolute scale-[7] sm:scale-[3] desktop:scale-150 2xl:scale-100 top-[400vh] md:top-[50vh] desktop:top-[100vh] 2xl:top-[40vh] -right-36 desktop:-right-12 w-1/5 uhd:w-1/6 ">
+      <div className="absolute scale-[6] sm:scale-[2] desktop:scale-125 2xl:scale-100 top-[380vh] md:top-[130vh] desktop:top-[80vh] 2xl:top-[40vh] -right-40 md:-right-20 desktop:-right-12 w-1/5 uhd:w-1/6 ">
         <motion.img
           style={{ y: lg }}
           src={RightBuilding.src}

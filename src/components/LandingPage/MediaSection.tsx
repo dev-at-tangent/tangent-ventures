@@ -13,6 +13,7 @@ export default function MediaSection({
       <div className="grid desktop:grid-cols-3 gap-4 desktop:gap-8 mx-8 desktop:w-2/3 z-30 ">
         {featuredMedia.map((media: any) => (
           <a
+            key={media.sys.id}
             href={media.fields.link}
             target="_blank"
             className="flex flex-col bg-white/70 backdrop-blur-sm rounded-xl p-4 desktop:p-8 transition-colors group hover:bg-white"
@@ -27,6 +28,7 @@ export default function MediaSection({
             <h1 className="text-xl desktop:text-2xl font-semibold mt-4 line-clamp-2 self-start">
               {media.fields.title}
             </h1>
+            <div className="grow" />
             <span className="flex items-center text-grey-80 text-sm font-semibold mt-4 desktop:mt-8 group-hover:underline underline-offset-8">
               {media.fields.type === "ARTICLE"
                 ? "READ MORE"

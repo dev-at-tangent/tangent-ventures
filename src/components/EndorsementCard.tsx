@@ -31,7 +31,7 @@ export default function EndorsementCard({
   return (
     <div
       className={`flex flex-col sm:flex-row items-start bg-white/60 backdrop-blur-sm drop-shadow-md rounded-xl p-8 desktop:p-12 group transition-colors sm:hover:bg-white ${
-        home ? "desktop:w-1/2" : "max-w-xl sm:min-h-[450px]"
+        home ? "h-[450px] lg:h-[350px] mx-4" : "max-w-xl sm:min-h-[450px]"
       }`}
     >
       <img
@@ -46,12 +46,12 @@ export default function EndorsementCard({
         )?.fields?.file?.url?.toString()}
         className="w-12 sm:w-24 sm:hidden rounded-md group-hover:block"
       />
-      <div className="flex flex-col sm:ml-12 mt-8 sm:mt-0 h-full text-sm desktop:text-base text-start">
+      <div className="flex flex-col justify-between sm:ml-12 mt-8 sm:mt-0 h-full text-sm desktop:text-base text-start">
         {documentToReactComponents(
           details.fields.quote as unknown as Document,
           options
         )}
-        <div className="grow" />
+        {/* <div className="grow bg-red-300" /> */}
         <div className="flex items-center mt-4 desktop:mt-12">
           <img
             src={(
