@@ -55,7 +55,7 @@ export default function MediaSection({
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 2,
+        delay: 0.2,
         ease: "power2.out",
       });
     },

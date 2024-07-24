@@ -6,7 +6,6 @@ import rightCloud from "../assets/lotties/portfolio-cloud-bottom.json";
 export default function MediaHeader() {
   const { ref } = useScramble({
     text: "MEDIA",
-    speed: 0.4,
   });
 
   return (

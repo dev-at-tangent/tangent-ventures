@@ -71,8 +71,8 @@ const articles = featuredArticles.items.concat(regularArticles.items);
 
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
 
-      <MediaHeader client:only="react" />
-    
+    <MediaHeader client:only="react" />
+
     <MediaSection client:only="react" articles={articles} podcasts={podcasts} />
     <ScrollToTopButton client:only="react" />
   </div>

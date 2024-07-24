@@ -69,7 +69,7 @@ const TeamMemberCard = ({
           <p className={`text-grey-80 text-sm whitespace-pre-wrap`}>
             {details.fields.bio.toString()}
           </p>
-          <div className="grow bg-red-400" />
+          <div className="grow" />
           <span className={`my-2 ${isHighlighted && "text-lg"}`}>
             {details.fields.title.toString()}
           </span>
