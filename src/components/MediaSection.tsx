@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/gsap-core";
 
@@ -50,6 +50,7 @@ export default function MediaSection({
   );
 
   const ref = useRef(null);
+
   useGSAP(
     () => {
       gsap.from(ref.current, {
@@ -61,6 +62,10 @@ export default function MediaSection({
     },
     { scope: ref }
   );
+
+  useEffect(() => {
+    setSearchKeyword("");
+  }, [tab]);
 
   return (
     <div ref={ref} className="md:w-[75vw] max-w-7xl relative">

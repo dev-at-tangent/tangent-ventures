@@ -5,8 +5,18 @@ import type { Endorsement } from "./endorsements.astro";
 import type { PortfolioItem } from "./portfolio.astro";
 import Layout from "../layout/Layout.astro";
 
+export interface FeaturedMedia {
+  contentTypeId: "landingPageFeaturedMedia";
+  fields: {
+    title: string;
+    description: string;
+    date: string;
+    link: string;
+  };
+}
 const entries = await contentfulClient.getEntries<Endorsement>({
   content_type: "endorsement",
+  "fields.featured": true,
   order: ["fields.rank"],
 });
 
@@ -15,7 +25,7 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
   order: ["fields.rank"],
 });
 
-const featuredMediaEntries = await contentfulClient.getEntries({
+const featuredMediaEntries = await contentfulClient.getEntries<FeaturedMedia>({
   content_type: "landingPageFeaturedMedia",
 });
 ---

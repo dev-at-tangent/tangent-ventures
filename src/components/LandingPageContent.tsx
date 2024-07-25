@@ -5,10 +5,10 @@ import ContactSection from "./LandingPage/ContactSection";
 import ThesisSection from "./LandingPage/ThesisSection";
 import AboutSection from "./LandingPage/AboutSection";
 
+import type { Entry } from "contentful";
 import type { Endorsement } from "../pages/endorsements.astro";
 import type { PortfolioItem } from "../pages/portfolio.astro";
-import type { Entry } from "contentful";
-import Test from "./LandingPage/EndorsementCarousel";
+import type { FeaturedMedia } from "../pages/index.astro";
 
 export default function LandingPageContent({
   endorsements,
@@ -17,7 +17,7 @@ export default function LandingPageContent({
 }: {
   endorsements: Entry<Endorsement>[];
   portfolioIcons: Entry<PortfolioItem>[];
-  featuredMedia: any;
+  featuredMedia: Entry<FeaturedMedia>[];
 }) {
   return (
     <div className="flex flex-col items-center pb-24 gap-y-20 uhd:gap-y-64">

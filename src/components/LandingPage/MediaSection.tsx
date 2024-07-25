@@ -1,9 +1,11 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
+import type { Entry } from "contentful";
+import type { FeaturedMedia } from "../../pages/index.astro";
 
 export default function MediaSection({
   featuredMedia,
 }: {
-  featuredMedia: any;
+  featuredMedia: Entry<FeaturedMedia>[];
 }) {
   return (
     <div className="flex flex-col items-center gap-y-8 mt-20 desktop:mt-0">
@@ -37,40 +39,6 @@ export default function MediaSection({
             </span>
           </a>
         ))}
-
-        {/* <div className="flex flex-col  bg-white/70 backdrop-blur-sm rounded-xl p-4 desktop:p-8">
-          <div className="flex items-center">
-            <span className="text-grey-80 text-sm">May 14, 2024</span>
-            <div className="grow" />
-            <div className="rounded-full outline outline-1 px-4 py-1 text-xs text-grey-60">
-              PODCAST
-            </div>
-          </div>
-          <h1 className="text-xl desktop:text-2xl font-semibold mt-4 line-clamp-2 self-start">
-            Impedit laboriosam sunt aut autem. Sint reprehenderit temporibus ea
-            nemo.
-          </h1>
-          <a className="flex items-center text-grey-80 text-sm font-semibold mt-4 desktop:mt-8">
-            READ MORE <ArrowTopRightOnSquareIcon className="size-5 ml-3" />
-          </a>
-        </div>
-
-        <div className="flex flex-col  bg-white/70 backdrop-blur-sm rounded-xl p-4 desktop:p-8">
-          <div className="flex items-center">
-            <span className="text-grey-80 text-sm">May 14, 2024</span>
-            <div className="grow" />
-            <div className="rounded-full outline outline-1 px-4 py-1 text-xs text-grey-60">
-              PODCAST
-            </div>
-          </div>
-          <h1 className="text-xl desktop:text-2xl font-semibold mt-4 line-clamp-2 self-start">
-            Impedit laboriosam sunt aut autem. Sint reprehenderit temporibus ea
-            nemo.
-          </h1>
-          <a className="flex items-center text-grey-80 text-sm font-semibold mt-4 desktop:mt-8">
-            READ MORE <ArrowTopRightOnSquareIcon className="size-5 ml-3" />
-          </a>
-        </div> */}
       </div>
 
       <a

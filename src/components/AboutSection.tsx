@@ -18,9 +18,17 @@ export default function AboutSection({
 }) {
   const ref = useRef(null);
   const lineRef = useRef(null);
+  const titleRef = useRef(null);
 
   useGSAP(
     () => {
+      gsap.from(titleRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0,
+        ease: "power3.out",
+      });
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
@@ -58,12 +66,15 @@ export default function AboutSection({
       {/* Main content */}
       <div className="flex flex-col items-center relative z-10">
         <div className="md:w-1/2 gap-y-6 text-center flex flex-col items-center">
-          <ScrambleText
+          {/* <ScrambleText
             finalText="THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER"
             className="text-3xl md:text-5xl font-medium"
             charsPerGroup={5}
             duration={1}
-          />
+          /> */}
+          <h1 ref={titleRef} className="text-3xl md:text-5xl font-medium">
+            THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER
+          </h1>
           <span ref={ref} className="text-grey-80">
             Tangent is an evergreen angel fund uniquely built for founders in
             crypto

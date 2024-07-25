@@ -35,7 +35,7 @@ export default function Podcasts({
         ))}
       </div>
       {podcasts.length === 0 && (
-        <div className="w-full">No podcasts found.</div>
+        <div className="w-full mt-16 text-center text-grey-80 text-lg font-semibold">NO PODCASTS FOUND.</div>
       )}
     </div>
   );
