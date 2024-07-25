@@ -33,7 +33,7 @@ export default function EndorsementCarousel({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 464);
+      setIsMobile(window.innerWidth < 900);
     };
 
     window.addEventListener("resize", handleResize);
@@ -49,7 +49,7 @@ export default function EndorsementCarousel({
   }) => {
     return (
       <div className="carousel-button-group absolute top-1/2 w-full flex justify-center">
-        <div className="flex w-full sm:w-1/2 justify-between mx-1">
+        <div className="flex w-full lg:w-1/2 justify-between mx-1">
           <button
             onClick={() => previous()}
             className="carousel-button bg-white rounded-full p-2"

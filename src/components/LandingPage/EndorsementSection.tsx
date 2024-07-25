@@ -8,7 +8,7 @@ export default function EndorsementSection({
   endorsements: Entry<Endorsement>[];
 }) {
   return (
-    <div className="flex flex-col items-center text-center gap-y-8 ">
+    <div className="flex flex-col items-center text-center gap-y-8 mt-64">
       <h2 className="text-3xl desktop:text-5xl font-medium">
         DON'T TAKE OUR WORD FOR IT. <br /> TAKE THEIRS.
       </h2>
