@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -23,9 +23,21 @@ export default function ThesisSection({
   const containerRef = useRef(null);
   const scrambleTriggerRef = useRef(null);
 
+  const [currentText, setCurrentText] = useState("PRINCIPLE 1");
+
   const { ref, replay } = useScramble({
-    text: title,
+    text: currentText,
   });
+
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     setCurrentText(title);
+  //     replay();
+  //   }, 2000); // Change to targetText after 2 seconds
+
+  //   return () => clearTimeout(timeoutId);
+  // }, [replay, title]);
+
   useGSAP(
     () => {
       gsap.from(containerRef.current, {
@@ -51,7 +63,10 @@ export default function ThesisSection({
           trigger: scrambleTriggerRef.current,
           start: "top 30%",
           end: "bottom 30%",
-          onEnter: () => replay(),
+          onEnter: () => {
+            setCurrentText(title);
+            replay();
+          },
         },
       });
     },
@@ -93,7 +108,7 @@ export default function ThesisSection({
         <Lottie animationData={lottie} />
       </div>
       <h1 ref={triggerRef} className="text-3xl text-center desktop:text-5xl">
-        <span ref={ref} />
+        <span ref={ref}>Test</span>
       </h1>
       <div className="desktop:w-1/2 text-center">
         {documentToReactComponents(content, options)}

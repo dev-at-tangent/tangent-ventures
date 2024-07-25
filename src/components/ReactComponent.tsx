@@ -57,7 +57,7 @@ export default function ReactComponent({
           alt="background"
         />
       </div>
-      <div className="absolute scale-[5] sm:scale-[1.7] desktop:scale-[1.5] 2xl:scale-100 top-[350vh] sm:top-[220vh] md:top-[155vh] desktop:top-[150vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
+      <div className="absolute scale-[4] sm:scale-[1.7] desktop:scale-[1.5] 2xl:scale-100 top-[300vh] sm:top-[220vh] md:top-[155vh] desktop:top-[150vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
         <motion.img
           style={{ y: lg }}
           src={RightBuilding.src}
