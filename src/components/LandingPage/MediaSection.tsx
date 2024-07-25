@@ -12,7 +12,7 @@ export default function MediaSection({
       <h2 className="text-3xl desktop:text-5xl font-medium w-1/2 text-center desktop:w-full">
         FEATURED MEDIA
       </h2>
-      <div className="grid desktop:grid-cols-3 gap-4 desktop:gap-8 mx-8 desktop:w-2/3 z-30 ">
+      <div className="grid desktop:grid-cols-3 gap-4 desktop:gap-8 mx-8 desktop:w-2/3 z-10 ">
         {featuredMedia.map((media: any) => (
           <a
             key={media.sys.id}

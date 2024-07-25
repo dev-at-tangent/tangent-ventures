@@ -8,8 +8,8 @@ export default function PortfolioSection({
   portfolioIcons: Entry<PortfolioItem>[];
 }) {
   return (
-    <div className="flex flex-col items-center text-center gap-y-8 w-full">
-      <h2 className="text-3xl desktop:text-5xl font-medium">
+    <div className="flex flex-col items-center text-center gap-y-8 ">
+      <h2 className="text-3xl desktop:text-5xl font-medium w-2/5">
         WE INVEST TO EXPAND THE <br /> ONCHAIN ECONOMY
       </h2>
       <a
