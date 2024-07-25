@@ -53,7 +53,7 @@ export default function ReactComponent({
       <div className="absolute w-1/5 top-[250vh] -left-10 scale-[2.5] sm:hidden">
         <motion.img style={{ y: lg }} src={MobileLeftBuilding.src} alt="background" />
       </div>
-      <div className="absolute scale-[5] sm:scale-[2] desktop:scale-125 2xl:scale-100 top-[350vh] sm:top-[200vh] md:top-[130vh] desktop:top-[130vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
+      <div className="absolute scale-[5] sm:scale-[2] desktop:scale-125 2xl:scale-100 top-[350vh] sm:top-[220vh] md:top-[130vh] desktop:top-[130vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
         <motion.img
           style={{ y: lg }}
           src={RightBuilding.src}
