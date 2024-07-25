@@ -9,7 +9,7 @@ export default function EndorsementSection({
 }) {
   return (
     <div className="flex flex-col items-center text-center gap-y-8 mt-64">
-      <h2 className="text-3xl desktop:text-5xl font-medium">
+      <h2 className="text-3xl desktop:text-5xl font-medium w-4/5">
         DON'T TAKE OUR WORD FOR IT. <br /> TAKE THEIRS.
       </h2>
       <div className="h-full w-screen z-20">

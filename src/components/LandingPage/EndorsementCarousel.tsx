@@ -12,11 +12,11 @@ export default function EndorsementCarousel({
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
+      breakpoint: { max: 4000, min: 2000 },
+      items: 2,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 2000, min: 1024 },
       items: 1,
     },
     tablet: {
@@ -49,7 +49,7 @@ export default function EndorsementCarousel({
   }) => {
     return (
       <div className="carousel-button-group absolute top-1/2 w-full flex justify-center">
-        <div className="flex w-full lg:w-1/2 justify-between mx-1">
+        <div className="flex w-full lg:w-1/2 uhd:w-2/3 justify-between mx-1">
           <button
             onClick={() => previous()}
             className="carousel-button bg-white rounded-full p-2"
