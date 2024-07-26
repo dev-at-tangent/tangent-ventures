@@ -6,7 +6,8 @@ import type { FeaturedMedia } from "../pages/index.astro";
 import LandingPageContent from "./LandingPageContent";
 import Lottie from "lottie-react";
 
-import GIF from "../assets/podcast.gif";
+import RightBuildingTop from "../assets/lotties/RightBuildingTop.json";
+import RightBuildingBottom from "../assets/RightBuildingBottom.webp";
 import LeftBuilding from "../assets/LeftBuilding.webp";
 import MobileLeftBuilding from "../assets/MobileLeftBuilding.webp";
 import RightBuilding from "../assets/RightBuilding.webp";
@@ -59,11 +60,10 @@ export default function ReactComponent({
         />
       </div>
       <div className="hidden sm:flex absolute scale-[1.7] desktop:scale-[1.5] 2xl:scale-100 top-[220vh] md:top-[155vh] desktop:top-[175vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
-        <motion.img
-          style={{ y: lg }}
-          src={RightBuilding.src}
-          alt="background"
-        />
+        <motion.div style={{ y: lg }}>
+          <Lottie animationData={RightBuildingTop} />
+          <img src={RightBuildingBottom.src} />
+        </motion.div>
       </div>
       <div className="absolute w-3/5 top-[110vh] -right-36 sm:hidden">
         <motion.img

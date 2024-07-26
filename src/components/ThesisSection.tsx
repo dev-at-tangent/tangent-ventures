@@ -63,7 +63,6 @@ export default function ThesisSection({
           trigger: scrambleTriggerRef.current,
           start: "top 35%",
           end: "bottom 35%",
-          markers: true,
           onEnter: () => {
             setCurrentText(title);
             replay();
