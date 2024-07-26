@@ -24,7 +24,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
   return (
     <>
       <div
-        className={`hidden desktop:block sticky z-20 top-4 w-full ${
+        className={`hidden desktop:block sticky z-30 top-4 w-full ${
           scrollDirection === "up" && window.scrollY > 0
             ? styles.inactive
             : styles.active
