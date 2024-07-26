@@ -10,7 +10,7 @@ export default function PortfolioSection({
   return (
     <div className="flex flex-col items-center text-center gap-y-8 ">
       <h2 className="text-3xl desktop:text-5xl font-medium w-2/5">
-        WE INVEST TO EXPAND THE ONCHAIN ECONOMY
+        WHAT WE INVEST IN
       </h2>
       <a
         className="bg-white rounded-full px-6 py-3 text-sm desktop:text-base font-medium group relative overflow-hidden"

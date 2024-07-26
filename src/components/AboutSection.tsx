@@ -59,19 +59,13 @@ export default function AboutSection({
         />
         <Lottie
           animationData={spaceship}
-          className="absolute scale-50 uhd:scale-75 -right-80 top-24 desktop:-right-80 desktop:-top-20"
+          className="absolute scale-50 uhd:scale-75 -right-80 top-24 desktop:-right-80 desktop:-top-20 z-30"
         />
       </div>
 
       {/* Main content */}
       <div className="flex flex-col items-center relative z-10">
         <div className="md:w-1/2 gap-y-6 text-center flex flex-col items-center">
-          {/* <ScrambleText
-            finalText="THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER"
-            className="text-3xl md:text-5xl font-medium"
-            charsPerGroup={5}
-            duration={1}
-          /> */}
           <h1 ref={titleRef} className="text-3xl md:text-5xl font-medium">
             THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER
           </h1>

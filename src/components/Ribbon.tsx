@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import bg from "../assets/RibbonBG.png"
+import bg from "../assets/RibbonBG.webp";
+import overlay from "../assets/RibbonOverlay.webp";
 import type { PortfolioItem } from "../pages/portfolio.astro";
 import type { Entry } from "contentful";
 
@@ -59,6 +60,11 @@ const SliderNumber = ({
         src={bg.src}
         className="w-full -z-10 absolute top-0 h-20 sm:h-36"
         alt="Ribbon background"
+      />
+      <img
+        src={overlay.src}
+        className="w-full z-10 absolute top-0 h-20 sm:h-36"
+        alt="Ribbon overlay"
       />
     </div>
   );

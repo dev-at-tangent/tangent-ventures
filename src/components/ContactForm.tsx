@@ -116,10 +116,11 @@ export default function ContactForm() {
   useGSAP(
     () => {
       gsap.from(ref.current, {
+        y: 50,
         opacity: 0,
         duration: 0.5,
-        delay: 1,
-        ease: "power2.out",
+        delay: 0,
+        ease: "power3.out",
       });
     },
     { scope: ref }

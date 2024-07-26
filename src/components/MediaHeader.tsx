@@ -1,16 +1,27 @@
-import { useScramble } from "use-scramble";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/gsap-core";
 import Lottie from "lottie-react";
 import leftCloud from "../assets/lotties/about-cloud-right.json";
 import rightCloud from "../assets/lotties/portfolio-cloud-bottom.json";
 
 export default function MediaHeader() {
-  const { ref } = useScramble({
-    text: "MEDIA",
+  const titleRef = useRef(null);
+  useGSAP(() => {
+    gsap.from(titleRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      delay: 0,
+      ease: "power3.out",
+    });
   });
 
   return (
     <div>
-      <h1 ref={ref} className="text-3xl sm:text-5xl font-medium" />
+      <h1 ref={titleRef} className="text-3xl sm:text-5xl font-medium">
+        MEDIA
+      </h1>
       <div className="absolute inset-0 overflow-x-hidden overflow-y-visible w-screen left-1/2 -translate-x-1/2 -z-10">
         <Lottie
           animationData={leftCloud}

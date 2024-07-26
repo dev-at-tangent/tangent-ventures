@@ -3,13 +3,16 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      perspective: {
+        '500': '500px',
+      },
       animation: {
-        blink: 'blink 1s step-end infinite',
+        blink: "blink 1s step-end infinite",
       },
       keyframes: {
         blink: {
-          '0%, 100%': { opacity: 1 },
-          '50%': { opacity: 0 },
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0 },
         },
       },
       screens: {
@@ -35,5 +38,20 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".backface-hidden": {
+          "backface-visibility": "hidden",
+        },
+        ".perspective-500": {
+          perspective: "500px",
+        },
+        ".rotate-x-180": {
+          transform: "rotateX(180deg)",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };

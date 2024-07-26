@@ -9,16 +9,20 @@ export default function ContactBody() {
   useGSAP(
     () => {
       gsap.from(ref.current, {
+        y: 50,
         opacity: 0,
         duration: 0.5,
-        delay: 1,
-        ease: "power2.out",
+        delay: 0,
+        ease: "power3.out",
       });
     },
     { scope: ref }
   );
   return (
     <div ref={ref} className="flex flex-col gap-y-8">
+      <h1 className="text-4xl md:text-6xl font-medium w-full text-center lg:text-left">
+        GET IN TOUCH
+      </h1>
       <p className="text-lg text-center lg:text-left">
         We are a collective of experienced operators and founders behind some of
         the largest projects and protocols in Web3.

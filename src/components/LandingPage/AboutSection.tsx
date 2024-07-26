@@ -4,7 +4,7 @@ export default function AboutSection() {
   return (
     <div className="flex flex-col items-center gap-y-8 mx-12">
       <h1 className="text-4xl desktop:text-6xl font-medium text-center">
-        EVERGREEN ANGEL FUND
+        EVERGREEN PROP FUND
         <br /> BUILT FOR CRYPTO FOUNDERS
       </h1>
       <a
