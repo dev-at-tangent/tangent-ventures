@@ -58,7 +58,7 @@ export default function ReactComponent({
           alt="background"
         />
       </div>
-      <div className="hidden sm:flex absolute scale-[4] sm:scale-[1.7] desktop:scale-[1.5] 2xl:scale-100 top-[300vh] sm:top-[220vh] md:top-[155vh] desktop:top-[150vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
+      <div className="hidden sm:flex absolute scale-[1.7] desktop:scale-[1.5] 2xl:scale-100 top-[220vh] md:top-[155vh] desktop:top-[160vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
         <motion.img
           style={{ y: lg }}
           src={RightBuilding.src}
@@ -83,7 +83,7 @@ export default function ReactComponent({
       </motion.div>
       <Lottie
         animationData={robot}
-        className="absolute w-24 sm:w-32 bottom-[55vh] right-16 md:right-40 lg:right-64 uhd:right-96 -z-20"
+        className="absolute w-24 sm:w-32 bottom-[50vh] sm:bottom-[40vh] uhd:bottom-[30vh] right-16 md:right-40 lg:right-72 uhd:right-96 -z-20"
       />
 
       <Lottie
@@ -92,7 +92,7 @@ export default function ReactComponent({
       />
       <Lottie
         animationData={sat}
-        className="absolute -bottom-28 sm:-bottom-10 -right-10 sm:right-0 md:right-16 lg:right-48 -z-10 scale-[0.45] md:scale-75 lg:scale-100"
+        className="absolute -bottom-28 sm:-bottom-10 -right-10 sm:right-0 md:right-16 lg:right-72 -z-10 scale-[0.45] md:scale-75 lg:scale-100"
       />
       <Lottie
         animationData={topLeftCloud}
