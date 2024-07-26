@@ -27,7 +27,7 @@ const currentPath = pathname.replaceAll("/", "");
     <title>Tangent</title>
   </head>
   <body
-    class={`flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none bg-grey-20 ${currentPath === "" && "bg-[url('/bg.webp')] bg-cover"}`}
+    class={`flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none bg-grey-20 ${currentPath === "" && "bg-[url('/bg.webp')] bg-cover bg-center"}`}
   >
     <Navbar currentPath={currentPath} client:only="react" />
     <main
