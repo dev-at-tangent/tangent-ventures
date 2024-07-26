@@ -74,7 +74,7 @@ export default function ReactComponent({
       </div>
       <motion.div
         style={{ x: rocketTransform }}
-        className="absolute top-[70vh] right-[100vw] sm:top-64 sm:right-0 -z-10"
+        className="absolute top-[70vh] right-[100vw] sm:top-40 sm:right-0 -z-10"
       >
         <Lottie
           animationData={rocket}
