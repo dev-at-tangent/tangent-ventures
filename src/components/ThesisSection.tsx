@@ -61,12 +61,17 @@ export default function ThesisSection({
       gsap.to(scrambleTriggerRef.current, {
         scrollTrigger: {
           trigger: scrambleTriggerRef.current,
-          start: "top 30%",
-          end: "bottom 30%",
+          start: "top 35%",
+          end: "bottom 35%",
+          markers: true,
           onEnter: () => {
             setCurrentText(title);
             replay();
           },
+          onLeaveBack: () => {
+            setCurrentText("PRINCIPLE 1");
+            replay();
+          }
         },
       });
     },

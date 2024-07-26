@@ -10,6 +10,7 @@ import GIF from "../assets/podcast.gif";
 import LeftBuilding from "../assets/LeftBuilding.webp";
 import MobileLeftBuilding from "../assets/MobileLeftBuilding.webp";
 import RightBuilding from "../assets/RightBuilding.webp";
+import MobileRightBuilding from "../assets/MobileRightBuilding.webp";
 import rocket from "../assets/lotties/spaceship.json";
 import robot from "../assets/lotties/robot.json";
 import sat from "../assets/lotties/sat.json";
@@ -50,17 +51,24 @@ export default function ReactComponent({
       <div className="hidden absolute sm:flex scale-[4] sm:scale-[2] desktop:scale-125 2xl:scale-100 top-[320vh] sm:top-[200vh] md:top-[200vh] desktop:top-[120vh] 2xl:top-[80vh] -left-36 md:-left-20 desktop:-left-12 w-1/4 desktop:w-1/5 uhd:w-1/6">
         <motion.img style={{ y: lg }} src={LeftBuilding.src} alt="background" />
       </div>
-      <div className="absolute w-1/5 top-[250vh] -left-10 scale-[2.5] sm:hidden">
+      <div className="absolute w-2/3 top-[100vh] -left-32 sm:hidden">
         <motion.img
           style={{ y: lg }}
           src={MobileLeftBuilding.src}
           alt="background"
         />
       </div>
-      <div className="absolute scale-[4] sm:scale-[1.7] desktop:scale-[1.5] 2xl:scale-100 top-[300vh] sm:top-[220vh] md:top-[155vh] desktop:top-[150vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
+      <div className="hidden sm:flex absolute scale-[4] sm:scale-[1.7] desktop:scale-[1.5] 2xl:scale-100 top-[300vh] sm:top-[220vh] md:top-[155vh] desktop:top-[150vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
         <motion.img
           style={{ y: lg }}
           src={RightBuilding.src}
+          alt="background"
+        />
+      </div>
+      <div className="absolute w-3/5 top-[110vh] -right-36 sm:hidden">
+        <motion.img
+          style={{ y: lg }}
+          src={MobileRightBuilding.src}
           alt="background"
         />
       </div>
