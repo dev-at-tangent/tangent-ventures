@@ -1,11 +1,11 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS, type Document } from "@contentful/rich-text-types";
-import { useScramble } from "use-scramble";
 import Lottie from "lottie-react";
+import Typewriter from "./Typewriter";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,22 +21,8 @@ export default function ThesisSection({
   const highlightRef = useRef(null);
   const triggerRef = useRef(null);
   const containerRef = useRef(null);
-  const scrambleTriggerRef = useRef(null);
-
-  const [currentText, setCurrentText] = useState("PRINCIPLE 1");
-
-  const { ref, replay } = useScramble({
-    text: currentText,
-  });
-
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setCurrentText(title);
-  //     replay();
-  //   }, 2000); // Change to targetText after 2 seconds
-
-  //   return () => clearTimeout(timeoutId);
-  // }, [replay, title]);
+  const typewriterRef = useRef(null);
+  const highlightTriggerRef = useRef(null);
 
   useGSAP(
     () => {
@@ -51,30 +37,26 @@ export default function ThesisSection({
       gsap.to(highlightRef.current, {
         backgroundPosition: "-99.99% 0",
         scrollTrigger: {
-          trigger: triggerRef.current,
-          start: "top 60%",
-          end: "bottom 60%",
+          trigger: highlightTriggerRef.current,
+          // markers: true,
+          start: "top 70%",
+          end: "bottom 70%",
+          // markers: true,
           scrub: true,
         },
       });
 
-      gsap.to(scrambleTriggerRef.current, {
-        scrollTrigger: {
-          trigger: scrambleTriggerRef.current,
-          start: "top 35%",
-          end: "bottom 35%",
-          onEnter: () => {
-            setCurrentText(title);
-            replay();
-          },
-          onLeaveBack: () => {
-            setCurrentText("PRINCIPLE 1");
-            replay();
-          }
+      // ScrollTrigger for Typewriter
+      ScrollTrigger.create({
+        trigger: triggerRef.current,
+        start: "top 70%",
+        // markers: true,
+        onEnter: () => {
+          (typewriterRef.current as any)?.startTyping();
         },
       });
     },
-    { scope: ref }
+    { scope: containerRef }
   );
 
   useEffect(() => {
@@ -108,12 +90,17 @@ export default function ThesisSection({
       ref={containerRef}
       className="flex flex-col items-center text-lg my-16 gap-y-8"
     >
-      <div ref={scrambleTriggerRef}>
+      <div id="title-trigger" ref={triggerRef}>
         <Lottie animationData={lottie} />
       </div>
-      <h1 ref={triggerRef} className="text-3xl text-center desktop:text-5xl">
-        <span ref={ref}>Test</span>
-      </h1>
+      <div ref={highlightTriggerRef}>
+        <Typewriter
+          text={title}
+          duration={50}
+          ref={typewriterRef}
+          className="text-3xl sm:text-5xl font-medium text-center"
+        />
+      </div>
       <div className="desktop:w-1/2 text-center">
         {documentToReactComponents(content, options)}
       </div>

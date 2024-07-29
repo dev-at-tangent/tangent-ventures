@@ -42,10 +42,10 @@ export default function MediaSection({
       </div>
 
       <a
-        className="bg-white rounded-full px-6 py-3 text-sm desktop:text-base font-medium group relative overflow-hidden"
+        className="bg-white rounded-full px-6 py-3 text-sm desktop:text-base font-medium group relative overflow-hidden hover:bg-black transition-colors"
         href="/media"
       >
-        <span className="inline-block translate-y-8 transition-all group-hover:translate-y-0">
+        <span className="inline-block translate-y-8 transition-all group-hover:translate-y-0 text-white">
           VIEW ALL MEDIA
         </span>
         <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">

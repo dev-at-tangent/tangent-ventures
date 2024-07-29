@@ -22,10 +22,10 @@ export default function ThesisSection() {
         </div>
         
         <a
-          className="bg-white rounded-full px-6 py-3 text-sm desktop:text-base font-medium group relative overflow-hidden mt-8 desktop:mt-12"
+          className="bg-white rounded-full px-6 py-3 text-sm desktop:text-base font-medium group relative overflow-hidden mt-8 desktop:mt-12 hover:bg-black transition-colors"
           href="/endorsements"
         >
-          <span className="inline-block translate-y-10 transition-all group-hover:translate-y-0">
+          <span className="inline-block translate-y-10 transition-all group-hover:translate-y-0 text-white">
             LEARN MORE
           </span>
           <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-10">

@@ -7,10 +7,10 @@ export default function ContactSection() {
         GET IN TOUCH
       </h2>
       <a
-        className="bg-white rounded-full px-6 py-3 font-medium text-sm desktop:text-base group relative overflow-hidden"
+        className="bg-white rounded-full px-6 py-3 font-medium text-sm desktop:text-base group relative overflow-hidden hover:bg-black transition-colors"
         href="/contact"
       >
-        <span className="inline-block translate-y-8 transition-all group-hover:translate-y-0">
+        <span className="inline-block translate-y-8 transition-all group-hover:translate-y-0 text-white">
           CONTACT
         </span>
         <span className="absolute left-0 mx-6 inline-block transition-all group-hover:-translate-y-8">

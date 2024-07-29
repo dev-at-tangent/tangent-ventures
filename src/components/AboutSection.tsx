@@ -32,13 +32,13 @@ export default function AboutSection({
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 1,
+        delay: 0.5,
         ease: "power2.out",
       });
       gsap.from(lineRef.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 3,
+        delay: 1,
         ease: "power2.out",
       });
     },
