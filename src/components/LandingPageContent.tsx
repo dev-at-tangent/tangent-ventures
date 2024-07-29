@@ -20,7 +20,7 @@ export default function LandingPageContent({
   featuredMedia: Entry<FeaturedMedia>[];
 }) {
   return (
-    <div className="flex flex-col items-center pb-24 gap-y-20 sm:gap-y-36 lg:gap-y-48 uhd:gap-y-64">
+    <div className="flex flex-col items-center pb-48 gap-y-20 sm:gap-y-36 lg:gap-y-48 uhd:gap-y-64">
       <AboutSection />
       <EndorsementSection endorsements={endorsements} />
       <PortfolioSection portfolioIcons={portfolioIcons} />

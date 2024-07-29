@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-
+import unknown from "../assets/unknown.png";
+import { PlusIcon } from "@heroicons/react/24/solid";
 import ScrambleText from "./ScrambleText";
 import TeamMemberCard from "./TeamMemberCard";
 import type { TeamMember } from "../pages/about.astro";
@@ -65,6 +66,17 @@ export default function TeamSection({
               setSelected={setSelected}
             />
           ))}
+          <div className="p-4 bg-turq rounded-xl flex flex-col w-80">
+            <img src={unknown.src} />
+            <h1 className={`font-semibold mb-8 text-2xl mt-12`}>THIS COULD BE YOU</h1>
+            <a
+              href="/contact"
+              className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer transition-colors duration-500 hover:bg-black hover:text-white hover:outline-none self-end"
+            >
+              CONTACT
+              <PlusIcon className="size-6 ml-2" />
+            </a>
+          </div>
         </div>
       </div>
     </div>

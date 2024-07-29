@@ -83,7 +83,7 @@ export default function ReactComponent({
       </motion.div>
       <Lottie
         animationData={robot}
-        className="absolute w-24 sm:w-32 bottom-[50vh] sm:bottom-[40vh] uhd:bottom-[30vh] right-16 md:right-40 lg:right-72 uhd:right-96 -z-20"
+        className="absolute w-24 sm:w-40 bottom-[50vh] sm:bottom-[80vh] uhd:bottom-[30vh] right-16 md:right-40 lg:right-72 uhd:right-96 -z-20"
       />
 
       <Lottie
