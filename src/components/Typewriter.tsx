@@ -33,7 +33,7 @@ const Typewriter = forwardRef(({
   return (
     <div className={className}>
       {currentText}
-      <span className="animate-blink">|</span>
+      {currentText !== text && <span className="animate-blink">|</span>}
     </div>
   );
 });

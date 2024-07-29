@@ -27,7 +27,7 @@ export default function PortfolioContent({
   return (
     <div
       ref={ref}
-      className="relative flex flex-wrap justify-center gap-8 mt-12 sm:mt-20"
+      className="relative flex flex-wrap justify-center gap-8 mt-12 sm:mt-36"
     >
       <div className="absolute inset-0 overflow-x-hidden overflow-y-visible pointer-events-none w-screen left-1/2 -translate-x-1/2">
       </div>
