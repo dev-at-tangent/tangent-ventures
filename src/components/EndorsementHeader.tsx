@@ -19,9 +19,9 @@ export default function EndorsementHeader() {
     });
   });
   return (
-    <div className="absolute overflow-hidden inset-0 w-screen left-1/2 -translate-x-1/2">
-      <h1 ref={titleRef} className="text-3xl sm:text-5xl text-center">
-        DON'T TAKE OUR WORD FOR IT. <br /> TAKE THEIRS.
+    <div className="absolute overflow-hidden inset-0 w-screen left-1/2 -translate-x-1/2 flex justify-center">
+      <h1 ref={titleRef} className="text-3xl sm:text-5xl text-center w-2/3 sm:w-full">
+        DON'T TAKE OUR WORD FOR IT. <br className="hidden sm:block"/> TAKE THEIRS.
       </h1>
       <Lottie
         animationData={leftCloud}

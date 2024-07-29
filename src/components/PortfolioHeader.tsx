@@ -29,7 +29,7 @@ export default function PortfolioHeader() {
       />
       <Lottie
         animationData={rightCloud}
-        className="absolute scale-50 desktop:scale-100 uhd:scale-125 -top-10 -right-72 desktop:top-0 desktop:-right-48 uhd:top-10"
+        className="absolute scale-50 desktop:scale-100 uhd:scale-125 -top-10 -right-72 desktop:top-0 desktop:-right-48 uhd:top-10 -z-10"
       />
     </div>
   );

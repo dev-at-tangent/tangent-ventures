@@ -8,7 +8,7 @@ export default function MediaSection({
   featuredMedia: Entry<FeaturedMedia>[];
 }) {
   return (
-    <div className="flex flex-col items-center gap-y-8 mt-20 desktop:mt-0">
+    <div className="flex flex-col items-center gap-y-8 mt-32 desktop:mt-0">
       <h2 className="text-3xl desktop:text-5xl font-medium w-1/2 text-center desktop:w-full">
         FEATURED MEDIA
       </h2>

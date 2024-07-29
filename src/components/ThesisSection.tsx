@@ -41,7 +41,6 @@ export default function ThesisSection({
           // markers: true,
           start: "top 70%",
           end: "bottom 70%",
-          // markers: true,
           scrub: true,
         },
       });

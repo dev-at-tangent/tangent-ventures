@@ -4,7 +4,7 @@ import holoMobile from "../../assets/lotties/home-holo-mobile.json";
 
 export default function ThesisSection() {
   return (
-    <div className="relative mt-20 xs:mt-36 desktop:mt-12">
+    <div className="relative mt-32 xs:mt-36 desktop:mt-12">
       <div className="w-full flex flex-col items-center absolute sm:top-1/3  desktop:top-1/2 left-1/2 -translate-x-1/2 text-grey-80 text-xl desktop:text-3xl font-semibold z-10">
         <div className="flex flex-col mt-4 gap-x-8  desktop:mt-0 desktop:flex-row justify-center items-center desktop:w-2/3">
           

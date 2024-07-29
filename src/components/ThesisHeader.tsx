@@ -30,7 +30,7 @@ export default function ThesisHeader({
   return (
     <div
       ref={ref}
-      className="flex items-center justify-center h-[80vh] -mx-6"
+      className="flex items-center justify-center h-[65vh] sm:h-[80vh] -mx-6"
     >
       <Lottie
         animationData={data}
