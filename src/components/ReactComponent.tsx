@@ -81,19 +81,19 @@ export default function ReactComponent({
           className="w-[40vw] sm:w-auto scale-150 sm:scale-50 uhd:scale-75"
         />
       </motion.div>
-      <Lottie
+      {/* <Lottie
         animationData={robot}
         className="absolute w-24 sm:w-40 bottom-[50vh] sm:bottom-[80vh] uhd:bottom-[30vh] right-16 md:right-40 lg:right-72 uhd:right-96 -z-20"
-      />
+      /> */}
 
       <Lottie
         animationData={balloon}
         className="absolute w-24 sm:w-48 md:left-40 lg:left-64 bottom-64 -z-20"
       />
-      <Lottie
+      {/* <Lottie
         animationData={sat}
         className="absolute -bottom-28 sm:-bottom-10 -right-10 sm:right-0 md:right-16 lg:right-72 -z-10 scale-[0.45] md:scale-75 lg:scale-100"
-      />
+      /> */}
       <Lottie
         animationData={topLeftCloud}
         className="absolute hidden sm:flex top-10 md:-left-36 lg:-left-10 -z-20"
