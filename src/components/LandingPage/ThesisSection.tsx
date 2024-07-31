@@ -9,7 +9,7 @@ export default function ThesisSection() {
         <div className="flex flex-col mt-4 gap-x-8  desktop:mt-0 desktop:flex-row justify-center items-center desktop:w-2/3">
           
           <div className="flex items-center border-b-2 desktop:border-b-0 py-4 desktop:h-24 justify-center text-center w-2/3 desktop:w-96 desktop:border-r-2 border-white">
-            0-TO-1 APPS
+            0-TO-1 USE CASES
           </div>
           
           <span className="flex items-center  border-b-2 desktop:border-b-0 py-4 desktop:h-24 text-center w-2/3 desktop:w-96 desktop:border-r-2 border-white">

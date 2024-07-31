@@ -87,7 +87,7 @@ export default function ThesisSection({
   return (
     <div
       ref={containerRef}
-      className="flex flex-col items-center text-lg my-16 gap-y-8"
+      className="flex flex-col items-center text-lg mt-24 gap-y-8"
     >
       <div id="title-trigger" ref={triggerRef}>
         <Lottie animationData={lottie} />
