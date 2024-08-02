@@ -8,7 +8,7 @@ export default function ThesisSection() {
     <div className="relative flex flex-col items-center mt-32 xs:mt-36 desktop:mt-12">
       <div className="w-full h-full py-8  flex flex-col items-center justify-evenly absolute left-1/2 -translate-x-1/2 text-grey-80 text-xl desktop:text-3xl font-semibold z-10">
         <h1 className="glitch-text text-3xl sm:text-5xl">THESIS</h1>
-        <div className="flex flex-col desktop:flex-row justify-center items-center desktop:w-2/3">
+        <div className="flex flex-col desktop:flex-row justify-center items-center desktop:w-2/3 px-8">
           <span className="flex items-center border-b-2 desktop:border-b-0 py-4 px-4 desktop:h-24 text-center w-2/3 desktop:w-72 ">
             0-TO-1 USE CASES
           </span>

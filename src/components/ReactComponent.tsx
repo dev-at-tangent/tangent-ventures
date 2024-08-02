@@ -50,7 +50,7 @@ export default function ReactComponent({
         portfolioIcons={portfolioIcons}
         featuredMedia={featuredMedia}
       />
-      <div className="hidden absolute sm:flex top-[90vh] md:top-[120vh] 2xl:top-[65vh] -left-24 sm:-left-48 md:-left-10 lg:-left-32 xl:left-0 w-1/2 md:w-[35%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
+      <div className="hidden absolute sm:flex top-[90vh] md:top-[120vh] xl:top-[90vh] 2xl:top-[65vh] -left-24 sm:-left-48 md:-left-10 lg:-left-32 xl:left-0 w-1/2 md:w-[35%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
         <motion.img style={{ y: lg }} src={LeftBuilding.src} alt="background" />
       </div>
       <div className="absolute w-2/3 top-[100vh] -left-28 sm:hidden">
