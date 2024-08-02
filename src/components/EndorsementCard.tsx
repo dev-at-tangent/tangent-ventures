@@ -46,7 +46,7 @@ export default function EndorsementCard({
         )?.fields?.file?.url?.toString()}
         className="w-12 sm:w-24 sm:hidden rounded-md group-hover:block"
       />
-      <div className="flex flex-col justify-between sm:ml-12 mt-8 sm:mt-0 h-full text-sm desktop:text-base text-start">
+      <div className="flex flex-col justify-between sm:ml-12 mt-8 sm:mt-0 h-full text-sm sm:text-lg pls:text-sm desktop:text-base text-start">
         {documentToReactComponents(
           details.fields.quote as unknown as Document,
           options

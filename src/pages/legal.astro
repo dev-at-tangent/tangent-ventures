@@ -1,6 +1,6 @@
 ---
 import Layout from "../layout/Layout.astro";
-import Circle from "../assets/circle.png"
+import Circle from "../assets/circle.png";
 import { Image } from "astro:assets";
 import { contentfulClient } from "../lib/contentful";
 
@@ -14,8 +14,6 @@ export interface LegalText {
 const legalEntries = await contentfulClient.getEntries<LegalText>({
   content_type: "legalText",
 });
-
-
 ---
 
 <Layout>

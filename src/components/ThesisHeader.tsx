@@ -6,6 +6,7 @@ import data from "../assets/lotties/thesis-holo.json";
 import type { Entry } from "contentful";
 import type { ThesisHeaderContent } from "../pages/thesis.astro";
 import mobiledata from "../assets/lotties/thesis-holo-mobile.json";
+import "../styles/custom.css";
 
 export default function ThesisHeader({
   content,
@@ -30,17 +31,21 @@ export default function ThesisHeader({
   return (
     <div
       ref={ref}
-      className="flex items-center justify-center h-[65vh] sm:h-[80vh] -mx-6"
+      className="flex items-center justify-center relative w-full "
     >
       <Lottie
         animationData={data}
-        className="hidden h-full sm:flex sm:scale-125 uhd:scale-150"
+        className="hidden lg:flex"
       ></Lottie>
-      <Lottie animationData={mobiledata} className="sm:hidden"></Lottie>
-
-      <p className="absolute text-sm md:text-base uhd:text-xl text-center mx-8 sm:w-1/2 z-10 text-grey-80 font-semibold">
-        {content.fields.content.toString()}
-      </p>
+      <Lottie animationData={mobiledata} className="-mx-6 lg:hidden"></Lottie>
+      <div className="absolute top-0 flex flex-col sm:items-center justify-evenly w-full h-full py-8">
+        <h1 className="text-3xl sm:text-5xl glitch-text">
+          THESIS
+        </h1>
+        <p className=" text-sm md:text-base uhd:text-xl text-center mx-8 sm:w-1/2 z-10 text-grey-80 font-semibold">
+          {content.fields.content.toString()}
+        </p>
+      </div>
     </div>
   );
 }

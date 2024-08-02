@@ -59,7 +59,7 @@ export default function AboutSection({
         />
         <Lottie
           animationData={spaceship}
-          className="absolute scale-[0.25] lg:scale-50 uhd:scale-75 -right-80 top-80 desktop:-right-80 desktop:-top-32 z-30"
+          className="absolute scale-[0.25] lg:scale-50 uhd:scale-75 -right-80 top-80 desktop:-top-32 uhd:-right-[10%] z-30"
         />
       </div>
 

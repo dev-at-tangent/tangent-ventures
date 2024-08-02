@@ -16,6 +16,7 @@ export default {
         },
       },
       screens: {
+        pls: '898px',
         desktop: "1200px",
         hd: "1600px",
         uhd: "2000px",

@@ -10,6 +10,8 @@ import GIF from "../assets/podcast.gif";
 import LeftBuilding from "../assets/LeftBuilding.webp";
 import MobileLeftBuilding from "../assets/MobileLeftBuilding.webp";
 import RightBuilding from "../assets/RightBuilding.webp";
+import topRightBuilding from "../assets/lotties/top-right-building.json";
+import BottomRightBuilding from "../assets/BottomRightBuilding.webp";
 import MobileRightBuilding from "../assets/MobileRightBuilding.webp";
 import rocket from "../assets/lotties/spaceship.json";
 import robot from "../assets/lotties/robot.json";
@@ -48,22 +50,21 @@ export default function ReactComponent({
         portfolioIcons={portfolioIcons}
         featuredMedia={featuredMedia}
       />
-      <div className="hidden absolute sm:flex scale-[4] sm:scale-[2] desktop:scale-125 2xl:scale-100 top-[320vh] sm:top-[200vh] md:top-[200vh] desktop:top-[120vh] 2xl:top-[80vh] -left-36 md:-left-20 desktop:-left-12 w-1/4 desktop:w-1/5 uhd:w-1/6">
+      <div className="hidden absolute sm:flex top-[90vh] md:top-[120vh] 2xl:top-[65vh] -left-24 sm:-left-48 md:-left-10 lg:-left-32 xl:left-0 w-1/2 md:w-[35%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
         <motion.img style={{ y: lg }} src={LeftBuilding.src} alt="background" />
       </div>
-      <div className="absolute w-2/3 top-[100vh] -left-32 sm:hidden">
+      <div className="absolute w-2/3 top-[100vh] -left-28 sm:hidden">
         <motion.img
           style={{ y: lg }}
           src={MobileLeftBuilding.src}
           alt="background"
         />
       </div>
-      <div className="hidden sm:flex absolute scale-[1.7] md:scale-[2] desktop:scale-[1.5] 2xl:scale-100 top-[220vh] md:top-[195vh] desktop:top-[175vh] 2xl:top-[80vh] -right-40 md:-right-20 desktop:-right-12 w-1/4 desktop:w-1/5 uhd:w-1/6 ">
-        <motion.img
-          style={{ y: lg }}
-          src={RightBuilding.src}
-          alt="background"
-        />
+      <div className="hidden absolute sm:flex top-[90vh] md:top-[125vh] xl:top-[90vh] 2xl:top-[80vh] -right-24 sm:-right-48 md:-right-10 lg:-right-72 xl:-right-16 w-1/2 md:w-[35%] lg:w-[45%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
+        <motion.div style={{ y: lg }}>
+          <Lottie animationData={topRightBuilding} />
+          <img src={BottomRightBuilding.src} alt="background" />
+        </motion.div>
       </div>
       <div className="absolute w-3/5 top-[110vh] -right-36 sm:hidden">
         <motion.img
@@ -74,29 +75,22 @@ export default function ReactComponent({
       </div>
       <motion.div
         style={{ x: rocketTransform }}
-        className="absolute top-[70vh] sm:top-40 right-[100vw] sm:right-48 -z-10"
+        className="absolute top-[65vh] sm:top-40 right-[100vw] sm:right-48 -z-10"
       >
         <Lottie
           animationData={rocket}
           className="w-[40vw] sm:w-auto scale-150 sm:scale-50 uhd:scale-75"
         />
       </motion.div>
-      {/* <Lottie
-        animationData={robot}
-        className="absolute w-24 sm:w-40 bottom-[50vh] sm:bottom-[80vh] uhd:bottom-[30vh] right-16 md:right-40 lg:right-72 uhd:right-96 -z-20"
-      /> */}
 
       <Lottie
         animationData={balloon}
-        className="absolute w-24 sm:w-48 md:left-40 lg:left-64 bottom-64 -z-20"
+        className="absolute w-24 sm:w-64 right-[65vw] md:right-40 lg:right-64 bottom-32 sm:bottom-64 -z-30"
       />
-      {/* <Lottie
-        animationData={sat}
-        className="absolute -bottom-28 sm:-bottom-10 -right-10 sm:right-0 md:right-16 lg:right-72 -z-10 scale-[0.45] md:scale-75 lg:scale-100"
-      /> */}
+
       <Lottie
         animationData={topLeftCloud}
-        className="absolute hidden sm:flex top-10 md:-left-36 lg:-left-10 -z-20"
+        className="absolute hidden sm:flex top-10 md:-left-36 lg:left-1/4 -z-20"
       />
       <Lottie
         animationData={midLeftCloud}
