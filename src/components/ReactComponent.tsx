@@ -6,16 +6,12 @@ import type { FeaturedMedia } from "../pages/index.astro";
 import LandingPageContent from "./LandingPageContent";
 import Lottie from "lottie-react";
 
-import GIF from "../assets/podcast.gif";
 import LeftBuilding from "../assets/LeftBuilding.webp";
 import MobileLeftBuilding from "../assets/MobileLeftBuilding.webp";
-import RightBuilding from "../assets/RightBuilding.webp";
 import topRightBuilding from "../assets/lotties/top-right-building.json";
 import BottomRightBuilding from "../assets/BottomRightBuilding.webp";
 import MobileRightBuilding from "../assets/MobileRightBuilding.webp";
 import rocket from "../assets/lotties/spaceship.json";
-import robot from "../assets/lotties/robot.json";
-import sat from "../assets/lotties/sat.json";
 import balloon from "../assets/lotties/balloon.json";
 import topLeftCloud from "../assets/lotties/cloud-home-top-left.json";
 import topRightCloud from "../assets/lotties/cloud-home-top-right.json";
@@ -41,7 +37,7 @@ export default function ReactComponent({
     offset: ["start end", "end start"],
   });
   const lg = useTransform(scrollYProgress, [0, 1], [0, -300]);
-  const rocketTransform = useTransform(scrollYProgress, [0, 1], [1000, -2000]);
+  const rocketTransform = useTransform(scrollYProgress, [0, 0.5], [1800, -2000]);
 
   return (
     <div className="relative pt-36 sm:pt-56 overflow-hidden" ref={container}>
@@ -75,7 +71,7 @@ export default function ReactComponent({
       </div>
       <motion.div
         style={{ x: rocketTransform }}
-        className="absolute top-[65vh] sm:top-40 right-[100vw] sm:right-48 -z-10"
+        className="absolute top-[65vh] sm:top-40 right-[200vw] sm:right-32 -z-10"
       >
         <Lottie
           animationData={rocket}
