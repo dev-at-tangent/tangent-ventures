@@ -4,8 +4,7 @@ export default function AboutSection() {
   return (
     <div className="flex flex-col items-center gap-y-8 mx-12">
       <h1 className="text-4xl desktop:text-6xl font-medium text-center">
-        EVERGREEN PROP FUND
-        <br /> BUILT FOR CRYPTO FOUNDERS
+        EVERGREEN PROP INVESTORS <br /> FOR CRYPTO FOUNDERS
       </h1>
       <a
         className="bg-white rounded-full px-6 py-3 font-medium text-sm desktop:text-base group relative overflow-hidden hover:bg-black transition-colors"

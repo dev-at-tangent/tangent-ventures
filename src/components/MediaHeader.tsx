@@ -20,7 +20,7 @@ export default function MediaHeader() {
   return (
     <div>
       <h1 ref={titleRef} className="text-3xl sm:text-5xl font-medium">
-        MEDIA
+        IN THE SPOTLIGHT
       </h1>
       <div className="absolute inset-0 overflow-x-hidden overflow-y-visible w-screen left-1/2 -translate-x-1/2 -z-10">
         <Lottie

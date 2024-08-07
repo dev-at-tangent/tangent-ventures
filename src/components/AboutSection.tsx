@@ -70,8 +70,7 @@ export default function AboutSection({
             THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER
           </h1>
           <span ref={ref} className="text-grey-80">
-            Tangent is an evergreen angel fund uniquely built for founders in
-            crypto
+            Evergreen prop investors for crypto founders.
           </span>
         </div>
         <div className="grid md:grid-cols-3 gap-10 w-full mt-12">
