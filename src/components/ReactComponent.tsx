@@ -20,7 +20,7 @@ import midRightCloud from "../assets/lotties/cloud-home-mid-right.json";
 import bottomCloud from "../assets/lotties/cloud-home-btm.json";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ReactComponent({
   endorsements,
@@ -32,15 +32,31 @@ export default function ReactComponent({
   featuredMedia: Entry<FeaturedMedia>[];
 }) {
   const container = useRef(null);
+  const overallContainer = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end start"],
   });
-  const lg = useTransform(scrollYProgress, [0, 1], [0, -300]);
-  const rocketTransform = useTransform(scrollYProgress, [0, 0.5], [1800, -2000]);
+  const { scrollYProgress: parallaxProgress } = useScroll({
+    target: overallContainer,
+    offset: ["start end", "end start"],
+  });
+  const lg = useTransform(parallaxProgress, [0, 1], [0, -300]);
+  const rocketTransform = useTransform(scrollYProgress, [0, 0.5], [200, -1000]);
+  useEffect(() => {
+    console.log("scrollYProgress", scrollYProgress);
+  }, [scrollYProgress]);
 
   return (
-    <div className="relative pt-36 sm:pt-56 overflow-hidden" ref={container}>
+    <div
+      ref={overallContainer}
+      className="relative pt-36 sm:pt-56 overflow-hidden"
+    >
+      <div
+        ref={container}
+        className="absolute z-50 h-screen sm:h-[50vh] top-[90vh] lg:top-[20%] left-1/2"
+      />
+
       <LandingPageContent
         endorsements={endorsements}
         portfolioIcons={portfolioIcons}
@@ -71,7 +87,7 @@ export default function ReactComponent({
       </div>
       <motion.div
         style={{ x: rocketTransform }}
-        className="absolute top-[65vh] sm:top-40 right-[200vw] sm:right-32 -z-10"
+        className="absolute top-[65vh] sm:top-40 right-40 sm:-right-96 -z-10"
       >
         <Lottie
           animationData={rocket}
