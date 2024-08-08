@@ -20,7 +20,7 @@ import midRightCloud from "../assets/lotties/cloud-home-mid-right.json";
 import bottomCloud from "../assets/lotties/cloud-home-btm.json";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function ReactComponent({
   endorsements,
@@ -43,9 +43,6 @@ export default function ReactComponent({
   });
   const lg = useTransform(parallaxProgress, [0, 1], [0, -300]);
   const rocketTransform = useTransform(scrollYProgress, [0, 0.5], [200, -1000]);
-  useEffect(() => {
-    console.log("scrollYProgress", scrollYProgress);
-  }, [scrollYProgress]);
 
   return (
     <div
@@ -62,23 +59,23 @@ export default function ReactComponent({
         portfolioIcons={portfolioIcons}
         featuredMedia={featuredMedia}
       />
-      <div className="hidden absolute sm:flex top-[90vh] md:top-[120vh] xl:top-[90vh] 2xl:top-[65vh] -left-24 sm:-left-48 md:-left-10 lg:-left-32 xl:left-0 w-1/2 md:w-[35%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
+      <div className="hidden absolute sm:flex top-[90vh] xl:top-[90vh] 2xl:top-[65vh] -left-24 sm:-left-48  xl:left-0 w-1/2 xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
         <motion.img style={{ y: lg }} src={LeftBuilding.src} alt="background" />
       </div>
-      <div className="absolute w-2/3 top-[100vh] -left-28 sm:hidden">
+      <div className="absolute w-2/3 top-[100vh] -left-36 sm:hidden">
         <motion.img
           style={{ y: lg }}
           src={MobileLeftBuilding.src}
           alt="background"
         />
       </div>
-      <div className="hidden absolute sm:flex top-[90vh] md:top-[125vh] xl:top-[90vh] 2xl:top-[80vh] -right-24 sm:-right-48 md:-right-10 lg:-right-72 xl:-right-16 w-1/2 md:w-[35%] lg:w-[45%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
+      <div className="hidden absolute sm:flex top-[90vh] xl:top-[90vh] 2xl:top-[80vh] -right-24 sm:-right-48 lg:-right-72 xl:-right-16 w-1/2 lg:w-[45%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
         <motion.div style={{ y: lg }}>
           <Lottie animationData={topRightBuilding} />
           <img src={BottomRightBuilding.src} alt="background" />
         </motion.div>
       </div>
-      <div className="absolute w-3/5 top-[110vh] -right-36 sm:hidden">
+      <div className="absolute w-3/5 top-[110vh] -right-48 sm:hidden">
         <motion.img
           style={{ y: lg }}
           src={MobileRightBuilding.src}
