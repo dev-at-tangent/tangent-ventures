@@ -62,7 +62,7 @@ export default function ReactComponent({
       <div className="hidden absolute sm:flex top-[90vh] xl:top-[90vh] 2xl:top-[65vh] -left-24 sm:-left-48  xl:left-0 w-1/2 xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
         <motion.img style={{ y: lg }} src={LeftBuilding.src} alt="background" />
       </div>
-      <div className="absolute w-2/3 top-[100vh] -left-36 sm:hidden">
+      <div className="absolute w-2/3 top-[100vh] -left-32 sm:hidden">
         <motion.img
           style={{ y: lg }}
           src={MobileLeftBuilding.src}
@@ -75,7 +75,7 @@ export default function ReactComponent({
           <img src={BottomRightBuilding.src} alt="background" />
         </motion.div>
       </div>
-      <div className="absolute w-3/5 top-[110vh] -right-48 sm:hidden">
+      <div className="absolute w-3/5 top-[110vh] -right-36 sm:hidden">
         <motion.img
           style={{ y: lg }}
           src={MobileRightBuilding.src}
