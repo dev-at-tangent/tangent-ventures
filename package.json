@@ -16,6 +16,7 @@
     "@contentful/rich-text-html-renderer": "^16.6.1",
     "@contentful/rich-text-react-renderer": "^15.22.1",
     "@contentful/rich-text-types": "^16.6.1",
+    "@dotlottie/react-player": "^1.6.19",
     "@gsap/react": "^2.1.1",
     "@heroicons/react": "^2.1.4",
     "@types/react": "^18.3.3",

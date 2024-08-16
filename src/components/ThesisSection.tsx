@@ -4,7 +4,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS, type Document } from "@contentful/rich-text-types";
-import Lottie from "lottie-react";
+
+import { DotLottiePlayer } from "@dotlottie/react-player";
+
 import Typewriter from "./Typewriter";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -90,7 +92,7 @@ export default function ThesisSection({
       className="flex flex-col items-center text-lg mt-24 gap-y-8"
     >
       <div id="title-trigger" ref={triggerRef}>
-        <Lottie animationData={lottie} />
+        <DotLottiePlayer src={lottie} autoplay loop />
       </div>
       <div ref={highlightTriggerRef}>
         <Typewriter

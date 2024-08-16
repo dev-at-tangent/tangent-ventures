@@ -5,3 +5,8 @@ interface ImportMetaEnv {
   readonly CONTENTFUL_PREVIEW_TOKEN: string;
   readonly PUBLIC_GSHEETs_ENDPOINT: string;
 }
+
+declare module '*.lottie' {
+  const value: any;
+  export default value;
+}

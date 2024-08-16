@@ -1,6 +1,7 @@
-import Lottie from "lottie-react";
-import holo from "../../assets/lotties/home-holo.json";
-import holoMobile from "../../assets/lotties/home-holo-mobile.json";
+import { DotLottiePlayer } from "@dotlottie/react-player";
+
+import holo from "../../assets/lotties/home-holo.lottie";
+import holoMobile from "../../assets/lotties/home-holo-mobile.lottie";
 import "../../styles/custom.css";
 
 export default function ThesisSection() {
@@ -40,13 +41,17 @@ export default function ThesisSection() {
           LEARN MORE
         </a>
       </div>
-      <Lottie
-        animationData={holo}
+      <DotLottiePlayer
+        src={holo}
+        autoplay
+        loop
         className="hidden scale-110 desktop:flex self-center -z-10"
       />
 
-      <Lottie
-        animationData={holoMobile}
+      <DotLottiePlayer
+        src={holoMobile}
+        autoplay
+        loop
         className="h-full w-[180%] sm:w-auto desktop:hidden"
       />
     </div>

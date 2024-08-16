@@ -2,14 +2,15 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import StatCard from "./StatCard";
-import ScrambleText from "./ScrambleText";
 
 import type { Entry } from "contentful";
 import type { AboutStats } from "../pages/about.astro";
-import Lottie from "lottie-react";
-import leftCloud from "../assets/lotties/about-cloud-left.json";
-import rightCloud from "../assets/lotties/about-cloud-right.json";
-import spaceship from "../assets/lotties/spaceship.json";
+
+import { DotLottiePlayer } from "@dotlottie/react-player";
+
+import leftCloud from "../assets/lotties/about-cloud-left.lottie";
+import rightCloud from "../assets/lotties/about-right-cloud.lottie";
+import spaceship from "../assets/lotties/delorean.lottie";
 
 export default function AboutSection({
   aboutStats,
@@ -49,18 +50,26 @@ export default function AboutSection({
     <div className="relative">
       {/* Cloud container */}
       <div className="absolute inset-0 overflow-hidden w-screen left-1/2 -translate-x-1/2">
-        <Lottie
-          animationData={leftCloud}
+        <DotLottiePlayer
+          src={leftCloud}
+          autoplay
+          loop
           className="absolute -left-96 desktop:-left-48 top-20 scale-50 desktop:top-10 desktop:scale-75 uhd:scale-125"
         />
-        <Lottie
-          animationData={rightCloud}
+        <DotLottiePlayer
+          src={rightCloud}
+          autoplay
+          loop
           className="absolute -right-72 desktop:-right-40 top-48 scale-50 desktop:scale-100 uhd:scale-125 z-20"
         />
-        <Lottie
-          animationData={spaceship}
+        <DotLottiePlayer
+          src={spaceship}
+          autoplay
+          loop
           className="absolute scale-[0.25] lg:scale-50 uhd:scale-75 -right-80 top-80 desktop:-top-32 uhd:-right-[10%] z-30"
+
         />
+       
       </div>
 
       {/* Main content */}
