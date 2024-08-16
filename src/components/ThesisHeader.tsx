@@ -37,7 +37,7 @@ export default function ThesisHeader({
   className="flex items-center justify-center relative w-full"
 >
   <DotLottiePlayer src={data} autoplay loop className="hidden lg:flex" />
-  <div className="absolute z-10 top-[80%] lg:top-1/2 right-0 lg:-right-32 overflow-hidden w-2/3 lg:w-auto -mx-6">
+  <div className="absolute z-10 top-[80%] lg:top-[60%] right-0 lg:-right-24 overflow-hidden w-2/3 lg:w-2/5 -mx-6">
     <DotLottiePlayer
       src={cloud}
       autoplay
