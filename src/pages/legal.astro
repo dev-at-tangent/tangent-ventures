@@ -22,8 +22,9 @@ const legalEntries = await contentfulClient.getEntries<LegalText>({
     <h1 class="text-center text-3xl sm:text-5xl text-grey-90 font-medium">
       LEGAL
     </h1>
-    <p class="text-grey-80 whitespace-pre-wrap">
+    <p class="text-grey-80 whitespace-pre-wrap -indent-1">
       {legalEntries.items[0].fields.content}
+       
     </p>
   </div>
 </Layout>
