@@ -66,7 +66,7 @@ export default function AboutSection({
           src={spaceship}
           autoplay
           loop
-          className="absolute scale-[0.25] lg:scale-50 uhd:scale-75 -right-80 top-80 desktop:-top-32 uhd:-right-[10%] z-30"
+          className="absolute scale-[0.25] lg:scale-50 uhd:scale-75 -right-80 top-4 desktop:-top-32 uhd:-right-[10%] z-30"
 
         />
        
