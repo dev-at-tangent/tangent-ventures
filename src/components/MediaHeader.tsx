@@ -28,13 +28,13 @@ export default function MediaHeader() {
           src={leftCloud}
           autoplay
           loop
-          className="absolute scale-50 desktop:scale-100 uhd:scale-150 top-16 -left-72 uhd:-left-48"
+          className="absolute scale-50 desktop:scale-100 uhd:scale-150 top-2 sm:top-16 -left-72 uhd:-left-48"
         />
         <DotLottiePlayer
           src={rightCloud}
           autoplay
           loop
-          className="absolute scale-50 desktop:scale-100 uhd:scale-125 top-[10vh] -right-48 desktop:-right-24"
+          className="absolute scale-50 desktop:scale-100 uhd:scale-125 top-[10vh] -right-64 desktop:-right-24"
         />
       </div>
     </div>

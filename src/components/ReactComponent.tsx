@@ -11,7 +11,6 @@ import LeftBuilding from "../assets/LeftBuilding.webp";
 import MobileLeftBuilding from "../assets/MobileLeftBuilding.webp";
 import topRightBuilding from "../assets/lotties/top-right-building.lottie";
 import BottomRightBuilding from "../assets/BottomRightBuilding.webp";
-import MobileRightBuilding from "../assets/MobileRightBuilding.webp";
 import rocket from "../assets/lotties/delorean.lottie";
 import balloon from "../assets/lotties/balloon.lottie";
 import topLeftCloud from "../assets/lotties/cloud-home-top-left.lottie";
@@ -22,6 +21,12 @@ import bottomCloud from "../assets/lotties/cloud-home-btm.lottie";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 export default function ReactComponent({
   endorsements,
@@ -34,16 +39,28 @@ export default function ReactComponent({
 }) {
   const container = useRef(null);
   const overallContainer = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"],
-  });
+  
   const { scrollYProgress: parallaxProgress } = useScroll({
     target: overallContainer,
     offset: ["start end", "end start"],
   });
+  
+  // const rocketTransform = useTransform(rocketProgress, [0, 0.5], [200, -1000]);
   const lg = useTransform(parallaxProgress, [0, 1], [0, -300]);
-  const rocketTransform = useTransform(scrollYProgress, [0, 0.5], [200, -1000]);
+
+  const rocketRef = useRef(null);
+  useGSAP(() => {
+    gsap.to(rocketRef.current, {
+      x: -2000, // Move 500 pixels to the right
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".test",
+        start: "top bottom", // Start when the top of the container hits the top of the viewport
+        end: "bottom top", // End when the bottom of the container hits the top of the viewport
+        scrub: true, // Link the animation to the scroll position
+      },
+    });
+  });
 
   return (
     <div
@@ -52,7 +69,7 @@ export default function ReactComponent({
     >
       <div
         ref={container}
-        className="absolute z-50 h-screen sm:h-[50vh] top-[90vh] lg:top-[20%] left-1/2"
+        className="absolute z-50 h-screen sm:h-[50vh] top-[90vh] lg:top-[20%] left-1/2 test"
       />
 
       <LandingPageContent
@@ -83,9 +100,9 @@ export default function ReactComponent({
           alt="background"
         />
       </div> */}
-      <motion.div
-        style={{ x: rocketTransform }}
-        className="absolute top-[65vh] sm:top-40 right-40 sm:-right-96 -z-10"
+      <div
+        ref={rocketRef}
+        className="absolute top-[65vh] sm:top-40 right-0 sm:-right-[600px] -z-10"
       >
         <DotLottiePlayer
           src={rocket}
@@ -93,7 +110,7 @@ export default function ReactComponent({
           autoplay
           loop
         />
-      </motion.div>
+      </div>
 
       <DotLottiePlayer
         src={balloon}

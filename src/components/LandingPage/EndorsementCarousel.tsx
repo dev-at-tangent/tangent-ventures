@@ -40,11 +40,6 @@ export default function EndorsementCarousel({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    console.log("width", window.innerWidth < 900)
-    console.log(isMobile);
-  }, [isMobile]);
-
   const ButtonGroup = ({
     next,
     previous,
