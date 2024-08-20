@@ -70,19 +70,19 @@ export default function ReactComponent({
           alt="background"
         />
       </div>
-      <div className="hidden absolute sm:flex top-[90vh] xl:top-[90vh] 2xl:top-[80vh] -right-24 sm:-right-48 lg:-right-72 xl:-right-16 w-1/2 lg:w-[45%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
+      <div className="absolute top-[110vh] sm:top-[90vh] xl:top-[90vh] 2xl:top-[80vh] -right-72 sm:-right-48 lg:-right-72 xl:-right-16 w-full sm:w-1/2 lg:w-[45%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
         <motion.div style={{ y: lg }}>
           <DotLottiePlayer src={topRightBuilding} autoplay loop />
           <img src={BottomRightBuilding.src} alt="background" />
         </motion.div>
       </div>
-      <div className="absolute w-3/5 top-[110vh] -right-36 sm:hidden">
+      {/* <div className="absolute w-3/5 top-[110vh] -right-36 sm:hidden">
         <motion.img
           style={{ y: lg }}
           src={MobileRightBuilding.src}
           alt="background"
         />
-      </div>
+      </div> */}
       <motion.div
         style={{ x: rocketTransform }}
         className="absolute top-[65vh] sm:top-40 right-40 sm:-right-96 -z-10"
