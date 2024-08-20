@@ -20,6 +20,7 @@ export default {
         desktop: "1200px",
         hd: "1600px",
         uhd: "2000px",
+        qhd: "3000px",
       },
       colors: {
         error: "#E00004",

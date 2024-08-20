@@ -31,7 +31,7 @@ export default function EndorsementCard({
   return (
     <div
       className={`flex flex-col sm:flex-row items-start bg-white/60 backdrop-blur-sm drop-shadow-md rounded-xl p-8 desktop:p-12 group transition-colors sm:hover:bg-white ${
-        home ? "h-[450px] 2xl:h-[350px] mx-4" : "max-w-xl sm:min-h-[450px]"
+        home ? "h-[450px] 2xl:h-[400px] mx-4" : "max-w-xl sm:min-h-[450px]"
       }`}
     >
       <img
