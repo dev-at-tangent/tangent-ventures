@@ -68,7 +68,7 @@ export default function PortfolioCard({
         </div>
       </div>
       <div className="bg-white flex flex-col rounded-xl p-6 text-grey-90 font-medium h-full w-full">
-        <a href="https://www.google.com" target="_blank">
+        <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
 
