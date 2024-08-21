@@ -87,7 +87,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
       </div>
       <div
         className={`fixed flex flex-col gap-6 z-30 h-screen w-screen pt-24 px-8 bg-grey-30 transition-transform duration-300 ${
-          openMenu ? "translate-y-0" : "-translate-y-full"
+          openMenu ? "translate-y-0" : "-translate-y-full opacity-0"
         } `}
       >
         {links.map((link) => (
