@@ -8,8 +8,8 @@ export default function MediaTabs({
   setTab: (tab: string) => void;
 }) {
   return (
-    <div className="flex items-center justify-center gap-x-8 mt-12 text-lg text-grey-60 font-semibold cursor-pointer">
-      <div
+    <div className="flex items-center justify-center gap-x-8 mt-12 text-lg text-grey-60 font-semibold">
+      <button
         className={`${
           tab === "PODCASTS" &&
           "text-black underline underline-offset-8 decoration-2 cursor-pointer"
@@ -17,9 +17,9 @@ export default function MediaTabs({
         onClick={() => setTab("PODCASTS")}
       >
         PODCASTS
-      </div>
+      </button>
       |
-      <div
+      <button
         className={`${
           tab === "ARTICLES" &&
           "text-black underline underline-offset-8 decoration-2 cursor-pointer"
@@ -27,7 +27,7 @@ export default function MediaTabs({
         onClick={() => setTab("ARTICLES")}
       >
         ARTICLES
-      </div>
+      </button>
     </div>
   );
 }
