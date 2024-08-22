@@ -12,6 +12,9 @@ export default function PortfolioContent({
 }) {
   const ref = useRef(null);
   const [selectedCard, setSelectedCard] = useState("");
+  console.log(
+    import.meta.env.DEV
+  );
 
   useGSAP(
     () => {

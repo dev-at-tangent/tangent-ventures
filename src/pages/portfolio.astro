@@ -28,7 +28,11 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
   content_type: "portfolio",
   order: ["fields.rank"],
 });
-console.log(portfolioEntries);
+console.log(
+  import.meta.env.DEV
+    ? import.meta.env.CONTENTFUL_PREVIEW_TOKEN
+    : import.meta.env.CONTENTFUL_DELIVERY_TOKEN
+);
 ---
 
 <Layout>
