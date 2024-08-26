@@ -87,7 +87,7 @@ export default function ReactComponent({
           alt="background"
         />
       </div>
-      <div className="absolute top-[110vh] sm:top-[90vh] xl:top-[90vh] 2xl:top-[80vh] -right-72 sm:-right-48 lg:-right-72 xl:-right-16 w-full sm:w-1/2 lg:w-[45%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
+      <div className="absolute top-[110vh] sm:top-[90vh] xl:top-[95vh] 2xl:top-[80vh] -right-72 sm:-right-48 lg:-right-72 xl:-right-16 w-full sm:w-1/2 lg:w-[45%] xl:w-1/4 2xl:w-1/5 uhd:w-1/6">
         <motion.div style={{ y: lg }}>
           <DotLottiePlayer src={topRightBuilding} autoplay loop />
           <img src={BottomRightBuilding.src} alt="background" />
