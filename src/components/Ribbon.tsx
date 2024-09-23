@@ -7,15 +7,11 @@ import type { Entry } from "contentful";
 const SliderNumber = ({
   portfolioIcons,
 }: {
-  portfolioIcons: Entry<PortfolioItem>[];
+  portfolioIcons: string[];
 }) => {
-  // Define the array of slides with numbers
-  const icons = portfolioIcons.map((icon) => {
-    return (icon.fields.logo as any)?.fields?.file?.url;
-  });
 
   // Duplicate the slides array multiple times to ensure seamless looping
-  const duplicatedSlides = [...icons, ...icons, ...icons, ...icons];
+  const duplicatedSlides = [...portfolioIcons, ...portfolioIcons, ...portfolioIcons, ...portfolioIcons];
 
   // Define the number of icons to show at a time
   const iconsToShow = 6; // Adjust this number as needed
@@ -29,7 +25,7 @@ const SliderNumber = ({
           marginLeft: `-${100 / iconsToShow}%`, // Hide the first set of duplicates
         }}
         animate={{
-          x: [`-${(100 * icons.length) / iconsToShow}%`, `0%`],
+          x: [`-${(100 * portfolioIcons.length) / iconsToShow}%`, `0%`],
           transition: {
             ease: "linear",
             duration: 15, // Adjust duration as needed

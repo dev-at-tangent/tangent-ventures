@@ -5,7 +5,7 @@ import Ribbon from "../Ribbon";
 export default function PortfolioSection({
   portfolioIcons
 }: {
-  portfolioIcons: Entry<PortfolioItem>[];
+  portfolioIcons: string[];
 }) {
   return (
     <div className="flex flex-col items-center text-center gap-y-8 ">

@@ -8,7 +8,7 @@ import type { PortfolioItem } from "../pages/portfolio.astro";
 export default function PortfolioContent({
   items,
 }: {
-  items: Entry<PortfolioItem>[];
+  items: any;
 }) {
   const ref = useRef(null);
   const [selectedCard, setSelectedCard] = useState("");
@@ -31,7 +31,7 @@ export default function PortfolioContent({
     >
       <div className="absolute inset-0 overflow-x-hidden overflow-y-visible pointer-events-none w-screen left-1/2 -translate-x-1/2">
       </div>
-      {items.map((item) => (
+      {items.map((item: any) => (
         <PortfolioCard
           key={item.sys.id}
           details={item}

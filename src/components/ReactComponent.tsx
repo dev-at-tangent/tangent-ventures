@@ -34,7 +34,7 @@ export default function ReactComponent({
   featuredMedia,
 }: {
   endorsements: Entry<Endorsement>[];
-  portfolioIcons: Entry<PortfolioItem>[];
+  portfolioIcons: string[];
   featuredMedia: Entry<FeaturedMedia>[];
 }) {
   const container = useRef(null);

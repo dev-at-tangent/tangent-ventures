@@ -26,6 +26,10 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
   content_type: "portfolio",
   order: ["fields.rank"],
 });
+
+const entries = await contentfulClient.getEntries({
+  content_type: "allPortfolios",
+});
 ---
 
 <Layout>
@@ -35,7 +39,7 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
     <div class="relative">
       <PortfolioHeader client:only="react" />
-      <PortfolioContent items={portfolioEntries.items} client:only="react" />
+      <PortfolioContent items={entries.items[0].fields.projects} client:only="react" />
     </div>
     <ScrollToTopButton client:only="react" />
   </div>

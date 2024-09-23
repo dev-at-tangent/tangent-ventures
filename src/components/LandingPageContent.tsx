@@ -16,7 +16,7 @@ export default function LandingPageContent({
   featuredMedia,
 }: {
   endorsements: Entry<Endorsement>[];
-  portfolioIcons: Entry<PortfolioItem>[];
+  portfolioIcons: string[];
   featuredMedia: Entry<FeaturedMedia>[];
 }) {
   return (
