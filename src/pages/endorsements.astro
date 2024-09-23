@@ -23,9 +23,8 @@ export interface Endorsement {
   };
 }
 
-const entries = await contentfulClient.getEntries<Endorsement>({
-  content_type: "endorsement",
-  order: ["fields.rank"],
+const entries = await contentfulClient.getEntries({
+  content_type: "allEndorsements",
 });
 ---
 
@@ -37,7 +36,7 @@ const entries = await contentfulClient.getEntries<Endorsement>({
     <Image src={Circle} alt="circle" class="-z-10 absolute top-0" />
     <div class="relative">
       <EndorsementHeader client:only="react" />
-      <EndorsementContent endorsements={entries.items} client:only="react" />
+      <EndorsementContent endorsements={entries.items[0].fields.endorsements} client:only="react" />
     </div>
   </div>
   <ScrollToTopButton client:only="react" />
