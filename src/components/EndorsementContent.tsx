@@ -8,7 +8,7 @@ import type { Endorsement } from "../pages/endorsements.astro";
 export default function EndorsementContent({
   endorsements,
 }: {
-  endorsements: Entry<Endorsement>[];
+  endorsements: any;
 }) {
   const ref = useRef(null);
   useGSAP(
@@ -28,7 +28,7 @@ export default function EndorsementContent({
         ref={ref}
         className="grid desktop:grid-cols-2 gap-8 mt-12 z-10 sm:mt-20"
       >
-        {endorsements.map((endorsement) => (
+        {endorsements.map((endorsement: any) => (
           <EndorsementCard key={endorsement.sys.id} details={endorsement} />
         ))}
       </div>
