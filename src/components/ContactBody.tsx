@@ -23,7 +23,7 @@ export default function ContactBody({ text }: { text: string }) {
       <h1 className="text-4xl md:text-6xl font-medium w-full text-center lg:text-left">
         GET IN TOUCH
       </h1>
-      <p className="text-lg text-center lg:text-left">{text}</p>
+      <p className="text-lg text-center lg:text-left whitespace-pre-wrap">{text}</p>
       <div className="flex items-center justify-center lg:justify-start gap-x-8">
         <a
           href="https://x.com/tangent_xyz"
