@@ -4,7 +4,7 @@ import { gsap } from "gsap/gsap-core";
 
 import XIcon from "../assets/XIcon";
 
-export default function ContactBody() {
+export default function ContactBody({ text }: { text: string }) {
   const ref = useRef(null);
   useGSAP(
     () => {
@@ -23,10 +23,7 @@ export default function ContactBody() {
       <h1 className="text-4xl md:text-6xl font-medium w-full text-center lg:text-left">
         GET IN TOUCH
       </h1>
-      <p className="text-lg text-center lg:text-left">
-        We are a collective of experienced operators and founders behind some of
-        the largest projects and protocols in Web3.
-      </p>
+      <p className="text-lg text-center lg:text-left">{text}</p>
       <div className="flex items-center justify-center lg:justify-start gap-x-8">
         <a
           href="https://x.com/tangent_xyz"
