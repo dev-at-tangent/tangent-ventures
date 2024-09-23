@@ -2,14 +2,19 @@
 import Layout from "../layout/Layout.astro";
 import ContactBody from "../components/ContactBody";
 import ContactForm from "../components/ContactForm";
-import ScrambleText from "../components/ScrambleText";
+import { contentfulClient } from "../lib/contentful";
+
+const contactText = await contentfulClient.getEntries({
+  content_type: "contactText",
+});
+
 ---
 
 <Layout>
   <div class="w-full flex flex-col lg:flex-row gap-x-24 lg:mx-12">
     <div class="lg:w-1/2 flex flex-col gap-y-8">
       <span class="text-turq font-semibold text-center lg:text-start desktop:hidden">CONTACT</span>
-      <ContactBody client:only="react" />
+      <ContactBody text={contactText.items[0].fields.content?.toString() || ""} client:only="react" />
     </div>
     <div class="hidden xl:grow"></div>
     <div class="lg:w-1/2 flex flex-col">
