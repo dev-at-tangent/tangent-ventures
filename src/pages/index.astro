@@ -30,12 +30,21 @@ const portfolioEntries = await contentfulClient.getEntries<PortfolioItem>({
 const featuredMediaEntries = await contentfulClient.getEntries<FeaturedMedia>({
   content_type: "landingPageFeaturedMedia",
 });
+
+const portfolioProjects = await contentfulClient.getEntries({
+  content_type: "allPortfolios"
+})
+const icons = Array.isArray(portfolioProjects.items[0].fields.projects) 
+  ? portfolioProjects.items[0].fields.projects.map((project: any) => {
+      return project.fields.logo.fields.file.url;
+    })
+  : [];
 ---
 
 <Layout>
   <ReactComponent
     endorsements={entries.items.splice(0, 4)}
-    portfolioIcons={portfolioEntries.items}
+    portfolioIcons={icons}
     featuredMedia={featuredMediaEntries.items}
     client:only="react"
   />

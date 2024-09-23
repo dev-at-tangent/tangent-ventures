@@ -52,9 +52,11 @@ const TeamMemberCard = ({
             {details.fields.name.toString()}
           </h1>
           <div className="flex items-center">
-            {details.fields.twitterLink !== 'NA' && <a href={details.fields.twitterLink.toString()} target="_blank">
-              <XIcon className="w-6" />
-            </a>}
+            {details.fields.twitterLink !== "NA" && (
+              <a href={details.fields.twitterLink.toString()} target="_blank">
+                <XIcon className="w-6" />
+              </a>
+            )}
             <div className="grow " />
             <div
               className="flex outline outline-1 rounded-full px-4 py-1 text-xs items-center cursor-pointer transition-colors duration-500 hover:bg-black hover:text-white hover:outline-none"

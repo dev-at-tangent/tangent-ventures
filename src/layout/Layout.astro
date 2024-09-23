@@ -25,6 +25,20 @@ const currentPath = pathname.replaceAll("/", "");
     <meta name="msapplication-TileColor" content="#00aba9" />
     <meta name="theme-color" content="#ffffff" />
     <title>Tangent</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-836EZQN8J0"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-836EZQN8J0");
+    </script>
   </head>
   <body
     class={`flex flex-col items-center font-inter overflow-x-hidden min-h-screen overscroll-y-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none bg-grey-20 ${currentPath === "" && "bg-[url('/bg.webp')] bg-cover bg-center"}`}
