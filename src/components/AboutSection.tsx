@@ -20,26 +20,42 @@ export default function AboutSection({
   const ref = useRef(null);
   const lineRef = useRef(null);
   const titleRef = useRef(null);
+  const firstTitleRef = useRef(null);
+  const cardRef = useRef(null);
 
   useGSAP(
     () => {
-      gsap.from(titleRef.current, {
+      gsap.from(firstTitleRef.current, {
         y: 50,
         opacity: 0,
         duration: 1,
         delay: 0,
         ease: "power3.out",
       });
+      gsap.from(cardRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+      });
+      gsap.from(titleRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 1,
+        ease: "power3.out",
+      });
       gsap.from(ref.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 0.5,
+        delay: 1.5,
         ease: "power2.out",
       });
       gsap.from(lineRef.current, {
         opacity: 0,
         duration: 0.5,
-        delay: 1,
+        delay: 2,
         ease: "power2.out",
       });
     },
@@ -66,12 +82,35 @@ export default function AboutSection({
           src={spaceship}
           autoplay
           loop
-          className="absolute scale-[0.25] lg:scale-50 uhd:scale-75 -right-80 top-4 desktop:-top-32 uhd:-right-[10%] z-30"
+          className="absolute scale-[0.25] lg:scale-50 uhd:scale-75 -right-80 -top-20 desktop:-top-32 uhd:-right-[10%] z-30"
         />
       </div>
 
       {/* Main content */}
       <div className="flex flex-col items-center relative z-10">
+        <div className="w-full flex flex-col items-center">
+          <h1
+            ref={firstTitleRef}
+            className="md:w-1/2 text-3xl md:text-5xl font-medium text-center"
+          >
+            HANDS ON SUPPORT FOR 10 CRYPTO TEAMS A YEAR
+          </h1>
+          <div
+            ref={cardRef}
+            className="flex flex-col md:flex-row gap-8 mt-8 mb-24 w-full md:w-3/5"
+          >
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col text-center md:w-1/2">
+              Mentorship and network from
+              <h1 className="text-2xl md:text-4xl font-medium">
+                INDUSTRY VETS
+              </h1>
+            </div>
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col text-center md:w-1/2">
+              Standard check size of
+              <h1 className="text-2xl md:text-4xl font-medium">$250,000</h1>
+            </div>
+          </div>
+        </div>
         <div className="md:w-1/2 gap-y-6 text-center flex flex-col items-center">
           <h1 ref={titleRef} className="text-3xl md:text-5xl font-medium">
             THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER
