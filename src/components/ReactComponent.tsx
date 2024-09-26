@@ -65,7 +65,7 @@ export default function ReactComponent({
   return (
     <div
       ref={overallContainer}
-      className="relative pt-36 sm:pt-56 overflow-hidden"
+      className="relative pt-36 sm:pt-40 overflow-hidden"
     >
       <div
         ref={container}
