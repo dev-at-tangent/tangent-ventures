@@ -6,7 +6,7 @@ export default function AboutSection() {
       <h1 className="text-4xl desktop:text-6xl font-medium text-center">
         EVERGREEN PROP INVESTORS <br /> FOR CRYPTO FOUNDERS
       </h1>
-      <span className="-mt-4 text-center w-2/3 sm:w-full md:text-2xl">Founder-drive venture bets, thesis-driven liquid bets</span>
+      <span className="-mt-4 text-center w-5/6 sm:w-full md:text-2xl">Founder-drive venture bets, thesis-driven liquid bets</span>
       <a
         className="bg-white rounded-full px-6 py-3 font-medium text-sm desktop:text-base group relative overflow-hidden hover:bg-black transition-colors"
         href="/about"
