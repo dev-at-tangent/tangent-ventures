@@ -31,20 +31,20 @@ export default function TeamSection({
   );
 
   return (
-    <div ref={ref} className="flex flex-col items-center gap-y-12">
-      <ScrambleText
-        finalText="MEET OUR TEAM"
+    <div ref={ref} className="flex flex-col items-center gap-y-12 mt-12">
+      {/* <ScrambleText
+        finalText="WHO WE ARE"
         className="text-3xl md:text-5xl font-medium mt-16"
         delay={3}
         duration={1.5}
         charsPerGroup={5}
-      />
+      /> */}
 
       <div className="flex flex-col items-center gap-y-12">
-        <span className="md:w-3/5 text-center text-grey-80">
+        {/* <span className="md:w-3/5 text-center text-grey-80">
           We are a collective of experienced operators and founders behind some
           of the largest projects and protocols in Web3.
-        </span>
+        </span> */}
         <div className="grid lg:grid-cols-2 gap-12">
           {highlightedMembers.map((member) => (
             <TeamMemberCard

@@ -52,12 +52,12 @@ export default function AboutSection({
         delay: 1.5,
         ease: "power2.out",
       });
-      gsap.from(lineRef.current, {
-        opacity: 0,
-        duration: 0.5,
-        delay: 2,
-        ease: "power2.out",
-      });
+      // gsap.from(lineRef.current, {
+      //   opacity: 0,
+      //   duration: 0.5,
+      //   delay: 2,
+      //   ease: "power2.out",
+      // });
     },
     { scope: ref }
   );
@@ -93,7 +93,7 @@ export default function AboutSection({
             ref={firstTitleRef}
             className="md:w-1/2 text-3xl md:text-5xl font-medium text-center"
           >
-            HANDS ON SUPPORT FOR 10 CRYPTO TEAMS A YEAR
+            WE PROVIDE HANDS-ON SUPPORT TO 10 FOUNDERS A YEAR
           </h1>
           <div
             ref={cardRef}
@@ -113,19 +113,19 @@ export default function AboutSection({
         </div>
         <div className="md:w-1/2 gap-y-6 text-center flex flex-col items-center">
           <h1 ref={titleRef} className="text-3xl md:text-5xl font-medium">
-            THE CRYPTO-NATIVE INVESTORS YOU WANT IN YOUR CORNER
+            WHO WE ARE
           </h1>
-          <span ref={ref} className="text-grey-80">
+          {/* <span ref={ref} className="text-grey-80">
             Evergreen prop investors for crypto founders.
-          </span>
+          </span> */}
         </div>
         <div className="grid md:grid-cols-3 gap-10 w-full mt-12">
           {aboutStats.map((stat, idx) => (
-            <StatCard key={stat.sys.id} details={stat} delay={1 + idx} />
+            <StatCard key={stat.sys.id} details={stat} delay={1.5 + idx} />
           ))}
         </div>
 
-        <hr ref={lineRef} className="w-full mt-16 border-grey-40" />
+        {/* <hr ref={lineRef} className="w-full mt-16 border-grey-40" /> */}
       </div>
     </div>
   );
