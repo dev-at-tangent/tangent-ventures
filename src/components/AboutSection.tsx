@@ -93,7 +93,7 @@ export default function AboutSection({
             ref={firstTitleRef}
             className="md:w-1/2 text-3xl md:text-5xl font-medium text-center"
           >
-            WE PROVIDE HANDS-ON SUPPORT TO 20 FOUNDERS A YEAR
+            WE PROVIDE HANDS-ON SUPPORT TO 10 FOUNDERS A YEAR
           </h1>
           <div
             ref={cardRef}
