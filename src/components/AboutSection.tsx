@@ -106,8 +106,8 @@ export default function AboutSection({
               </h1>
             </div>
             <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col text-center md:w-1/2">
-              Standard check size of
-              <h1 className="text-2xl md:text-4xl font-medium">$250,000</h1>
+              Angel checks up to 
+              <h1 className="text-2xl md:text-4xl font-medium">$500,000</h1>
             </div>
           </div>
         </div>
