@@ -4,7 +4,7 @@ export default function AboutSection() {
   return (
     <div className="flex flex-col items-center gap-y-8 mx-12">
       <h1 className="text-4xl desktop:text-6xl font-medium text-center">
-        EVERGREEN PROP INVESTORS <br /> FOR CRYPTO FOUNDERS
+        A CRYPTO-NATIVE <br /> PRINCIPAL INVESTMENT FIRM
       </h1>
       <span className="-mt-4 text-center w-5/6 sm:w-full md:text-2xl">Founder-drive venture bets, thesis-driven liquid bets</span>
       <a
