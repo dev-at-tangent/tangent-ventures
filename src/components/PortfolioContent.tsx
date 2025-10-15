@@ -1,10 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/gsap-core";
 import PortfolioCard from "./PortfolioCard";
-import type { Entry } from "contentful";
-import type { PortfolioItem } from "../pages/portfolio.astro";
-import FilterBar from "./FilterBar";
 import CategoriesTag from "./PortfolioPage/CategoriesTag";
 
 export default function PortfolioContent({
