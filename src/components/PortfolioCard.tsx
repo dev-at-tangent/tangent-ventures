@@ -33,7 +33,7 @@ export default function PortfolioCard({
       containerClassName="h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md backdrop-blur-sm"
     >
       <div
-        className="bg-white/60  rounded-xl flex flex-col p-6  text-grey-90 font-medium h-full w-full group desktop:hover:bg-white "
+        className="bg-[rgba(255,255,255,0.6)] rounded-xl flex flex-col p-6 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white "
         onMouseOver={replay}
       >
         <img
@@ -64,10 +64,10 @@ export default function PortfolioCard({
           onClick={toggleShowDetails}
         >
           READ MORE
-          <PlusIcon className="size-4 ml-2" />
+          <PlusIcon className="size-6 ml-2" />
         </div>
       </div>
-      <div className="bg-white flex flex-col rounded-xl p-6 text-grey-90 font-medium h-full w-full">
+      <div className="bg-white flex flex-col rounded-xl p-6 text-grey-90 font-medium h-full w-full ">
         <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
@@ -79,16 +79,18 @@ export default function PortfolioCard({
         <h1 className="text-lg font-semibold my-2">
           {details.fields.name.toString()}
         </h1>
-        <p className="text-sm font-normal overflow-y-auto">
-          {details.fields.description.toString()}
-        </p>
+        <div className="overflow-y-auto no-scrollbar max-h-40">
+          <p className="text-sm font-normal">
+            {details.fields.description.toString()}
+          </p>
+        </div>
         <div className="grow" />
         <div
           className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white  hover:outline-none"
           onClick={() => setSelected("")}
         >
           CLOSE
-          <XMarkIcon className="size-4 ml-2" />
+          <XMarkIcon className="size-6 ml-2" />
         </div>
       </div>
     </ReactCardFlip>

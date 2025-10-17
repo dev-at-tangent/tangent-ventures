@@ -37,17 +37,17 @@ export default function PortfolioContent({
     { scope: ref }
   );
   return (
-    <div className="relative flex flex-col w-full gap-8 px-4 max-w-7xl mt-24 sm:mt-36">
+    <div className="relative flex flex-col w-full gap-8 px-4 max-w-7xl mt-24 sm:mt-36 mb-25">
       <CategoriesTag
-          filters={categories}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
+        filters={categories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       <div
         ref={ref}
-        className="relative flex flex-wrap justify-center gap-8 mt-24 sm:mt-36"
+        className="relative flex flex-wrap justify-center gap-8 mt-8 lg:mt-10"
       >
-        <div className="absolute inset-0 overflow-x-hidden overflow-y-visible pointer-events-none w-screen left-1/2 -translate-x-1/2">
+        <div className="absolute inset-x-0 top-0 overflow-x-hidden overflow-y-visible pointer-events-none w-screen left-1/2 -translate-x-1/2">
         </div>
         {filteredItems.map((item: any) => (
           <PortfolioCard

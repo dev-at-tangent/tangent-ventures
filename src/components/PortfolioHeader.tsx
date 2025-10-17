@@ -22,7 +22,7 @@ export default function PortfolioHeader() {
         ref={titleRef}
         className="text-3xl sm:text-5xl font-medium text-center"
       >
-        WHAT WE INVEST IN
+        PORTFOLIO
       </h1>
       <DotLottiePlayer
         src={leftCloud}
