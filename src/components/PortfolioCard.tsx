@@ -79,7 +79,7 @@ export default function PortfolioCard({
         <h1 className="text-lg font-semibold my-2">
           {details.fields.name.toString()}
         </h1>
-        <p className="text-sm font-normal">
+        <p className="text-sm font-normal overflow-y-auto">
           {details.fields.description.toString()}
         </p>
         <div className="grow" />
