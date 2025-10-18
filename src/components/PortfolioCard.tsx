@@ -2,11 +2,12 @@ import {
   ArrowTopRightOnSquareIcon,
   PlusIcon,
   XMarkIcon,
-} from "@heroicons/react/24/solid";
-import ReactCardFlip from "react-card-flip";
-import type { Entry } from "contentful";
-import type { PortfolioItem } from "../pages/portfolio.astro";
-import { useScramble } from "use-scramble";
+} from '@heroicons/react/24/solid';
+import ReactCardFlip from 'react-card-flip';
+import type { Entry } from 'contentful';
+import type { PortfolioItem } from '../pages/portfolio.astro';
+import { useScramble } from 'use-scramble';
+import React from 'react';
 
 export default function PortfolioCard({
   details,
@@ -33,34 +34,61 @@ export default function PortfolioCard({
       containerClassName="h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md backdrop-blur-sm"
     >
       <div
-        className="bg-[rgba(255,255,255,0.6)] rounded-xl flex flex-col p-6 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white "
+        className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-8 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white"
         onMouseOver={replay}
       >
         <img
           src={(details.fields.logo as any)?.fields?.file?.url}
-          className="hidden desktop:block mb-4 w-1/3 rounded-md group-hover:hidden"
+          className="hidden desktop:block w-1/3 rounded-md group-hover:hidden"
         />
         <img
           src={(details.fields.logoColour as any)?.fields?.file?.url}
-          className="mb-4 w-1/3 desktop:hidden rounded-md group-hover:block"
+          className="w-1/3 desktop:hidden rounded-md group-hover:block"
         />
+        <div className="flex-wrap gap-2 flex">
+          {(details.fields.categories as unknown as string[])?.map(
+            (category: string) => (
+              <div
+                key={category}
+                className="inline-block outline outline-1 outline-grey-60 text-grey-60 text-xs mr-1 py-1 px-2 rounded-full"
+              >
+                {category}
+              </div>
+            )
+          ) ?? []}
+        </div>
         <span ref={ref} className="hidden desktop:flex" />
+
         <span className="font-semibold text-lg desktop:hidden">
           {details.fields.name.toString()}
         </span>
-        <div className="flex-wrap mt-2">
+
+        <div className="self-stretch inline-flex justify-start items-start gap-x-2 gap-y-1 flex-wrap content-start">
+          {(details.fields.sector as unknown as string[])?.map(
+            (eachSector: string, idx: number, arr: string[]) => (
+              <React.Fragment key={eachSector}>
+                <div className="text-center justify-center text-neutral-400 text-[10px] font-bold font-['Inter'] uppercase leading-[10px]">
+                  {eachSector}
+                </div>
+                {idx < arr.length - 1 && (
+                  <div className="text-center justify-center text-neutral-400 text-xs font-semibold font-['Inter'] uppercase leading-3">
+                    •
+                  </div>
+                )}
+              </React.Fragment>
+            )
+          ) ?? []}
+        </div>
+        <div className="self-stretch inline-flex justify-start items-start gap-x-1 gap-y-1 flex-wrap content-start">
           {(details.fields.tags as unknown as string[])?.map((tag: string) => (
-            <div
-              key={tag}
-              className="inline-block outline outline-1 outline-grey-60 text-grey-60 text-xs m-1 py-1 px-2 rounded-full"
-            >
-              {tag}
+            <div className="justify-center text-neutral-400 text-[10px] font-normal font-['Inter'] leading-3">
+              {`[ ${tag} ]`}
             </div>
           )) ?? []}
         </div>
-        <div className="grow" />
+
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white hover:outline-none"
+          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={toggleShowDetails}
         >
           READ MORE
@@ -74,7 +102,7 @@ export default function PortfolioCard({
 
         <img
           src={(details.fields.logoColour as any)?.fields?.file?.url}
-          className="mb-2 w-1/4 rounded-md"
+          className=" w-1/4 rounded-md"
         />
         <h1 className="text-lg font-semibold my-2">
           {details.fields.name.toString()}
@@ -87,7 +115,7 @@ export default function PortfolioCard({
         <div className="grow" />
         <div
           className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white  hover:outline-none"
-          onClick={() => setSelected("")}
+          onClick={() => setSelected('')}
         >
           CLOSE
           <XMarkIcon className="size-6 ml-2" />
