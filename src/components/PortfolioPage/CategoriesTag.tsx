@@ -19,7 +19,7 @@ export default function CategoriesTag({
             setSelectedCategory(filter);
           }}
         >
-          {filter}
+          {filter.toUpperCase()}
         </div>
       ))}
     </div>

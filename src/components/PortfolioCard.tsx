@@ -50,9 +50,9 @@ export default function PortfolioCard({
             (category: string) => (
               <div
                 key={category}
-                className="inline-block outline outline-1 outline-grey-60 text-grey-60 text-xs mr-1 py-1 px-2 rounded-full"
+                className="inline-block outline outline-1 outline-grey-60 text-xs mr-1 py-2 px-3 rounded-full text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
               >
-                {category}
+                {category.toUpperCase()}
               </div>
             )
           ) ?? []}
@@ -60,30 +60,34 @@ export default function PortfolioCard({
         <span ref={ref} className="hidden desktop:flex" />
 
         <span className="font-semibold text-lg desktop:hidden">
-          {details.fields.name.toString()}
+          {details.fields.name.toString().toUpperCase()}
         </span>
 
         <div className="self-stretch inline-flex justify-start items-start gap-x-2 gap-y-1 flex-wrap content-start">
           {(details.fields.sector as unknown as string[])?.map(
             (eachSector: string, idx: number, arr: string[]) => (
-              <React.Fragment key={eachSector}>
-                <div className="text-center justify-center text-neutral-400 text-[10px] font-bold font-['Inter'] uppercase leading-[10px]">
-                  {eachSector}
+              <div key={eachSector} className="flex items-center gap-x-2">
+                <div
+                  className="text-center justify-center text-[#9A9A9A] text-[10px] font-bold font-['Inter'] uppercase leading-[10px]"
+                >
+                  {eachSector.toUpperCase()}
                 </div>
                 {idx < arr.length - 1 && (
-                  <div className="text-center justify-center text-neutral-400 text-xs font-semibold font-['Inter'] uppercase leading-3">
+                  <div
+                    className="text-center justify-center text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
+                  >
                     •
                   </div>
                 )}
-              </React.Fragment>
+              </div>
             )
           ) ?? []}
         </div>
-        <div className="self-stretch inline-flex justify-start items-start gap-x-1 gap-y-1 flex-wrap content-start">
+        <div className="self-stretch inline-flex justify-start items-start gap-x-3 gap-y-1 flex-wrap content-start">
           {(details.fields.tags as unknown as string[])?.map((tag: string) => (
             <div
               key={tag}
-              className="justify-center text-neutral-400 text-[10px] font-normal font-['Inter'] leading-3"
+              className="justify-center text-[#9A9A9A] text-[10px] font-normal font-['Inter'] leading-3"
             >
               {`[ ${tag} ]`}
             </div>
@@ -110,7 +114,7 @@ export default function PortfolioCard({
         <h1 className="text-lg font-semibold my-2">
           {details.fields.name.toString()}
         </h1>
-        <div className="overflow-y-auto no-scrollbar max-h-40">
+        <div className="overflow-y-auto no-scrollbar  self-stretch justify-start text-neutral-600 text-sm font-normal font-['Inter'] leading-tight">
           <p className="text-sm font-normal">
             {details.fields.description.toString()}
           </p>
