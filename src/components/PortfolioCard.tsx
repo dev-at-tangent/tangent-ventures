@@ -2,12 +2,12 @@ import {
   ArrowTopRightOnSquareIcon,
   PlusIcon,
   XMarkIcon,
-} from '@heroicons/react/24/solid';
-import ReactCardFlip from 'react-card-flip';
-import type { Entry } from 'contentful';
-import type { PortfolioItem } from '../pages/portfolio.astro';
-import { useScramble } from 'use-scramble';
-import React from 'react';
+} from "@heroicons/react/24/solid";
+import ReactCardFlip from "react-card-flip";
+import type { Entry } from "contentful";
+import type { PortfolioItem } from "../pages/portfolio.astro";
+import { useScramble } from "use-scramble";
+import React from "react";
 
 export default function PortfolioCard({
   details,
@@ -81,7 +81,10 @@ export default function PortfolioCard({
         </div>
         <div className="self-stretch inline-flex justify-start items-start gap-x-1 gap-y-1 flex-wrap content-start">
           {(details.fields.tags as unknown as string[])?.map((tag: string) => (
-            <div className="justify-center text-neutral-400 text-[10px] font-normal font-['Inter'] leading-3">
+            <div
+              key={tag}
+              className="justify-center text-neutral-400 text-[10px] font-normal font-['Inter'] leading-3"
+            >
               {`[ ${tag} ]`}
             </div>
           )) ?? []}
@@ -115,7 +118,7 @@ export default function PortfolioCard({
         <div className="grow" />
         <div
           className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white  hover:outline-none"
-          onClick={() => setSelected('')}
+          onClick={() => setSelected("")}
         >
           CLOSE
           <XMarkIcon className="size-6 ml-2" />
