@@ -37,65 +37,66 @@ export default function PortfolioCard({
         className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-8 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white"
         onMouseOver={replay}
       >
-        <img
-          src={(details.fields.logo as any)?.fields?.file?.url}
-          className="hidden desktop:block w-1/3 rounded-md group-hover:hidden"
-        />
-        <img
-          src={(details.fields.logoColour as any)?.fields?.file?.url}
-          className="w-1/3 desktop:hidden rounded-md group-hover:block"
-        />
-        <div className="flex-wrap gap-2 flex">
-          {(details.fields.categories as unknown as string[])?.map(
-            (category: string) => (
-              <div
-                key={category}
-                className="inline-block outline outline-1 outline-grey-60 text-xs mr-1 py-2 px-3 rounded-full text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
-              >
-                {category.toUpperCase()}
-              </div>
-            )
-          ) ?? []}
-        </div>
-        <span ref={ref} className="hidden desktop:flex" />
-
-        <span className="font-semibold text-lg desktop:hidden">
-          {details.fields.name.toString().toUpperCase()}
-        </span>
-
-        <div className="self-stretch inline-flex justify-start items-start gap-x-2 gap-y-1 flex-wrap content-start">
-          {(details.fields.sector as unknown as string[])?.map(
-            (eachSector: string, idx: number, arr: string[]) => (
-              <div key={eachSector} className="flex items-center gap-x-2">
+        <div className="flex flex-col space-y-2">
+          <img
+            src={(details.fields.logo as any)?.fields?.file?.url}
+            className="hidden desktop:block w-1/3 rounded-md group-hover:hidden"
+          />
+          <img
+            src={(details.fields.logoColour as any)?.fields?.file?.url}
+            className="w-1/3 desktop:hidden rounded-md group-hover:block"
+          />
+          <div className="flex-wrap gap-2 flex">
+            {(details.fields.categories as unknown as string[])?.map(
+              (category: string) => (
                 <div
-                  className="text-center justify-center text-[#9A9A9A] text-[10px] font-bold font-['Inter'] uppercase leading-[10px]"
+                  key={category}
+                  className="inline-block outline outline-1 outline-grey-60 text-xs mr-1 py-2 px-3 rounded-full text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
                 >
-                  {eachSector.toUpperCase()}
+                  {category.toUpperCase()}
                 </div>
-                {idx < arr.length - 1 && (
+              )
+            ) ?? []}
+          </div>
+          <span ref={ref} className="hidden desktop:flex" />
+
+          <span className="font-semibold text-lg desktop:hidden">
+            {details.fields.name.toString().toUpperCase()}
+          </span>
+
+          <div className="self-stretch inline-flex justify-start items-start gap-x-2 gap-y-1 flex-wrap content-start">
+            {(details.fields.sector as unknown as string[])?.map(
+              (eachSector: string, idx: number, arr: string[]) => (
+                <div key={eachSector} className="flex items-center gap-x-2">
                   <div
-                    className="text-center justify-center text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
+                    className="text-center justify-center text-[#9A9A9A] text-[10px] font-bold font-['Inter'] uppercase leading-[10px]"
                   >
-                    •
+                    {eachSector.toUpperCase()}
                   </div>
-                )}
+                  {idx < arr.length - 1 && (
+                    <span
+                      className="inline-block w-[4px] h-[4px] rounded-full bg-[#9A9A9A] font-semibold font-['Inter'] uppercase leading-[10px]"
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
+              )
+            ) ?? []}
+          </div>
+          <div className="self-stretch inline-flex justify-start items-start gap-x-3 gap-y-1 flex-wrap content-start">
+            {(details.fields.tags as unknown as string[])?.map((tag: string) => (
+              <div
+                key={tag}
+                className="justify-center text-[#9A9A9A] text-[10px] font-normal font-['Inter'] leading-3"
+              >
+                {`[ ${tag} ]`}
               </div>
-            )
-          ) ?? []}
-        </div>
-        <div className="self-stretch inline-flex justify-start items-start gap-x-3 gap-y-1 flex-wrap content-start">
-          {(details.fields.tags as unknown as string[])?.map((tag: string) => (
-            <div
-              key={tag}
-              className="justify-center text-[#9A9A9A] text-[10px] font-normal font-['Inter'] leading-3"
-            >
-              {`[ ${tag} ]`}
-            </div>
-          )) ?? []}
+            )) ?? []}
+          </div>
         </div>
 
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white hover:outline-none"
+          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 py-2 text-xs cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={toggleShowDetails}
         >
           READ MORE
