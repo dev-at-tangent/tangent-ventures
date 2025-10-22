@@ -107,7 +107,7 @@ export default function PortfolioCard({
           <PlusIcon className="size-6 ml-2" />
         </div>
       </div>
-      <div className="bg-white flex flex-col rounded-xl p-6 text-grey-90 font-medium h-full w-full ">
+      <div className="bg-white flex flex-col justify-between rounded-[20px] p-8 text-grey-90 font-medium h-full w-full ">
         <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
@@ -124,9 +124,8 @@ export default function PortfolioCard({
             {details.fields.description.toString()}
           </p>
         </div>
-        <div className="grow" />
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full px-6 py-2 text-xs mt-8 cursor-pointer hover:bg-black hover:text-white  hover:outline-none"
+          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 py-2 text-xs cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={() => setSelected("")}
         >
           CLOSE
