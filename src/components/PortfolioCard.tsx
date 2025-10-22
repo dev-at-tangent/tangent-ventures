@@ -31,10 +31,10 @@ export default function PortfolioCard({
     <ReactCardFlip
       isFlipped={selected === details.fields.name.toString()}
       flipDirection="horizontal"
-      containerClassName="h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md backdrop-blur-sm"
+      containerClassName="relative overflow-hidden h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md desktop:backdrop-blur-sm"
     >
       <div
-        className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-8 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white"
+        className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-8 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]"
         onMouseOver={replay}
       >
         <div className="flex flex-col space-y-2">
@@ -107,15 +107,16 @@ export default function PortfolioCard({
           <PlusIcon className="size-6 ml-2" />
         </div>
       </div>
-      <div className="bg-white relative flex flex-col justify-between rounded-xl p-8 text-grey-90 font-medium h-full w-full ">
+
+      <div className="bg-white relative flex flex-col justify-between rounded-xl p-8 text-grey-90 font-medium h-full w-full [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]">
         <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
 
-        <div className="h-16 desktop:h-20 w-full">
+        <div className="h-10 desktop:h-14 w-full">
           <img
             src={(details.fields.logoColour as any)?.fields?.file?.url}
-            className="h-full w-auto object-contain"
+            className="h-full w-auto object-contain mb-2"
             alt={`${details.fields.name.toString()} logo`}
           />
         </div>
@@ -129,7 +130,7 @@ export default function PortfolioCard({
         </div>
         <div className="grow" />
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 py-2 text-xs cursor-pointer hover:bg-black hover:text-white hover:outline-none"
+          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 mt-4 py-2 text-xs cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={() => setSelected("")}
         >
           CLOSE
