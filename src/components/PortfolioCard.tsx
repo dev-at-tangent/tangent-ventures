@@ -113,7 +113,7 @@ export default function PortfolioCard({
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
 
-        <div className="h-10 desktop:h-14 w-full">
+        <div className="h-14 w-full">
           <img
             src={(details.fields.logoColour as any)?.fields?.file?.url}
             className="h-full w-auto object-contain mb-2"
