@@ -124,6 +124,7 @@ export default function PortfolioCard({
             {details.fields.description.toString()}
           </p>
         </div>
+        <div className="grow" />
         <div
           className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 py-2 text-xs cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={() => setSelected("")}
