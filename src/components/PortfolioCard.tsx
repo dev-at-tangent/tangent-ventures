@@ -37,15 +37,19 @@ export default function PortfolioCard({
         className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-8 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white"
         onMouseOver={replay}
       >
-        <div className="flex flex-col">
-          <img
-            src={(details.fields.logo as any)?.fields?.file?.url}
-            className="hidden desktop:block w-1/3 rounded-md group-hover:hidden"
-          />
-          <img
-            src={(details.fields.logoColour as any)?.fields?.file?.url}
-            className="w-1/3 desktop:hidden rounded-md group-hover:block"
-          />
+        <div className="flex flex-col space-y-2">
+          <div>
+            <div className="w-1/3 relative h-20">
+              <img
+                src={(details.fields.logo as any)?.fields?.file?.url}
+                className="absolute inset-0 w-full h-full object-contain rounded-md hidden desktop:block group-hover:hidden"
+              />
+              <img
+                src={(details.fields.logoColour as any)?.fields?.file?.url}
+                className="absolute inset-0 w-full h-full object-contain rounded-md block desktop:hidden group-hover:block"
+              />
+            </div>
+          </div>
           <div className="flex-wrap gap-2 flex">
             {(details.fields.categories as unknown as string[])?.map(
               (category: string) => (
