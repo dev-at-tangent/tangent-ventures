@@ -1,22 +1,22 @@
-import { useRef, useState } from 'react';
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap/gsap-core';
-import PortfolioCard from './PortfolioCard';
-import CategoriesTag from './PortfolioPage/CategoriesTag';
+import { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/gsap-core";
+import PortfolioCard from "./PortfolioCard";
+import CategoriesTag from "./PortfolioPage/CategoriesTag";
 
 export default function PortfolioContent({ items }: { items: any }) {
   const ref = useRef(null);
-  const [selectedCard, setSelectedCard] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedCard, setSelectedCard] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const filteredItems = items.filter(
     (item: any) =>
-      selectedCategory === 'All' ||
+      selectedCategory === "All" ||
       (item.fields.categories &&
         item.fields.categories.includes(selectedCategory))
   );
 
   const categories: any = [
-    'All',
+    "All",
     ...new Set(
       items
         .filter(
@@ -36,13 +36,13 @@ export default function PortfolioContent({ items }: { items: any }) {
         opacity: 0,
         duration: 0.5,
         delay: 0.5,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     },
     { scope: ref }
   );
   return (
-    <div className="relative flex flex-col w-full gap-8 px-4 max-w-7xl mt-24 sm:mt-36 mb-25">
+    <div className="relative flex flex-col w-full gap-8 px-4 max-w-7xl mt-24 sm:mt-36 mb-25 min-h-[100vh]">
       <CategoriesTag
         filters={categories}
         selectedCategory={selectedCategory}
