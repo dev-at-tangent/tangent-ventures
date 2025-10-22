@@ -107,15 +107,18 @@ export default function PortfolioCard({
           <PlusIcon className="size-6 ml-2" />
         </div>
       </div>
-      <div className="bg-white flex flex-col justify-between rounded-xl p-8 text-grey-90 font-medium h-full w-full ">
+      <div className="bg-white relative flex flex-col justify-between rounded-xl p-8 text-grey-90 font-medium h-full w-full ">
         <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
 
-        <img
-          src={(details.fields.logoColour as any)?.fields?.file?.url}
-          className=" w-1/4 rounded-md"
-        />
+        <div className="h-16 desktop:h-20 w-full">
+          <img
+            src={(details.fields.logoColour as any)?.fields?.file?.url}
+            className="h-full w-auto object-contain"
+            alt={`${details.fields.name.toString()} logo`}
+          />
+        </div>
         <h1 className="text-lg font-semibold my-2">
           {details.fields.name.toString()}
         </h1>
