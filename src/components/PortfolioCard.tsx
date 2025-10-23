@@ -27,6 +27,17 @@ export default function PortfolioCard({
     playOnMount: false,
     speed: 0.5,
   });
+
+  // Prefer new linked categoriesField; fallback to old categories (strings)
+  const categoriesToShow: string[] = Array.isArray(
+    details.fields.categoriesField
+  )
+    ? (details.fields.categoriesField as any[])
+        .map((c: any) => (typeof c === "string" ? c : c?.fields?.title))
+        .filter(Boolean)
+        .map(String)
+    : [];
+
   return (
     <ReactCardFlip
       isFlipped={selected === details.fields.name.toString()}
@@ -51,16 +62,14 @@ export default function PortfolioCard({
             </div>
           </div>
           <div className="flex-wrap gap-2 flex">
-            {(details.fields.categories as unknown as string[])?.map(
-              (category: string) => (
-                <div
-                  key={category}
-                  className="inline-block outline outline-1 outline-grey-60 py-2 px-3 rounded-full text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
-                >
-                  {category.toUpperCase()}
-                </div>
-              )
-            ) ?? []}
+            {categoriesToShow.map((category: string) => (
+              <div
+                key={category}
+                className="inline-block outline outline-1 outline-grey-60 py-2 px-3 rounded-full text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
+              >
+                {category.toUpperCase()}
+              </div>
+            ))}
           </div>
           <span ref={ref} className="hidden desktop:flex" />
 
