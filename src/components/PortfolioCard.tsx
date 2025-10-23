@@ -42,7 +42,7 @@ export default function PortfolioCard({
     <ReactCardFlip
       isFlipped={selected === details.fields.name.toString()}
       flipDirection="horizontal"
-      containerClassName="relative overflow-hidden h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md desktop:backdrop-blur-sm"
+      containerClassName="relative h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md desktop:backdrop-blur-sm"
     >
       <div
         className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-8 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]"
