@@ -28,7 +28,6 @@ export default function PortfolioCard({
     speed: 0.5,
   });
 
-  // Prefer new linked categoriesField; fallback to old categories (strings)
   const categoriesToShow: string[] = Array.isArray(
     details.fields.categoriesField
   )
@@ -36,6 +35,9 @@ export default function PortfolioCard({
         .map((c: any) => (typeof c === "string" ? c : c?.fields?.title))
         .filter(Boolean)
         .map(String)
+        .sort((a, b) =>
+          a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+        )
     : [];
 
   return (
@@ -45,7 +47,7 @@ export default function PortfolioCard({
       containerClassName="relative h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md desktop:backdrop-blur-sm"
     >
       <div
-        className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-8 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]"
+        className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-6 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]"
         onMouseOver={replay}
       >
         <div className="flex flex-col space-y-2">
@@ -117,7 +119,7 @@ export default function PortfolioCard({
         </div>
       </div>
 
-      <div className="bg-white relative flex flex-col justify-between rounded-xl p-8 text-grey-90 font-medium h-full w-full [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]">
+      <div className="bg-white relative flex flex-col justify-between rounded-xl p-6 text-grey-90 font-medium h-full w-full [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]">
         <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
