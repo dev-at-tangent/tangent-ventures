@@ -51,7 +51,7 @@ export default function PortfolioCard({
         onMouseOver={replay}
       >
         <div className="flex flex-col space-y-2">
-          <div>
+          <div className="pb-1">
             <div className="w-1/3 relative h-20">
               <img
                 src={(details.fields.logo as any)?.fields?.file?.url}

@@ -26,7 +26,7 @@ export default function Podcasts({
   return (
     <div className="w-full">
       {searchKeyword === "" && <FeaturedVideo details={podcasts[0]} />}
-      <div className="grid lg:grid-cols-3 mt-8 gap-8 w-full">
+  <div className="grid lg:grid-cols-3 mt-8 gap-y-8 w-full">
         {sortedPodcasts.map((podcast) => (
           <PodcastCard
             key={podcast.fields.title.toString()}

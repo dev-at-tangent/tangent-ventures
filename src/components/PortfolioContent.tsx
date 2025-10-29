@@ -81,12 +81,14 @@ export default function PortfolioContent({
   );
 
   return (
-    <div className="relative flex flex-col w-full gap-8 px-4 max-w-7xl mt-24 sm:mt-36 mb-25 min-h-[100vh]">
+    <div className="relative flex flex-col w-full gap-8 px-4 max-w-7xl mt-24 sm:mt-24 mb-25 min-h-[100vh]">
+      <div >
       <CategoriesTag
         filters={categories}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
+      </div>
       <div
         ref={ref}
         className="relative flex flex-wrap justify-center gap-8 mt-8 lg:mt-10"
