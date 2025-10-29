@@ -55,11 +55,11 @@ export default function PortfolioCard({
             <div className="w-1/3 relative h-20">
               <img
                 src={(details.fields.logo as any)?.fields?.file?.url}
-                className="absolute inset-0 w-full h-full object-contain rounded-md hidden desktop:block group-hover:hidden"
+                className="absolute inset-0 w-full h-full object-contain hidden desktop:block group-hover:hidden"
               />
               <img
                 src={(details.fields.logoColour as any)?.fields?.file?.url}
-                className="absolute inset-0 w-full h-full object-contain rounded-md block desktop:hidden group-hover:block"
+                className="absolute inset-0 w-full h-full object-contain lock desktop:hidden group-hover:block"
               />
             </div>
           </div>
