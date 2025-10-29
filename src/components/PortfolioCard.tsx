@@ -83,12 +83,12 @@ export default function PortfolioCard({
             {(details.fields.sector as unknown as string[])?.map(
               (eachSector: string, idx: number, arr: string[]) => (
                 <div key={eachSector} className="flex items-center gap-x-2">
-                  <div className="text-center justify-center text-grey-60 text-[10px] font-bold font-['Inter'] uppercase leading-[10px]">
-                    {eachSector.toUpperCase()}
+                  <div className="text-center justify-center text-grey-60 text-[10px] font-bold  uppercase leading-[10px]">
+                    {eachSector}
                   </div>
                   {idx < arr.length - 1 && (
                     <span
-                      className="inline-block w-[4px] h-[4px] rounded-full bg-grey-60 font-semibold font-['Inter'] uppercase leading-[10px]"
+                      className="inline-block w-[4px] h-[4px] rounded-full bg-grey-60 font-semibold uppercase leading-[10px]"
                       aria-hidden="true"
                     />
                   )}
@@ -101,7 +101,7 @@ export default function PortfolioCard({
               (tag: string) => (
                 <div
                   key={tag}
-                  className="justify-center text-grey-60 text-[10px] font-normal font-['Inter'] leading-3"
+                  className="justify-center text-grey-60 text-[10px] font-normal leading-3"
                 >
                   {`[ ${tag} ]`}
                 </div>
@@ -119,7 +119,7 @@ export default function PortfolioCard({
         </div>
       </div>
 
-      <div className="bg-white relative flex flex-col justify-between rounded-xl p-6 text-grey-90 font-medium h-full w-full [-webkit-backface-visibility:hidden]  [transform:translateZ(0)]">
+      <div className="bg-white relative flex flex-col justify-between rounded-xl p-6 text-grey-90 font-medium h-full w-full [-webkit-backface-visibility:hidden] [transform:translateZ(0)]">
         <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
@@ -134,7 +134,7 @@ export default function PortfolioCard({
         <h1 className="text-lg font-semibold my-2">
           {details.fields.name.toString()}
         </h1>
-        <div className="overflow-y-auto no-scrollbar  self-stretch justify-start text-neutral-600 text-sm font-normal font-['Inter'] leading-tight">
+        <div className="overflow-y-auto no-scrollbar self-stretch justify-start text-neutral-600 text-sm font-normal leading-tight">
           <p className="text-sm font-normal">
             {details.fields.description.toString()}
           </p>
