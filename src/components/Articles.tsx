@@ -20,7 +20,7 @@ export default function Articles({
     .slice(startIndex, articles.length)
     .sort(customSort);
   return (
-    <div className="flex flex-col gap-y-8 mt-20">
+    <div className="w-full mt-8">
       {searchKeyword === "" && (
         <div className="grid desktop:grid-cols-2 gap-8">
           {articles.slice(0, 2).map((article) => (
@@ -31,7 +31,7 @@ export default function Articles({
           ))}
         </div>
       )}
-      <div className="grid desktop:grid-cols-3 gap-8 desktop:mt-8">
+      <div className="grid desktop:grid-cols-3 mt-8 gap-8 w-full">
         {sortedArticles.map((article) => (
           <ArticleCard
             key={article.fields.title.toString()}
