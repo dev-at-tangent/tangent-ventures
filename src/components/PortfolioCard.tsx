@@ -44,7 +44,7 @@ export default function PortfolioCard({
     <ReactCardFlip
       isFlipped={selected === details.fields.name.toString()}
       flipDirection="horizontal"
-      containerClassName="relative h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md desktop:backdrop-blur-sm"
+      containerClassName="relative h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md backdrop-blur-sm"
     >
       <div
         className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-6 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]"
@@ -141,7 +141,7 @@ export default function PortfolioCard({
         </div>
         <div className="grow" />
         <div
-          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 mt-4 py-2 text-xs cursor-pointer hover:bg-black hover:text-white hover:outline-none"
+          className="flex items-center justify-center outline outline-1 rounded-full pr-5 pl-6 mt-6 py-2 text-xs cursor-pointer hover:bg-black hover:text-white hover:outline-none"
           onClick={() => setSelected("")}
         >
           CLOSE
