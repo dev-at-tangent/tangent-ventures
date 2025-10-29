@@ -47,7 +47,7 @@ export default function PortfolioCard({
       containerClassName="relative h-[350px] w-[80vw] desktop:w-[20vw] max-w-72 drop-shadow-md backdrop-blur-sm"
     >
       <div
-        className="bg-[rgba(255,255,255,0.6)] rounded-[20px] flex flex-col justify-between p-6 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]"
+        className="bg-white/60 rounded-[20px] flex flex-col justify-between p-6 text-grey-90 font-medium h-full w-full group desktop:hover:bg-white [-webkit-backface-visibility:hidden] [transform:translateZ(0)]"
         onMouseOver={replay}
       >
         <div className="flex flex-col space-y-2">
@@ -67,28 +67,28 @@ export default function PortfolioCard({
             {categoriesToShow.map((category: string) => (
               <div
                 key={category}
-                className="inline-block outline outline-1 outline-grey-60 py-2 px-3 rounded-full text-[#9A9A9A] text-xs font-semibold font-['Inter'] uppercase leading-3"
+                className="inline-block outline outline-1 outline-grey-60 py-2 px-3 rounded-full text-grey-60 text-xs font-semibold uppercase leading-3"
               >
-                {category.toUpperCase()}
+                {category}
               </div>
             ))}
           </div>
           <span ref={ref} className="hidden desktop:flex" />
 
-          <span className="font-semibold text-lg desktop:hidden">
-            {details.fields.name.toString().toUpperCase()}
+          <span className="font-semibold text-lg uppercase desktop:hidden">
+            {details.fields.name.toString()}
           </span>
 
           <div className="self-stretch inline-flex justify-start items-start gap-x-2 gap-y-1 flex-wrap content-start">
             {(details.fields.sector as unknown as string[])?.map(
               (eachSector: string, idx: number, arr: string[]) => (
                 <div key={eachSector} className="flex items-center gap-x-2">
-                  <div className="text-center justify-center text-[#9A9A9A] text-[10px] font-bold font-['Inter'] uppercase leading-[10px]">
+                  <div className="text-center justify-center text-grey-60 text-[10px] font-bold font-['Inter'] uppercase leading-[10px]">
                     {eachSector.toUpperCase()}
                   </div>
                   {idx < arr.length - 1 && (
                     <span
-                      className="inline-block w-[4px] h-[4px] rounded-full bg-[#9A9A9A] font-semibold font-['Inter'] uppercase leading-[10px]"
+                      className="inline-block w-[4px] h-[4px] rounded-full bg-grey-60 font-semibold font-['Inter'] uppercase leading-[10px]"
                       aria-hidden="true"
                     />
                   )}
@@ -101,7 +101,7 @@ export default function PortfolioCard({
               (tag: string) => (
                 <div
                   key={tag}
-                  className="justify-center text-[#9A9A9A] text-[10px] font-normal font-['Inter'] leading-3"
+                  className="justify-center text-grey-60 text-[10px] font-normal font-['Inter'] leading-3"
                 >
                   {`[ ${tag} ]`}
                 </div>
@@ -119,7 +119,7 @@ export default function PortfolioCard({
         </div>
       </div>
 
-      <div className="bg-white relative flex flex-col justify-between rounded-xl p-6 text-grey-90 font-medium h-full w-full [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:translateZ(0)]">
+      <div className="bg-white relative flex flex-col justify-between rounded-xl p-6 text-grey-90 font-medium h-full w-full [-webkit-backface-visibility:hidden]  [transform:translateZ(0)]">
         <a href={details.fields.link.toString()} target="_blank">
           <ArrowTopRightOnSquareIcon className="size-6 absolute right-4 top-4 hover:text-turq" />
         </a>
