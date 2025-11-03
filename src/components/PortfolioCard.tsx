@@ -110,7 +110,7 @@ export default function PortfolioCard({
                   key={tag}
                   className="justify-center text-grey-60 text-[10px] font-normal leading-3"
                 >
-                  {`[ ${tag} ]`}
+                  {tag !== " " && [tag]}
                 </div>
               )
             ) ?? []}
