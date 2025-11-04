@@ -29,10 +29,17 @@ export default function PortfolioCard({
   });
 
   const categoriesToShow: string[] = Array.isArray(
-    details.fields.categoriesField
+    (details.fields as any).categoriesField
   )
-    ? (details.fields.categoriesField as any[])
+    ? ((details.fields as any).categoriesField as any[])
         .map((c: any) => (typeof c === "string" ? c : c?.fields?.title))
+        .filter(Boolean)
+        .map(String)
+    : [];
+
+  // Sort sectors alphabetically (case-insensitive, numeric-aware)
+  const sectorsToShow: string[] = Array.isArray((details.fields as any).sector)
+    ? ((details.fields as any).sector as any[])
         .filter(Boolean)
         .map(String)
         .sort((a, b) =>
@@ -55,11 +62,11 @@ export default function PortfolioCard({
             <div className="w-1/3 relative h-20">
               <img
                 src={(details.fields.logo as any)?.fields?.file?.url}
-                className="absolute inset-0 w-full h-full object-contain rounded-md hidden desktop:block group-hover:hidden"
+                className="absolute inset-0 w-full h-full object-contain hidden desktop:block group-hover:hidden"
               />
               <img
                 src={(details.fields.logoColour as any)?.fields?.file?.url}
-                className="absolute inset-0 w-full h-full object-contain rounded-md block desktop:hidden group-hover:block"
+                className="absolute inset-0 w-full h-full object-contain block desktop:hidden group-hover:block"
               />
             </div>
           </div>
@@ -80,7 +87,7 @@ export default function PortfolioCard({
           </span>
 
           <div className="self-stretch inline-flex justify-start items-start gap-x-2 gap-y-1 flex-wrap content-start">
-            {(details.fields.sector as unknown as string[])?.map(
+            {sectorsToShow.map(
               (eachSector: string, idx: number, arr: string[]) => (
                 <div key={eachSector} className="flex items-center gap-x-2">
                   <div className="text-center justify-center text-grey-60 text-[10px] font-bold  uppercase leading-[10px]">
@@ -94,7 +101,7 @@ export default function PortfolioCard({
                   )}
                 </div>
               )
-            ) ?? []}
+            )}
           </div>
           <div className="self-stretch inline-flex justify-start items-start gap-x-3 gap-y-1 flex-wrap content-start">
             {(details.fields.tags as unknown as string[])?.map(
@@ -103,7 +110,7 @@ export default function PortfolioCard({
                   key={tag}
                   className="justify-center text-grey-60 text-[10px] font-normal leading-3"
                 >
-                  {`[ ${tag} ]`}
+                  {tag !== " " && `[${tag}]`}
                 </div>
               )
             ) ?? []}

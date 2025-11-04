@@ -81,27 +81,27 @@ export default function PortfolioContent({
   );
 
   return (
-    <div className="relative flex flex-col w-full gap-8 px-4 max-w-7xl mt-24 sm:mt-24 mb-25 min-h-[100vh]">
-      <div >
-      <CategoriesTag
-        filters={categories}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
-      </div>
-      <div
-        ref={ref}
-        className="relative flex flex-wrap justify-center gap-8 mt-8 lg:mt-10"
-      >
-        <div className="absolute inset-x-0 top-0 overflow-x-hidden overflow-y-visible pointer-events-none w-screen left-1/2 -translate-x-1/2" />
-        {filteredItems.map((item) => (
-          <PortfolioCard
-            key={item.sys.id}
-            details={item}
-            selected={selectedCard}
-            setSelected={setSelectedCard}
-          />
-        ))}
+    <div className="relative w-full mt-24 sm:mt-24 mb-25 min-h-[100vh]">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col gap-8">
+        <CategoriesTag
+          filters={categories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <div
+          ref={ref}
+          className="relative flex flex-wrap justify-center gap-8 mt-8 lg:mt-10"
+        >
+          <div className="absolute inset-x-0 top-0 overflow-x-hidden overflow-y-visible pointer-events-none w-screen left-1/2 -translate-x-1/2" />
+          {filteredItems.map((item) => (
+            <PortfolioCard
+              key={item.sys.id}
+              details={item}
+              selected={selectedCard}
+              setSelected={setSelectedCard}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
