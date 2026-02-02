@@ -39,6 +39,7 @@ const entries = await contentfulClient.getEntries<ThesisContent>({
 const header = await contentfulClient.getEntries<ThesisHeaderContent>({
   content_type: "thesisHeader",
 });
+return Astro.redirect("/", 301);
 ---
 
 <Layout>

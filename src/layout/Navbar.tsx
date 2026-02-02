@@ -8,7 +8,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
   const links = [
     { name: "ABOUT", path: "/about" },
     { name: "ENDORSEMENTS", path: "/endorsements" },
-    { name: "THESIS", path: "/thesis" },
+    // { name: "THESIS", path: "/thesis" },
     { name: "PORTFOLIO", path: "/portfolio" },
     { name: "MEDIA", path: "/media" },
     { name: "CONTACT", path: "/contact" },
