@@ -93,7 +93,7 @@ export default function AboutSection({
             ref={firstTitleRef}
             className="md:w-1/2 text-3xl md:text-5xl font-medium text-center"
           >
-            Capturing Inflection Points Across The Capital Stack
+            CAPTURING INFLECTION POINTS ACROSS THE CAPITAL STACK
           </h1>
           <div
             ref={cardRef}
