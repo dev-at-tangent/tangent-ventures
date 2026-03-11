@@ -99,13 +99,13 @@ export default function AboutSection({
             ref={cardRef}
             className="flex flex-col md:flex-row gap-8 mt-8 mb-24 w-full md:w-3/5"
           >
-            <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col text-center md:w-1/2">
+            <div className=" invisible bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col text-center md:w-1/2">
               Mentorship and network from
               <h1 className="text-2xl md:text-4xl font-medium">
                 INDUSTRY VETS
               </h1>
             </div>
-            <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col text-center md:w-1/2">
+            <div className=" invisible bg-white/30 backdrop-blur-sm rounded-2xl p-8 flex flex-col text-center md:w-1/2">
               Angel checks up to 
               <h1 className="text-2xl md:text-4xl font-medium">$500,000</h1>
             </div>
